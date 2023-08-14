@@ -51,4 +51,9 @@
       };
     };
   };
+  
+  systemd.services.traefik.environment = {
+    CLOUDFLARE_DNS_API_TOKEN = "-6ccCVxiv98iECewr5Cbn6Mfga_6B4g357dWKuA-";
+    CLOUDFLARE_EMAIL = "sergiofpteixeira@gmail.com";
+  };
 }
