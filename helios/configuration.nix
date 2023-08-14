@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      (fetchTarball "https://github.com/nix-community/nixos-vscode-server/tarball/master")
     ];
 
   # Bootloader.
@@ -52,6 +53,8 @@
     enable = true;
     settings.PasswordAuthentication = true;
   };
+
+  services.vscode-server.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.steixeira = {
