@@ -78,12 +78,12 @@
 
     certificatesResolvers.letsEncrypt.acme = {
       email = "sergiofpteixeira@gmail.com";
-      storage = "/var/lib/traefik/acme-prod.json";
+      storage = "/var/lib/traefik/acme.json";
 
       dnsChallenge.provider = "cloudflare";
 
       # Remove for production.
-      # caServer = "https://acme-staging-v02.api.letsencrypt.org/directory";
+      caServer = "https://acme-staging-v02.api.letsencrypt.org/directory";
     };
 
     entryPoints = {
