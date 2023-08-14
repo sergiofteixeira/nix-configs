@@ -4,40 +4,50 @@
   services.traefik.enable = true;
   services.traefik.staticConfigOptions = {
 
-    certificatesResolvers.letsEncrypt.acme = {
+    log.level = "DEBUG";
+
+    certificatesResolvers.nathilcom.acme = {
       email = "sergiofpteixeira@gmail.com";
       storage = "/var/lib/traefik/acme.json";
 
       dnsChallenge.provider = "cloudflare";
-
-      # Remove for production.
-      caServer = "https://acme-staging-v02.api.letsencrypt.org/directory";
+      dnsChallenge.delayBeforeCheck = 0;
     };
 
     entryPoints = {
-      web = {
+      http = {
         address = ":80";
+        forwardedHeaders.insecure = true;
         http.redirections.entryPoint = {
-          to = "websecure";
+          to = "https";
           scheme = "https";
         };
       };
 
-      websecure.address = ":443";
+      https = {
+        address = ":443";
+        forwardedHeaders.insecure = true;
+      };
+
+      experimental = {
+        address = ":1111";
+        forwardedHeaders.insecure = true;
+      };
     };
 
-    api = {
-      dashboard = true;
-      insecure = true;
-    };
+    api.dashboard = true;
+    api.insecure = false;
+
   };
 
   services.traefik.dynamicConfigOptions = {
     http.routers = {
-      traefik = {
-        entryPoints = [ "websecure" ];
+      dashboard = {
+        entryPoints = [ "https" ];
         rule = "Host(`traefik.nathil.com`)";
         service = "api@internal";
+        tls.domains = [{main = "traefik.nathil.com";}];
+        tls.certResolver = "nathilcom";
       };
     };
   };
