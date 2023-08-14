@@ -5,11 +5,12 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      (fetchTarball "https://github.com/nix-community/nixos-vscode-server/tarball/master")
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    (fetchTarball
+      "https://github.com/nix-community/nixos-vscode-server/tarball/master")
+    ./radarr.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -47,7 +48,7 @@
     isNormalUser = true;
     description = "Sergio Teixeira";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
   };
 
   users.users."steixeira".openssh.authorizedKeys.keys = [
@@ -62,14 +63,8 @@
     plex
     radarr
     traefik
+    nixfmt
   ];
-
-  services.radarr = {
-    enable = true;
-    dataDir = "/opt/radarr";
-    user = "steixeira";
-    openFirewall = true;
-  };
 
   services.plex = {
     dataDir = "/home/steixeira/plex";
@@ -81,18 +76,15 @@
   services.traefik.enable = true;
   services.traefik.staticConfigOptions = {
 
+    certificatesResolvers.letsEncrypt.acme = {
+      email = "sergiofpteixeira@gmail.com";
+      storage = "/var/lib/traefik/acme-prod.json";
 
-    accessLog.filePath = "/var/lib/traefik/traefik.access.log";
+      dnsChallenge.provider = "cloudflare";
 
-    # certificatesResolvers.letsEncrypt.acme = {
-    #   email = "sergiofpteixeira@gmail.com";
-    #   storage = "/var/lib/traefik/acme-prod.json";
-
-    #   dnsChallenge.provider = "cloudflare";
-
-    #   # Remove for production.
-    #   # caServer = "https://acme-staging-v02.api.letsencrypt.org/directory";
-    # };
+      # Remove for production.
+      # caServer = "https://acme-staging-v02.api.letsencrypt.org/directory";
+    };
 
     entryPoints = {
       web = {
