@@ -61,6 +61,7 @@
     git
     plex
     radarr
+    traefik
   ];
 
   services.radarr = {
@@ -77,7 +78,41 @@
     openFirewall = true;
   };
 
-  #networking.firewall.allowedTCPPorts = [ 32400 7878 ];
+  services.traefik.enable = true;
+  services.traefik.staticConfigOptions = {
+
+
+    accessLog.filePath = "/var/lib/traefik/traefik.access.log";
+
+    # certificatesResolvers.letsEncrypt.acme = {
+    #   email = "sergiofpteixeira@gmail.com";
+    #   storage = "/var/lib/traefik/acme-prod.json";
+
+    #   dnsChallenge.provider = "cloudflare";
+
+    #   # Remove for production.
+    #   # caServer = "https://acme-staging-v02.api.letsencrypt.org/directory";
+    # };
+
+    entryPoints = {
+      web = {
+        address = ":80";
+        http.redirections.entryPoint = {
+          to = "websecure";
+          scheme = "https";
+        };
+      };
+
+      websecure.address = ":443";
+    };
+
+    api = {
+      dashboard = true;
+      insecure = true;
+    };
+  };
+
+  networking.firewall.allowedTCPPorts = [ 80 443 8080 ];
   #networking.firewall.allowedUDPPorts = [ ... ];
 
   system.stateVersion = "23.05"; # Did you read the comment?
