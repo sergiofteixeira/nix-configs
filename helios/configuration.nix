@@ -74,15 +74,24 @@
     neovim
     git
     plex
+    radarr
   ];
+
+  services.radarr = {
+    enable = true;
+    dataDir = "/opt/radarr";
+    user = "steixeira";
+    openFirewall = true;
+  };
 
   services.plex = {
     dataDir = "/home/steixeira/plex";
     user = "steixeira";
     enable = true;
+    openFirewall = true;
   };
 
-  networking.firewall.allowedTCPPorts = [ 32400 ];
+  #networking.firewall.allowedTCPPorts = [ 32400 7878 ];
   #networking.firewall.allowedUDPPorts = [ ... ];
 
   system.stateVersion = "23.05"; # Did you read the comment?
