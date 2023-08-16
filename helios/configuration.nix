@@ -11,6 +11,7 @@
       "https://github.com/nix-community/nixos-vscode-server/tarball/master")
     ./radarr.nix
     ./traefik.nix
+    ./jellyfin.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -65,6 +66,9 @@
     radarr
     traefik
     nixfmt
+    htop
+    jellyfin
+    jellyfin-ffmpeg
   ];
 
   services.plex = {
