@@ -1,19 +1,19 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      (fetchTarball
+  imports = [
+    ./hardware-configuration.nix
+    (fetchTarball
       "https://github.com/nix-community/nixos-vscode-server/tarball/master")
-      ./traefik.nix
-      ./radarr.nix
-      ./sonarr.nix
-      ./prowlarr.nix
-      ./bazarr.nix
-      ./transmission.nix
-      ./flaresolverr.nix
-    ];
+    ./traefik.nix
+    ./radarr.nix
+    ./sonarr.nix
+    ./prowlarr.nix
+    ./bazarr.nix
+    ./transmission.nix
+    ./flaresolverr.nix
+    ./plex.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -45,7 +45,7 @@
     isNormalUser = true;
     description = "steixeira";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
   };
 
   users.users."steixeira".openssh.authorizedKeys.keys = [
