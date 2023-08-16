@@ -23,10 +23,10 @@
     fsType = "vfat";
   };
 
-  fileSystems."/home/steixeira/external_disk" = {
-    device = "192.168.1.80:/var/local/external_disk";
-    fsType = "nfs";
-  };
+  # fileSystems."/home/steixeira/external_disk" = {
+  #   device = "192.168.1.80:/var/local/external_disk";
+  #   fsType = "nfs";
+  # };
 
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };

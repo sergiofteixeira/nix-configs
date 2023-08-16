@@ -11,7 +11,7 @@
       "https://github.com/nix-community/nixos-vscode-server/tarball/master")
     ./radarr.nix
     ./traefik.nix
-    ./jellyfin.nix
+    # ./jellyfin.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
