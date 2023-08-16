@@ -13,6 +13,7 @@
     ./transmission.nix
     ./flaresolverr.nix
     ./plex.nix
+    ./tailscale.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -73,9 +74,21 @@
     htop
     jellyfin
     jellyfin-ffmpeg
+    tailscale
   ];
 
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall = {
+    enable = true;
+
+    # always allow traffic from your Tailscale network
+    trustedInterfaces = [ "tailscale0" ];
+
+    # allow the Tailscale UDP port through the firewall
+    allowedUDPPorts = [ config.services.tailscale.port ];
+
+    # allow you to SSH in over the public internet
+    allowedTCPPorts = [ 80 443 ];
+  };
 
   services.vscode-server.enable = true;
   system.stateVersion = "23.05"; # Did you read the comment?
