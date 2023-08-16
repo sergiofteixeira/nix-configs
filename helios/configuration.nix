@@ -9,9 +9,6 @@
     ./hardware-configuration.nix
     (fetchTarball
       "https://github.com/nix-community/nixos-vscode-server/tarball/master")
-    ./radarr.nix
-    ./traefik.nix
-    # ./jellyfin.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -62,22 +59,9 @@
   environment.systemPackages = with pkgs; [
     neovim
     git
-    plex
-    radarr
-    traefik
     nixfmt
     htop
-    jellyfin
-    jellyfin-ffmpeg
   ];
-
-  services.plex = {
-    dataDir = "/home/steixeira/plex";
-    user = "steixeira";
-    enable = true;
-    openFirewall = true;
-  };
-
   networking.firewall.allowedTCPPorts = [ 80 443 8080 ];
   #networking.firewall.allowedUDPPorts = [ ... ];
 

@@ -15,7 +15,7 @@
 
       tls = {
         certResolver = "nathilcom";
-        domains = [{ main = "jellyfin.nathil.com"; }];
+        domains = [{ main = "*.nathil.com"; }];
       };
     };
 
