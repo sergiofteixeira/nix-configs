@@ -1,17 +1,17 @@
 { config, pkgs, ... }:
 
 {
-  services.jellyfin = {
-    user = "steixeira";
+  services.unifi = {
     enable = true;
     openFirewall = true;
+    mongodbPackage = pkgs.mongodb-4_2;
   };
 
   services.traefik.dynamicConfigOptions.http = {
-    routers.jellyfin = {
+    routers.unifi = {
       entryPoints = [ "https" ];
-      rule = "Host(`jellyfin.nathil.com`)";
-      service = "jellyfin";
+      rule = "Host(`unifi.nathil.com`)";
+      service = "unifi";
 
       tls = {
         certResolver = "nathilcom";
@@ -20,6 +20,6 @@
     };
 
     services.jellyfin.loadBalancer.servers =
-      [{ url = "http://localhost:8096"; }];
+      [{ url = "http://localhost:8880"; }];
   };
 }
