@@ -9,6 +9,9 @@
     ./hardware-configuration.nix
     (fetchTarball
       "https://github.com/nix-community/nixos-vscode-server/tarball/master")
+    ./prometheus.nix
+    ./traefik.nix
+    ./grafana.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -61,9 +64,11 @@
     git
     nixfmt
     htop
+    prometheus
+    prometheus-node-exporter
+    grafana
   ];
-  networking.firewall.allowedTCPPorts = [ 80 443 8080 ];
-  #networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 80 443 9090 ];
 
   system.stateVersion = "23.05"; # Did you read the comment?
 
