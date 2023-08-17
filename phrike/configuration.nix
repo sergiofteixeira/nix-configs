@@ -14,6 +14,7 @@
     ./flaresolverr.nix
     ./plex.nix
     ./tailscale.nix
+    ./node-exporter.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -75,6 +76,7 @@
     jellyfin
     jellyfin-ffmpeg
     tailscale
+    prometheus-node-exporter
   ];
 
   networking.firewall = {
