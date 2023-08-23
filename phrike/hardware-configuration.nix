@@ -12,7 +12,7 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ ];
-  boot.kernel.sysctl = { "net.ipv4.conf.all.forwarding" = true; };
+  boot.kernel.sysctl = { "net.ipv4.conf.all.forwarding" = true; }; 
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/5ef590f5-c05e-4095-9e6d-4dfaa00e0d9c";

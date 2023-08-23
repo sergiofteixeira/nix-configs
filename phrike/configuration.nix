@@ -16,6 +16,7 @@
     ./tailscale.nix
     ./node-exporter.nix
     ./unifi.nix
+    ./jellyfin.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -79,6 +80,7 @@
     tailscale
     prometheus-node-exporter
     unifi
+    intel-gpu-tools
   ];
 
   networking.firewall = {
