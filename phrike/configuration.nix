@@ -1,6 +1,13 @@
 { config, pkgs, ... }:
 
+let
+  unstableTarball =
+    fetchTarball
+      https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
+in
+
 {
+
   imports = [
     ./hardware-configuration.nix
     (fetchTarball
@@ -18,6 +25,14 @@
     ./unifi.nix
     ./jellyfin.nix
   ];
+
+  nixpkgs.config = {
+    packageOverrides = pkgs: {
+      unstable = import unstableTarball {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -72,7 +87,6 @@
     sonarr
     prowlarr
     bazarr
-    transmission
     traefik
     htop
     jellyfin
@@ -82,6 +96,7 @@
     unifi
     intel-gpu-tools
     ncdu
+    unstable.transmission_4
   ];
 
   networking.firewall = {
