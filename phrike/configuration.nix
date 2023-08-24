@@ -81,6 +81,7 @@
     prometheus-node-exporter
     unifi
     intel-gpu-tools
+    ncdu
   ];
 
   networking.firewall = {
