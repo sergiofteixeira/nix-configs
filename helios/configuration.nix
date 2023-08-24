@@ -9,9 +9,6 @@
     ./hardware-configuration.nix
     (fetchTarball
       "https://github.com/nix-community/nixos-vscode-server/tarball/master")
-    ./prometheus.nix
-    ./traefik.nix
-    ./grafana.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -19,6 +16,8 @@
 
   networking.hostName = "helios";
   networking.networkmanager.enable = true;
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   time.timeZone = "Europe/Lisbon";
   i18n.defaultLocale = "en_US.UTF-8";
