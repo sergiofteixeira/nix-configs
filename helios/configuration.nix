@@ -9,6 +9,9 @@
     ./hardware-configuration.nix
     (fetchTarball
       "https://github.com/nix-community/nixos-vscode-server/tarball/master")
+    ./prometheus.nix
+    ./traefik.nix
+    ./grafana.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
