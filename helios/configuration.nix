@@ -7,9 +7,6 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    (fetchTarball
-      "https://github.com/nix-community/nixos-vscode-server/tarball/master")
-    ./prometheus.nix
     ./traefik.nix
     ./grafana.nix
   ];
@@ -45,8 +42,6 @@
     enable = true;
     settings.PasswordAuthentication = false;
   };
-
-  services.vscode-server.enable = true;
 
   users.users.steixeira = {
     isNormalUser = true;
