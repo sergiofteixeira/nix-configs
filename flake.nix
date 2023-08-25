@@ -1,5 +1,5 @@
 {
-  description = "A template that shows all standard flake outputs";
+  description = "Home Servers flakes";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -16,7 +16,7 @@
         modules = [
           vscode-server.nixosModules.default
           ({ config, pkgs, ... }: { services.vscode-server.enable = true; })
-          ./configuration.nix
+          ./helios/configuration.nix
         ];
       };
     };
