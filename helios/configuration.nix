@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
     ./traefik.nix
     ./grafana.nix
+    ./prometheus.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
