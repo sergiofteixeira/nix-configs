@@ -19,6 +19,16 @@
           ./helios/configuration.nix
         ];
       };
+
+      "phrike" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+        modules = [
+          vscode-server.nixosModules.default
+          ({ config, pkgs, ... }: { services.vscode-server.enable = true; })
+          ./phrike/configuration.nix
+        ];
+      };
     };
   };
 }
