@@ -2,9 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
-
-{
+{ config, pkgs, ... }: {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./traefik.nix
@@ -62,9 +60,6 @@
     git
     nixfmt
     htop
-    prometheus
-    prometheus-node-exporter
-    grafana
   ];
   networking.firewall.allowedTCPPorts = [ 80 443 9090 ];
 

@@ -1,12 +1,10 @@
 { config, pkgs, ... }:
 
 let
-  unstableTarball =
-    fetchTarball
-      https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
-in
+  unstableTarball = fetchTarball
+    "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
 
-{
+in {
 
   imports = [
     ./hardware-configuration.nix
@@ -28,9 +26,7 @@ in
 
   nixpkgs.config = {
     packageOverrides = pkgs: {
-      unstable = import unstableTarball {
-        config = config.nixpkgs.config;
-      };
+      unstable = import unstableTarball { config = config.nixpkgs.config; };
     };
   };
 
