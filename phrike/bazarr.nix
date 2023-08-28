@@ -4,6 +4,8 @@
   services.bazarr = {
     enable = true;
     openFirewall = true;
+    group = "wheel";
+    user = "steixeira";
   };
 
   services.traefik.dynamicConfigOptions.http = {
