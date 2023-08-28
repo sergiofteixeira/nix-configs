@@ -13,7 +13,9 @@
     settings.rpc-whitelist-enabled = false;
     settings.trash-original-torrent-files = true;
     settings.download-dir = "/home/steixeira/external_disk/downloads";
+    settings.incomplete-dir = "/home/steixeira/external_disk/downloads/incomplete";
     openFirewall = true;
+    downloadDirPermissions = "777";
   };
 
   services.traefik.dynamicConfigOptions.http = {
