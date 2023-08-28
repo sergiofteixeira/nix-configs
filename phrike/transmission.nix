@@ -2,6 +2,8 @@
 
 {
   services.transmission = {
+    user = "steixeira";
+    group = "wheel";
     enable = true;
     package = pkgs.unstable.transmission_4;
     settings.rpc-authentication-required = false;
