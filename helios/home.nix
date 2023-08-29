@@ -16,7 +16,7 @@
     };
   };
 
-  home.file."/home/steixeira/.config/test/" = {
+  home.file."./.config/nvim/" = {
      source = ../nvim;
      recursive = true;
    };
