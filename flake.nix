@@ -35,6 +35,12 @@
           vscode-server.nixosModules.default
           ({ config, pkgs, ... }: { services.vscode-server.enable = true; })
           ./phrike/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            #home-manager.users.steixeira = import ./helios/home.nix;
+          }
         ];
       };
     };
