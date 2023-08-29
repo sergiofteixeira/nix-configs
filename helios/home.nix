@@ -16,10 +16,13 @@
     };
   };
 
-  home.file.".config/nvim" = {
-     source = ../nvim;
-     recursive = true;
-   };
+  home.file.".config/nvim".recursive = true;
+  home.file.".config/nvim".source = pkgs.fetchFromGitHub {
+    owner = "sergiofteixeira";
+    repo = "nvim";
+    rev = "67ad49cf4f072d0e5a9a8b4a2d90b29d9e3e1c83";
+    sha256 = "sha256-aZUFFY99aGWot/ok36JZgdEotW10HB34XKhV+04QN48=";
+  };
 
   home.packages = with pkgs; [
     # languages
