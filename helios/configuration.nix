@@ -5,9 +5,9 @@
 { config, pkgs, ... }: {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./traefik.nix
-    ./grafana.nix
-    ./prometheus.nix
+    ../modules/traefik.nix
+    ../modules/grafana.nix
+    ../modules/prometheus.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
