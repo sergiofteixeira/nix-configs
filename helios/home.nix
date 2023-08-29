@@ -16,6 +16,11 @@
     };
   };
 
+  home.file."./.config/test/" = {
+     source = ../nvim;
+     recursive = true;
+   };
+
   home.packages = with pkgs; [
     # languages
     nodejs
