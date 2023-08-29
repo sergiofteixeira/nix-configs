@@ -1,10 +1,9 @@
-{ config, pkgs, ... }:
-
-{
-  services.unifi = {
-    enable = true;
-    openFirewall = true;
-    mongodbPackage = pkgs.mongodb-4_2;
+{ config, pkgs, ... }: {
+  config.virtualisation.oci-containers.containers = {
+    unifi = {
+      image = "lscr.io/linuxserver/unifi-controller:latest";
+      ports = [ "8443:8443" "3478:3478" "8080:8080" "10001" ];
+    };
   };
 
   services.traefik.dynamicConfigOptions.http = {
@@ -18,8 +17,5 @@
         domains = [{ main = "*.nathil.com"; }];
       };
     };
-
-    services.jellyfin.loadBalancer.servers =
-      [{ url = "http://localhost:8880"; }];
   };
 }

@@ -14,7 +14,6 @@
     ./tailscale.nix
     ./node-exporter.nix
     ./unifi.nix
-    ./jellyfin.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

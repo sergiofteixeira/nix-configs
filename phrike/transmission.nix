@@ -5,7 +5,6 @@
     user = "steixeira";
     group = "wheel";
     enable = true;
-    package = pkgs.unstable.transmission_4;
     settings.rpc-authentication-required = false;
     settings.download-queue-enabled = false;
     settings.rpc-bind-address = "0.0.0.0";
