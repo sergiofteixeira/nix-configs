@@ -66,6 +66,9 @@
     btop  # replacement of htop/nmon
 
     lm_sensors # for `sensors` command
+
+    jetbrains.gateway
+    jetbrains.idea-ultimate
   ];
 
   home.sessionVariables = {
