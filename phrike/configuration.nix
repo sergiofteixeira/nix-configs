@@ -1,9 +1,10 @@
 { config, pkgs, ... }:
 
 let
-  unstableTarball = fetchTarball
-    "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
-
+  unstableTarball = fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
+      sha256 = "0xvrq0qlq10hi9kjb44k4q8lnk4dc65hbllxhm8bbci2sjc7sfv0";
+    };
 in {
 
   imports = [
