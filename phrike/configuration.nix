@@ -1,33 +1,21 @@
 { config, pkgs, ... }:
 
-let
-  unstableTarball = fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
-      sha256 = "sha256:178smvv8f8pashdjcr9bhmp0baji0lhfcxqy3cn7m19g8rgd6539";
-    };
-in {
-
+{
   imports = [
     ./hardware-configuration.nix
-    ./traefik.nix
-    ./radarr.nix
-    ./sonarr.nix
-    ./prowlarr.nix
-    ./bazarr.nix
-    ./transmission.nix
-    ./flaresolverr.nix
-    ./plex.nix
-    ./tailscale.nix
-    ./node-exporter.nix
-    ./unifi.nix
-    ./jellyfin.nix
+    #./traefik.nix
+    #./radarr.nix
+    #./sonarr.nix
+    #./prowlarr.nix
+    #./bazarr.nix
+    #./transmission.nix
+    #./flaresolverr.nix
+    #./plex.nix
+    #./tailscale.nix
+    #./node-exporter.nix
+    #./unifi.nix
+    #./jellyfin.nix
   ];
-
-  nixpkgs.config = {
-    packageOverrides = pkgs: {
-      unstable = import unstableTarball { config = config.nixpkgs.config; };
-    };
-  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -93,7 +81,7 @@ in {
     unifi
     intel-gpu-tools
     ncdu
-    unstable.transmission_4
+    transmission_4
   ];
 
   networking.firewall = {
