@@ -60,6 +60,14 @@
     lm_sensors # for `sensors` command
   ];
 
+  home.sessionVariables = {
+    LANG = "en_US.UTF-8";
+    LC_CTYPE = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
+    EDITOR = "nvim";
+    PAGER = "less -FirSwX";
+  };
+
   programs.starship = {
     enable = true;
     settings = {
@@ -83,7 +91,23 @@
       vi = "nvim";
       kx = "kubectx";
       po = "kubectl get pod";
+      gs = "git status";
+      gc = "git checkout";
     };
+  };
+
+  programs.tmux = {
+    enable = true;
+    terminal = "xterm-256color";
+    shortcut = "l";
+    secureSocket = false;
+
+    extraConfig = ''
+      unbind C-b
+      set -g prefix C-t
+      set -ga terminal-overrides ",*256col*:Tc"
+      bind -n C-k send-keys "clear"\; send-keys "Enter"
+    '';
   };
 
   home.stateVersion = "23.05";
