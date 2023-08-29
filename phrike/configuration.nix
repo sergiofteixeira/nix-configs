@@ -108,8 +108,6 @@ in {
     # allow you to SSH in over the public internet
     allowedTCPPorts = [ 80 443 ];
   };
-
-  services.vscode-server.enable = true;
   system.stateVersion = "23.05"; # Did you read the comment?
 
 }
