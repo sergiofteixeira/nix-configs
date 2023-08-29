@@ -56,30 +56,9 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    nodejs
-    nodePackages.typescript
-    terraform
-    terraform-ls
-    kubectl
-    kubectx
-    helm
-    go
     gcc
     neovim
     git
-    nixfmt
-    htop
-    unzip
-    wget
-    tree-sitter
-    python311
-    python311Packages.pip
-    ripgrep
-    fd
-    lua
-    luajit
-    rustc
-    cargo
   ];
   networking.firewall.allowedTCPPorts = [ 80 443 9090 ];
 
