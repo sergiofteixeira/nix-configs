@@ -77,11 +77,12 @@
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
     '';
 
-    # set some aliases, feel free to add more or remove some
     shellAliases = {
       k = "kubectl";
       vim = "nvim";
       vi = "nvim";
+      kx = "kubectx";
+      po = "kubectl get pod";
     };
   };
 
