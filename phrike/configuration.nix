@@ -3,18 +3,18 @@
 {
   imports = [
     ./hardware-configuration.nix
-    #./traefik.nix
-    #./radarr.nix
-    #./sonarr.nix
-    #./prowlarr.nix
-    #./bazarr.nix
-    #./transmission.nix
-    #./flaresolverr.nix
-    #./plex.nix
-    #./tailscale.nix
-    #./node-exporter.nix
-    #./unifi.nix
-    #./jellyfin.nix
+    ./traefik.nix
+    ./radarr.nix
+    ./sonarr.nix
+    ./prowlarr.nix
+    ./bazarr.nix
+    ./transmission.nix
+    ./flaresolverr.nix
+    ./plex.nix
+    ./tailscale.nix
+    ./node-exporter.nix
+    ./unifi.nix
+    ./jellyfin.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
