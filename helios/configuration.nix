@@ -56,6 +56,15 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    nodejs
+    nodePackages.typescript
+    terraform
+    terraform-ls
+    kubectl
+    kubectx
+    helm
+    go
+    gcc
     neovim
     git
     nixfmt
