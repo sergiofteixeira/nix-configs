@@ -9,8 +9,6 @@ in {
 
   imports = [
     ./hardware-configuration.nix
-    (fetchTarball
-      "https://github.com/nix-community/nixos-vscode-server/tarball/master")
     ./traefik.nix
     ./radarr.nix
     ./sonarr.nix
