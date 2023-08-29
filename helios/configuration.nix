@@ -78,6 +78,8 @@
     fd
     lua
     luajit
+    rustc
+    cargo
   ];
   networking.firewall.allowedTCPPorts = [ 80 443 9090 ];
 
