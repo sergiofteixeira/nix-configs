@@ -6,8 +6,14 @@
 
   programs.git = {
     enable = true;
-    userName = "sergiofteixeira";
+    userName = "Sergio Teixeira";
     userEmail = "sergiofpteixeira@gmail.com";
+    extraConfig = {
+      branch.autosetuprebase = "always";
+      color.ui = true;
+      github.user = "sergiofteixeira";
+      init.defaultBranch = "main";
+    };
   };
 
   home.packages = with pkgs; [
