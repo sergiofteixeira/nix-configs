@@ -42,25 +42,26 @@
 
   };
 
-  services.traefik.dynamicConfigOptions = {
-    http.routers = {
-      dashboard = {
-        entryPoints = [ "https" ];
-        rule = "Host(`traefik.nathil.com`)";
-        service = "api@internal";
-        tls.domains = [{ main = "*.nathil.com"; }];
-        tls.certResolver = "nathilcom";
-      };
-
-      unifi = {
-        entryPoints = [ "https" ];
-        rule = "Host(`unifi.nathil.com`)";
-        service = "api@internal";
-        tls.domains = [{ main = "*.nathil.com"; }];
-        tls.certResolver = "nathilcom";
-      };
+  services.traefik.dynamicConfigOptions.http = {
+    services.unifi = {
+      loadBalancer.servers = [{ url = "https://localhost:8443"; }];
     };
-    services.unifi.loadBalancer.servers = [{ url = "https://localhost:8443"; }];
+
+    routers.unifi = {
+      rule = "Host(`unifi.nathil.com`)";
+      service = "unifi";
+      entryPoints = [ "https" ];
+      tls.domains = [{ main = "*.nathil.com"; }];
+      tls.certResolver = "nathilcom";
+    };
+
+    routers.dashboard = {
+      rule = "Host(`traefik.nathil.com`)";
+      service = "api@internal";
+      entryPoints = [ "https" ];
+      tls.domains = [{ main = "*.nathil.com"; }];
+      tls.certResolver = "nathilcom";
+    };
   };
 
   systemd.services.traefik.environment = {
