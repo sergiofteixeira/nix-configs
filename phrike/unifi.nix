@@ -4,7 +4,6 @@
   services.unifi = {
     enable = true;
     openFirewall = true;
-    mongodbPackage = pkgs.mongodb-4_2;
   };
 
   services.traefik.dynamicConfigOptions.http = {
