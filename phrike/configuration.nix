@@ -54,6 +54,16 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICySDx70VKoXhwoQbGGx1FpZsqWMhJxcOipc76eFztVZ"
   ];
 
+  security.sudo.extraRules= [
+  {  users = [ "steixeira" ];
+    commands = [
+       { command = "ALL" ;
+         options= [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
+      }
+    ];
+  }
+  ];
+
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
