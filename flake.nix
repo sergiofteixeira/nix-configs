@@ -50,7 +50,8 @@
         hostname = "192.168.1.80";
         profiles = {
           system = {
-            user = "steixeira";
+            sshUser = "steixeira";
+            user = "root";
             path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.phrike;
           };
         };
@@ -59,7 +60,8 @@
         hostname = "192.168.1.81";
         profiles = {
           system = {
-            user = "steixeira";
+            sshUser = "steixeira";
+            user = "root";
             path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.helios;
           };
         };
