@@ -6,9 +6,10 @@
     vscode-server.url = "github:nix-community/nixos-vscode-server";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    deploy-rs.url = "github:serokell/deploy-rs";
   };
 
-  outputs = all@{ self, nixpkgs, vscode-server, home-manager, ... }: {
+  outputs = all@{ self, nixpkgs, vscode-server, home-manager, deploy-rs, ... }: {
 
     nixosConfigurations = {
       # sudo nixos-rebuild switch --flake /path/to/flakes/directory#<name>
@@ -44,5 +45,28 @@
         ];
       };
     };
+    deploy.nodes = {
+      phrike = {
+        hostname = "192.168.1.80";
+        profiles = {
+          system = {
+            sshUser = "steixeira";
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.phrike;
+          };
+        };
+      };
+      helios = {
+        hostname = "192.168.1.81";
+        profiles = {
+          system = {
+            sshUser = "steixeira";
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.helios;
+          };
+        };
+      };
+    };
+    checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
   };
 }
