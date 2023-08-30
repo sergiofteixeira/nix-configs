@@ -1,4 +1,7 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+
+{
+
   config.virtualisation.oci-containers.containers = {
     flaresolverr = {
       image = "flaresolverr/flaresolverr:latest";
