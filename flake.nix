@@ -9,7 +9,7 @@
     deploy-rs.url = "github:serokell/deploy-rs";
   };
 
-  outputs = all@{ self, nixpkgs, vscode-server, home-manager, ... }: {
+  outputs = all@{ self, nixpkgs, vscode-server, home-manager, deploy-rs, ... }: {
 
     nixosConfigurations = {
       # sudo nixos-rebuild switch --flake /path/to/flakes/directory#<name>
