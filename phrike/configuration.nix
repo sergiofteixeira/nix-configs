@@ -9,10 +9,10 @@
     ./prowlarr.nix
     ./bazarr.nix
     ./transmission.nix
-    ./flaresolverr.nix
     ./plex.nix
     ./tailscale.nix
     ./node-exporter.nix
+    ./containers.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
