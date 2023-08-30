@@ -70,6 +70,7 @@
     enable = true;
     settings.PasswordAuthentication = false;
     extraConfig = ''
+      KeepAlive yes
       ClientAliveInterval 300
       ClientAliveCountMax 15
     '';
