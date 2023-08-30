@@ -45,17 +45,15 @@
         ];
       };
     };
-  };
-
-  deploy.nodes.phrike = {
-    hostname = "192.168.1.80";
-    profiles = {
-      system = {
-        user = "steixeira";
-        path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.phrike;
+    deploy.nodes.phrike = {
+      hostname = "192.168.1.80";
+      profiles = {
+        system = {
+          user = "steixeira";
+          path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.phrike;
+        };
       };
     };
+    checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
   };
-
-  checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
 }
