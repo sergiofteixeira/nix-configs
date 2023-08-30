@@ -3,7 +3,8 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }: {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../modules/traefik.nix
     ../modules/monitoring/grafana.nix
@@ -17,6 +18,7 @@
   networking.networkmanager.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "steixeira" ];
 
   time.timeZone = "Europe/Lisbon";
   i18n.defaultLocale = "en_US.UTF-8";
