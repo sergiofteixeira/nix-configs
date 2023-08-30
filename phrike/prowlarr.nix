@@ -29,6 +29,6 @@
     };
 
     services.prowlarr.loadBalancer.servers = [{ url = "http://localhost:9696"; }];
-    services.unifi.loadBalancer.servers = [{ url = "http://localhost:8443"; }];
+    services.unifi.loadBalancer.servers = [{ url = "http://localhost:8080"; }];
   };
 }
