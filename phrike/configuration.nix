@@ -54,19 +54,25 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICySDx70VKoXhwoQbGGx1FpZsqWMhJxcOipc76eFztVZ"
   ];
 
-  security.sudo.extraRules= [
-  {  users = [ "steixeira" ];
-    commands = [
-       { command = "ALL" ;
-         options= [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
-      }
-    ];
-  }
+  security.sudo.extraRules = [
+    {
+      users = [ "steixeira" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
+        }
+      ];
+    }
   ];
 
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
+    extraConfig = ''
+      ClientAliveInterval 300
+      ClientAliveCountMax 15
+    '';
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -90,15 +96,16 @@
     intel-gpu-tools
     ncdu
     transmission_4
+    gnumake
   ];
 
   # Enable Docker and set to backend (over podman default)
-    virtualisation = {
-      docker.enable = true;
-      # docker.storageDriver = "overlay2";
-      docker.storageDriver = "overlay";
-      oci-containers.backend = "docker";
-    };
+  virtualisation = {
+    docker.enable = true;
+    # docker.storageDriver = "overlay2";
+    docker.storageDriver = "overlay";
+    oci-containers.backend = "docker";
+  };
 
   networking.firewall = {
     enable = true;
