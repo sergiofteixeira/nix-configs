@@ -13,7 +13,6 @@
     ./plex.nix
     ./tailscale.nix
     ./node-exporter.nix
-    ./unifi.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
