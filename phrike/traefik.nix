@@ -4,6 +4,8 @@
   services.traefik.enable = true;
   services.traefik.staticConfigOptions = {
 
+    serversTransport.insecureSkipVerify = true;
+
     log.level = "INFO";
 
     certificatesResolvers.nathilcom.acme = {
