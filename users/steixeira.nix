@@ -24,14 +24,6 @@
     sha256 = "sha256-aZUFFY99aGWot/ok36JZgdEotW10HB34XKhV+04QN48=";
   };
 
-  home.file.".local/share/nvim/site/pack/packer/start/packer.nvim".recursive = true;
-  home.file.".local/share/nvim/site/pack/packer/start/packer.nvim".source = pkgs.fetchFromGitHub {
-    owner = "wbthomason";
-    repo = "packer.nvim";
-    rev = "ea0cc3c59f67c440c5ff0bbe4fb9420f4350b9a3";
-    sha256 = "sha256-aZUFFY99aGWot/ok36JZgdEotW10HB34XKhV+04QN48=";
-  };
-
   home.packages = with pkgs; [
     # languages
     nodejs
@@ -73,6 +65,7 @@
     btop  # replacement of htop/nmon
 
     lm_sensors # for `sensors` command
+    vimPlugins.packer-nvim
   ];
 
   home.sessionVariables = {
