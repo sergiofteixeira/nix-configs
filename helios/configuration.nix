@@ -76,7 +76,7 @@
     git
     k3s
   ];
-  services.k3s.enable = true;
+  services.k3s.enable = false;
   services.k3s.extraFlags = toString [
     "--write-kubeconfig-mode 777"
   ];
