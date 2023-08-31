@@ -53,6 +53,22 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
+    [org.gnome.desktop.interface]
+    enable-animations=false
+    font-name='Inter 11'
+    document-font-name='Inter 11'
+
+    [org.gnome.desktop.wm.preferences]
+    titlebar-font='Inter Bold 11'
+
+    [org.gnome.settings-daemon.plugins.color]
+    night-light-schedule-automatic=true
+    night-light-enabled=true
+    night-light-schedule-from=20.0
+    night-light-schedule-to=6.0
+    night-light-temperature=4000
+  '';
 
   # Configure keymap in X11
   services.xserver = {
@@ -123,6 +139,10 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
+    jetbrains.goland
+    inter
+    gnome.gnome-tweaks
+    neovim
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
