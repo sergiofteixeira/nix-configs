@@ -103,6 +103,18 @@
     settings.PasswordAuthentication = false;
   };
 
+  security.sudo.extraRules = [
+    {
+      users = [ "steixeira" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
+        }
+      ];
+    }
+  ];
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
