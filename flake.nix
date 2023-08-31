@@ -24,7 +24,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.steixeira = import ./helios/home.nix;
+            home-manager.users.steixeira = import ./users/steixeira.nix;
           }
         ];
       };
@@ -40,7 +40,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            #home-manager.users.steixeira = import ./helios/home.nix;
+            home-manager.users.steixeira = import ./users/steixeira.nix;
           }
         ];
       };
