@@ -44,7 +44,22 @@
           }
         ];
       };
+
+      vm = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+        modules = [
+          ./vm/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            #home-manager.users.steixeira = import ./users/steixeira.nix;
+          }
+        ];
+      };
     };
+
     deploy.nodes = {
       phrike = {
         hostname = "192.168.1.80";
@@ -58,6 +73,17 @@
       };
       helios = {
         hostname = "192.168.1.81";
+        profiles = {
+          system = {
+            sshUser = "steixeira";
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.helios;
+          };
+        };
+      };
+
+      helios = {
+        hostname = "192.168.30.105";
         profiles = {
           system = {
             sshUser = "steixeira";
