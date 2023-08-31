@@ -82,13 +82,13 @@
         };
       };
 
-      helios = {
+      vm = {
         hostname = "192.168.30.105";
         profiles = {
           system = {
             sshUser = "steixeira";
             user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.helios;
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.vm;
           };
         };
       };
