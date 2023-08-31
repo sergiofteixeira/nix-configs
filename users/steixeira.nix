@@ -30,7 +30,6 @@
     nodePackages.typescript
     terraform
     terraform-ls
-    kubectl
     kubectx
     helm
     go
@@ -66,9 +65,6 @@
     btop  # replacement of htop/nmon
 
     lm_sensors # for `sensors` command
-
-    jetbrains.gateway
-    jetbrains.idea-ultimate
   ];
 
   home.sessionVariables = {
@@ -94,6 +90,7 @@
     enableCompletion = true;
     bashrcExtra = ''
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+      export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
     '';
 
     shellAliases = {

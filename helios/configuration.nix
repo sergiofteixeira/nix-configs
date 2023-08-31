@@ -56,14 +56,16 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICySDx70VKoXhwoQbGGx1FpZsqWMhJxcOipc76eFztVZ"
   ];
 
-  security.sudo.extraRules= [
-  {  users = [ "steixeira" ];
-    commands = [
-       { command = "ALL" ;
-         options= [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
-      }
-    ];
-  }
+  security.sudo.extraRules = [
+    {
+      users = [ "steixeira" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
+        }
+      ];
+    }
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -72,7 +74,13 @@
     gcc
     neovim
     git
+    k3s
   ];
+  services.k3s.enable = true;
+  services.k3s.extraFlags = toString [
+    "--write-kubeconfig-mode 777"
+  ];
+
   networking.firewall.allowedTCPPorts = [ 80 443 9090 ];
 
   system.stateVersion = "23.05"; # Did you read the comment?
