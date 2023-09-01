@@ -83,7 +83,7 @@
       };
 
       vm = {
-        hostname = "192.168.30.119";
+        hostname = "192.168.30.88";
         profiles = {
           system = {
             sshUser = "steixeira";
