@@ -16,6 +16,11 @@
     };
   };
 
+  programs.kitty = {
+    enable = true;
+    extraConfig = builtins.readFile ./configs/kitty/kitty.conf;
+  };
+
   home.file.".config/nvim".recursive = true;
   home.file.".config/nvim".source = pkgs.fetchFromGitHub {
     owner = "sergiofteixeira";
