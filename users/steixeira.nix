@@ -20,8 +20,8 @@
   home.file.".config/nvim".source = pkgs.fetchFromGitHub {
     owner = "sergiofteixeira";
     repo = "nvim";
-    rev = "67ad49cf4f072d0e5a9a8b4a2d90b29d9e3e1c83";
-    sha256 = "sha256-aZUFFY99aGWot/ok36JZgdEotW10HB34XKhV+04QN48=";
+    rev = "5b9c0f9b84e897a13043eac5d90231f1ef7e9fe5";
+    sha256 = "sha256-Qr/pybSfzKSsQ/cGl7+wevhCKAdMPSCUd2KknxDc87k=";
   };
 
   home.packages = with pkgs; [
@@ -63,6 +63,7 @@
     tree
     gnupg
     btop  # replacement of htop/nmon
+    nix-prefetch-scripts
 
     lm_sensors # for `sensors` command
     vimPlugins.packer-nvim
