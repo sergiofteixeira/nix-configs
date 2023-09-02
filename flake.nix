@@ -7,9 +7,10 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     deploy-rs.url = "github:serokell/deploy-rs";
+    agenix.url = "github:ryantm/agenix";
   };
 
-  outputs = all@{ self, nixpkgs, vscode-server, home-manager, deploy-rs, ... }: {
+  outputs = all@{ self, nixpkgs, vscode-server, home-manager, deploy-rs, agenix, ... }: {
 
     nixosConfigurations = {
       # sudo nixos-rebuild switch --flake /path/to/flakes/directory#<name>
@@ -20,6 +21,7 @@
           vscode-server.nixosModules.default
           ({ config, pkgs, ... }: { services.vscode-server.enable = true; })
           ./helios/configuration.nix
+          agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -36,6 +38,7 @@
           vscode-server.nixosModules.default
           ({ config, pkgs, ... }: { services.vscode-server.enable = true; })
           ./phrike/configuration.nix
+          agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -50,6 +53,7 @@
 
         modules = [
           ./vm/configuration.nix
+          agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
