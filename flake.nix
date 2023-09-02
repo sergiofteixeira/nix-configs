@@ -10,7 +10,7 @@
     agenix.url = "github:ryantm/agenix";
   };
 
-  outputs = all@{ self, nixpkgs, vscode-server, home-manager, deploy-rs, agenix, ... }: {
+  outputs = { self, nixpkgs, vscode-server, home-manager, deploy-rs, agenix, ... }: {
 
     nixosConfigurations = {
       # sudo nixos-rebuild switch --flake /path/to/flakes/directory#<name>
