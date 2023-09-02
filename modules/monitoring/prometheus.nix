@@ -44,7 +44,7 @@
 
       tls = {
         certResolver = "nathilcom";
-        domains = [{ main = "*.nathil.com"; }];
+        domains = [{ main = "prometheus.nathil.com"; }];
       };
     };
 
