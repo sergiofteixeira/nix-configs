@@ -17,6 +17,8 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "steixeira" ];
+  nix.gc.automatic = true;
+  nix.gc.options = "--delete-older-than 7d";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

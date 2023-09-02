@@ -18,6 +18,8 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "steixeira" ];
+  nix.gc.automatic = true;
+  nix.gc.options = "--delete-older-than 7d";
 
   time.timeZone = "Europe/Lisbon";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -79,7 +81,7 @@
     "--write-kubeconfig-mode 777"
   ];
 
-  networking.firewall.allowedTCPPorts = [ 80 443 9090 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 9090 3000 ];
 
   system.stateVersion = "23.05"; # Did you read the comment?
 
