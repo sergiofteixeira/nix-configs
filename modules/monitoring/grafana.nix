@@ -14,7 +14,7 @@
 
       tls = {
         certResolver = "nathilcom";
-        domains = [{ main = "grafana.nathil.com"; }];
+        domains = [{ main = "*.nathil.com"; }];
       };
     };
 
