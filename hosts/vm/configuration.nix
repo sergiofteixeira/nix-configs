@@ -109,6 +109,7 @@
       slurp
       wofi
       wdisplays
+      _1password-gui
     ];
     extraSessionCommands = ''
       export SDL_VIDEODRIVER=wayland
