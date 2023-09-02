@@ -81,6 +81,7 @@
     "--write-kubeconfig-mode 777"
   ];
 
+  networking.firewall.enable = false;
   networking.firewall.allowedTCPPorts = [ 80 443 9090 3000 ];
 
   system.stateVersion = "23.05"; # Did you read the comment?
