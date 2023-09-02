@@ -47,9 +47,33 @@
       loadBalancer.servers = [{ url = "https://localhost:8443"; }];
     };
 
+    services.prometheus = {
+      loadBalancer.servers = [{ url = "http://192.168.1.81:9090"; }];
+    };
+
+    services.grafana = {
+      loadBalancer.servers = [{ url = "http://192.168.1.81:3000"; }];
+    };
+
     routers.unifi = {
       rule = "Host(`unifi.nathil.com`)";
       service = "unifi";
+      entryPoints = [ "https" ];
+      tls.domains = [{ main = "*.nathil.com"; }];
+      tls.certResolver = "nathilcom";
+    };
+
+    routers.prometheus = {
+      rule = "Host(`prometheus.nathil.com`)";
+      service = "prometheus";
+      entryPoints = [ "https" ];
+      tls.domains = [{ main = "*.nathil.com"; }];
+      tls.certResolver = "nathilcom";
+    };
+
+    routers.grafana = {
+      rule = "Host(`grafana.nathil.com`)";
+      service = "grafana";
       entryPoints = [ "https" ];
       tls.domains = [{ main = "*.nathil.com"; }];
       tls.certResolver = "nathilcom";

@@ -35,19 +35,4 @@
 
     ];
   };
-
-  services.traefik.dynamicConfigOptions.http = {
-    routers.prometheus = {
-      entryPoints = [ "https" ];
-      rule = "Host(`prometheus.nathil.com`)";
-      service = "prometheus";
-
-      tls = {
-        certResolver = "nathilcom";
-        domains = [{ main = "*.nathil.com"; }];
-      };
-    };
-
-    services.prometheus.loadBalancer.servers = [{ url = "http://localhost:9090"; }];
-  };
 }

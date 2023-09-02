@@ -23,3 +23,4 @@
     services.bazarr.loadBalancer.servers = [{ url = "http://localhost:6767"; }];
   };
 }
+
