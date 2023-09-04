@@ -8,9 +8,28 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     deploy-rs.url = "github:serokell/deploy-rs";
     agenix.url = "github:ryantm/agenix";
+    darwin.url = "github:lnl7/nix-darwin";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, vscode-server, home-manager, deploy-rs, agenix, ... }: {
+  outputs = { self, nixpkgs, vscode-server, home-manager, deploy-rs, agenix, darwin, ... }: {
+
+    darwinConfigurations.m1pro = darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      pkgs = import nixpkgs { system = "aarch64-darwin"; };
+      modules = [
+        ./hosts/m1pro/darwin.nix
+        home-manager.darwinModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.steixeira.imports = [ ./hosts/m1pro/home.nix];
+          };
+        }
+      ];
+    };
+
 
     nixosConfigurations = {
       # sudo nixos-rebuild switch --flake /path/to/flakes/directory#<name>
