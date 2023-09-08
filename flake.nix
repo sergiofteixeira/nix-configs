@@ -90,6 +90,7 @@
             useUserPackages = true;
             users.steixeira.imports = [ ./hosts/m1pro/home.nix ];
           };
+          users.users.steixeira.home = "/Users/steixeira";
         }
       ];
     };
