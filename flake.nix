@@ -6,12 +6,11 @@
     vscode-server.url = "github:nix-community/nixos-vscode-server";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    deploy-rs.url = "github:serokell/deploy-rs";
     agenix.url = "github:ryantm/agenix";
     nixinate.url = "github:matthewcroughan/nixinate";
   };
 
-  outputs = { self, nixpkgs, vscode-server, home-manager, deploy-rs, agenix, nixinate, ... }: {
+  outputs = { self, nixpkgs, vscode-server, home-manager, agenix, nixinate, ... }: {
 
     apps = nixinate.nixinate.x86_64-linux self;
     nixosConfigurations = {
@@ -76,29 +75,5 @@
       };
 
     };
-
-    deploy.nodes = {
-      phrike = {
-        hostname = "192.168.1.80";
-        profiles = {
-          system = {
-            sshUser = "steixeira";
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.phrike;
-          };
-        };
-      };
-      helios = {
-        hostname = "192.168.1.81";
-        profiles = {
-          system = {
-            sshUser = "steixeira";
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.helios;
-          };
-        };
-      };
-    };
-    checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
   };
 }
