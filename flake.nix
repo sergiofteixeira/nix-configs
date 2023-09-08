@@ -63,26 +63,18 @@
             home-manager.useUserPackages = true;
             home-manager.users.steixeira = import ./users/steixeira.nix;
           }
-        ];
-      };
-
-      vm = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-
-        modules = [
-          ./hosts/vm/configuration.nix
           {
-            environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
-          }
-          agenix.nixosModules.default
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.steixeira = import ./users/steixeira.nix;
+            _module.args.nixinate = {
+              host = "192.168.1.80";
+              sshUser = "steixeira";
+              buildOn = "remote";
+              substituteOnTarget = true;
+              hermetic = false;
+            };
           }
         ];
       };
+
     };
 
     deploy.nodes = {
@@ -103,17 +95,6 @@
             sshUser = "steixeira";
             user = "root";
             path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.helios;
-          };
-        };
-      };
-
-      vm = {
-        hostname = "192.168.30.88";
-        profiles = {
-          system = {
-            sshUser = "steixeira";
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.vm;
           };
         };
       };
