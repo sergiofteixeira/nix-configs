@@ -18,6 +18,9 @@ upgrade-phrike:
 
 switch-phrike:
 	nixos-rebuild switch --flake .#phrike --target-host steixeira@phrike --use-remote-sudo
+	
+switch-m1pro:
+	darwin-rebuild switch --flake .#m1pro
 
 update:
 	nix flake update

@@ -75,7 +75,7 @@
     enableAutosuggestions = true;
     shellAliases = {
       ls = "ls --color=auto -F";
-      nixswitch = "darwin-rebuild switch --flake ~/darwin-nix/.#m1pro";
+      nixswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1pro";
       vim = "nvim";
       vi = "nvim";
       k = "kubectl";
