@@ -8,9 +8,12 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     agenix.url = "github:ryantm/agenix";
     nixinate.url = "github:matthewcroughan/nixinate";
+    darwin.url = "github:lnl7/nix-darwin";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
+
   };
 
-  outputs = { self, nixpkgs, vscode-server, home-manager, agenix, nixinate, ... }: {
+  outputs = { self, nixpkgs, vscode-server, home-manager, agenix, nixinate, darwin, ... }: {
 
     apps = nixinate.nixinate.x86_64-linux self;
     nixosConfigurations = {
@@ -75,5 +78,23 @@
       };
 
     };
+
+    # darwin configs
+    darwinConfigurations.m1pro = darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      pkgs = import nixpkgs { system = "aarch64-darwin"; };
+      modules = [
+        ./hosts/m1pro/darwin.nix
+        home-manager.darwinModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.steixeira.imports = [ ./hosts/m1pro/home.nix ];
+          };
+        }
+      ];
+    };
+
   };
 }
