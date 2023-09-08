@@ -8,10 +8,12 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     deploy-rs.url = "github:serokell/deploy-rs";
     agenix.url = "github:ryantm/agenix";
+    nixinate.url = "github:matthewcroughan/nixinate";
   };
 
-  outputs = { self, nixpkgs, vscode-server, home-manager, deploy-rs, agenix, ... }: {
+  outputs = { self, nixpkgs, vscode-server, home-manager, deploy-rs, agenix, nixinate, ... }: {
 
+    apps = nixinate.nixinate.x86_64-linux self;
     nixosConfigurations = {
       # sudo nixos-rebuild switch --flake /path/to/flakes/directory#<name>
       helios = nixpkgs.lib.nixosSystem {
@@ -31,6 +33,15 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.steixeira = import ./users/steixeira.nix;
+          }
+          {
+            _module.args.nixinate = {
+              host = "192.168.1.81";
+              sshUser = "steixeira";
+              buildOn = "remote";
+              substituteOnTarget = true;
+              hermetic = false;
+            };
           }
         ];
       };
