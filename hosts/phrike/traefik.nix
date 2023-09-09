@@ -47,6 +47,10 @@
       loadBalancer.servers = [{ url = "https://localhost:8443"; }];
     };
 
+    services.homebridge = {
+      loadBalancer.servers = [{ url = "https://localhost:8581"; }];
+    };
+
     services.prometheus = {
       loadBalancer.servers = [{ url = "http://192.168.1.81:9090"; }];
     };
@@ -58,6 +62,14 @@
     routers.unifi = {
       rule = "Host(`unifi.nathil.com`)";
       service = "unifi";
+      entryPoints = [ "https" ];
+      tls.domains = [{ main = "*.nathil.com"; }];
+      tls.certResolver = "nathilcom";
+    };
+
+    routers.homebridge = {
+      rule = "Host(`homebridge.nathil.com`)";
+      service = "homebridge";
       entryPoints = [ "https" ];
       tls.domains = [{ main = "*.nathil.com"; }];
       tls.certResolver = "nathilcom";

@@ -15,5 +15,13 @@
         "/home/steixeira/unifi/config:/config"
       ];
     };
+
+    homebridge = {
+      image = "oznu/homebridge:latest";
+      network = "host";
+      volumes = [
+        "/home/steixeira/homebridge:/homebridge"
+      ];
+    };
   };
 }
