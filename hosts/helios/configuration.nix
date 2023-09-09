@@ -36,7 +36,10 @@
   };
 
   services.code-server = {
-      enable = true;
+    enable = true;
+    host = "192.168.1.81";
+    auth = "none";
+    user = "steixeira";
   };
 
   services.xserver = {
@@ -74,6 +77,9 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "nodejs-16.20.2"
+  ];
 
   environment.systemPackages = with pkgs; [
     gcc
