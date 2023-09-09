@@ -35,6 +35,10 @@
     LC_TIME = "pt_PT.UTF-8";
   };
 
+  services.code-server = {
+      enable = true;
+  };
+
   services.xserver = {
     layout = "us";
     xkbVariant = "";
