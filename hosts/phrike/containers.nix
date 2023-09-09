@@ -18,10 +18,12 @@
 
     homebridge = {
       image = "oznu/homebridge:latest";
-      network = "host";
       volumes = [
         "/home/steixeira/homebridge:/homebridge"
       ];
+      extraOptions = [
+         "--net=host"
+    ];
     };
   };
 }
