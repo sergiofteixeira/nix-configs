@@ -47,6 +47,7 @@
     python311Packages.pip
     nixfmt
     htop
+    gnumake
 
     neofetch
     zip
