@@ -90,6 +90,9 @@
   programs.tmux = {
     enable = true;
     terminal = "xterm-256color";
+    plugins = [
+      pkgs.tmuxPlugins.gruvbox
+    ];
     shortcut = "l";
     secureSocket = false;
 
@@ -98,6 +101,15 @@
       set -g prefix C-t
       set -ga terminal-overrides ",*256col*:Tc"
       bind -n C-k send-keys "clear"\; send-keys "Enter"
+      bind _ split-window -h -c "#{pane_current_path}"
+      bind - split-window -v -c "#{pane_current_path}"
+      set -g mouse on
+      set-option -sg escape-time 10
+      set-option -g history-limit 50000
+      set-window-option -g mode-keys vi
+      set-option -g status-position bottom
+      set -g set-clipboard on
+      bind -n C-n next-window
     '';
   };
 
