@@ -96,13 +96,15 @@
 
     dropPrivileges = false;
 
+    extraPackages = [
+      pkgs.openjdk11
+    ];
+
     enableDocker = true;
     settings = {
       datacenter = "helios";
       plugin.raw_exec.config.enabled = true;
-      extraPackages = [
-        pkgs.openjdk11
-      ];
+
 
       plugin.docker = {
         enabled = true;
