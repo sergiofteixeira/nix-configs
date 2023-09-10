@@ -65,6 +65,7 @@
       InitialKeyRepeat = 15; # normal minimum is 15 (225 ms)
       KeyRepeat = 2; # normal minimum is 2 (30 ms)
       AppleShowAllExtensions = true;
+      AppleShowScrollBars = "Automatic";
 
       NSWindowResizeTime = 0.1;
 
