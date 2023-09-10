@@ -93,6 +93,7 @@
 
   services.nomad = {
     enable = true;
+    package = pkgs.nomad_1_6;
 
     dropPrivileges = false;
 
