@@ -15,6 +15,18 @@
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToEscape = true;
 
+  system.keyboard.userKeyMapping =
+    let
+      fn = 1095216660483;
+      left_control = 30064771296;
+    in
+    [
+      {
+        HIDKeyboardModifierMappingSrc = fn;
+        HIDKeyboardModifierMappingDst = left_control;
+      }
+    ];
+
   security.pam.enableSudoTouchIdAuth = true;
 
   fonts.fontDir.enable = true; # DANGER
@@ -61,7 +73,7 @@
     enable = true;
     caskArgs.no_quarantine = true;
     casks = [ "alt-tab" "1password" "visual-studio-code" "google-chrome" "slack" "raycast" "spotify" "tailscale" "kitty" "firefox" "docker" "vlc" ];
-    brews = [ ];
+    brews = [ "fabianishere/personal/pam_reattach" ];
   };
 }
 
