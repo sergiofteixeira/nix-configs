@@ -91,6 +91,39 @@
     "--write-kubeconfig-mode 777"
   ];
 
+  services.nomad = {
+    enable = true;
+
+    dropPrivileges = false;
+
+    enableDocker = true;
+    settings = {
+      datacenter = "helios";
+      plugin.raw_exec.config.enabled = true;
+      extraPackages = [
+        pkgs.openjdk11
+      ];
+
+      plugin.docker = {
+        enabled = true;
+        endpoint = "unix:///var/run/docker.sock";
+        volumes.enabled = true;
+      };
+
+      plugin.java = {
+        enabled = true;
+      };
+
+      server = {
+        enabled = true;
+        bootstrap_expect = 1; # for demo; no fault tolerance
+      };
+      client = {
+        enabled = true;
+      };
+    };
+  };
+
   networking.firewall.enable = false;
   networking.firewall.allowedTCPPorts = [ 80 443 9090 3000 4444 ];
 

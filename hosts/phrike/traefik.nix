@@ -59,6 +59,10 @@
       loadBalancer.servers = [{ url = "http://192.168.1.81:3000"; }];
     };
 
+    services.nomad = {
+      loadBalancer.servers = [{ url = "http://192.168.1.81:4646"; }];
+    };
+
     routers.unifi = {
       rule = "Host(`unifi.nathil.com`)";
       service = "unifi";
@@ -70,6 +74,14 @@
     routers.codeserver = {
       rule = "Host(`codeserver.nathil.com`)";
       service = "codeserver";
+      entryPoints = [ "https" ];
+      tls.domains = [{ main = "*.nathil.com"; }];
+      tls.certResolver = "nathilcom";
+    };
+
+    routers.nomad = {
+      rule = "Host(`nomad.nathil.com`)";
+      service = "nomad";
       entryPoints = [ "https" ];
       tls.domains = [{ main = "*.nathil.com"; }];
       tls.certResolver = "nathilcom";
