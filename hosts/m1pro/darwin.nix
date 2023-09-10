@@ -34,6 +34,10 @@
 
   services.nix-daemon.enable = true;
 
+  networking = {
+    hostName = "tars";
+  };
+
   system.defaults = {
 
     finder.AppleShowAllExtensions = true;
