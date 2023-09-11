@@ -91,7 +91,8 @@
   services.k3s.extraFlags = toString [
     "--write-kubeconfig-mode 777"
   ];
-
+  programs.zsh.enable = true;
+  
   services.nomad = {
     enable = true;
     package = pkgs.nomad_1_6;
