@@ -51,6 +51,7 @@
     description = "steixeira";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [ ];
+    shell = pkgs.zsh;
   };
 
   users.users."steixeira".openssh.authorizedKeys.keys = [
@@ -68,6 +69,8 @@
       ];
     }
   ];
+
+  programs.zsh.enable = true;
 
   services.openssh = {
     enable = true;
