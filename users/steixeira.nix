@@ -38,6 +38,7 @@
     kubectx
     awscli2
     kubectl
+    pulumi-bin
     kubernetes-helm
     go
     rustc
