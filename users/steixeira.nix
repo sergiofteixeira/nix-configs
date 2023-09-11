@@ -91,6 +91,7 @@
   };
 
   programs.starship = {
+    enableZshIntegration = true;
     enable = true;
     settings = {
       add_newline = false;
@@ -98,6 +99,25 @@
       gcloud.disabled = true;
       line_break.disabled = true;
     };
+  };
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
+    enableAutosuggestions = true;
+    shellAliases = {
+      ls = "ls --color=auto -F";
+      nixswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1pro";
+      vim = "nvim";
+      vi = "nvim";
+      k = "kubectl";
+      kx = "kubectx";
+      po = "kubectl get pod";
+      gc = "git checkout";
+      gs = "git status";
+    };
+
   };
 
   programs.bash = {

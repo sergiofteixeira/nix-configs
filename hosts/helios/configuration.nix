@@ -58,6 +58,7 @@
     description = "Sergio Teixeira";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [ ];
+    shell = pkgs.zsh;
   };
 
   users.users."steixeira".openssh.authorizedKeys.keys = [
