@@ -90,6 +90,9 @@
     PAGER = "less -FirSwX";
   };
 
+  programs.fzf.enable = true;
+  programs.fzf.enableZshIntegration = true;
+
   programs.starship = {
     enableZshIntegration = true;
     enable = true;
