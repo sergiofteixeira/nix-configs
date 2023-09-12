@@ -56,6 +56,7 @@
     xz
     unzip
     p7zip
+    magic-wormhole
 
     # utils
     ripgrep # recursively searches directories for a regex pattern
