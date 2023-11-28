@@ -15,15 +15,5 @@
         "/home/steixeira/unifi/config:/config"
       ];
     };
-
-    homebridge = {
-      image = "oznu/homebridge:latest";
-      volumes = [
-        "/home/steixeira/homebridge:/homebridge"
-      ];
-      extraOptions = [
-         "--net=host"
-    ];
-    };
   };
 }
