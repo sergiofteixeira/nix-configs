@@ -44,8 +44,6 @@
     rustc
     cargo
     tree-sitter
-    python311
-    python311Packages.pip
     nixfmt
     nixpkgs-fmt
     htop
