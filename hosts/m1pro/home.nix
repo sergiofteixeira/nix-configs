@@ -15,7 +15,7 @@
     awscli2
     nixfmt
     watch
-    terraform
+    #terraform
     terraform-ls
     rustup
     go
