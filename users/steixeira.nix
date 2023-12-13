@@ -25,8 +25,8 @@
   home.file.".config/nvim".source = pkgs.fetchFromGitHub {
     owner = "sergiofteixeira";
     repo = "nvim";
-    rev = "9b4b2c5b548d72e99730ac7f56bdd820b69353f2";
-    sha256 = "sha256-kWB6snkp0ko0TrYtJ+Skw0fY/RSrB2ftpdHvRARVLSc=";
+    rev = "b5daf5de3dae4625a04b156ad3fdf8771cc29a31";
+    sha256 = "sha256-Z3DqYg5ICopOZFOcKz3Prx4JtYuowx9EG0AoKa8kr2Y=";
   };
 
   home.packages = with pkgs; [
