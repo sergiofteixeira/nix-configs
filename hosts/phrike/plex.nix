@@ -9,12 +9,12 @@
   services.traefik.dynamicConfigOptions.http = {
     routers.plex = {
       entryPoints = [ "https" ];
-      rule = "Host(`plex.nathil.com`)";
+      rule = "Host(`plex.sergioteixeira.xyz`)";
       service = "plex";
 
       tls = {
-        certResolver = "nathilcom";
-        domains = [{ main = "*.nathil.com"; }];
+        certResolver = "sergioteixeiraxyz";
+        domains = [{ main = "*.sergioteixeira.xyz"; }];
       };
     };
 

@@ -11,12 +11,12 @@
   services.traefik.dynamicConfigOptions.http = {
     routers.bazarr = {
       entryPoints = [ "https" ];
-      rule = "Host(`bazarr.nathil.com`)";
+      rule = "Host(`bazarr.sergioteixeira.xyz`)";
       service = "bazarr";
 
       tls = {
-        certResolver = "nathilcom";
-        domains = [{ main = "*.nathil.com"; }];
+        certResolver = "sergioteixeiraxyz";
+        domains = [{ main = "*.sergioteixeira.xyz"; }];
       };
     };
 

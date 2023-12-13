@@ -12,12 +12,12 @@
   services.traefik.dynamicConfigOptions.http = {
     routers.sonarr = {
       entryPoints = [ "https" ];
-      rule = "Host(`sonar.nathil.com`)";
+      rule = "Host(`sonar.sergioteixeira.xyz`)";
       service = "sonarr";
 
       tls = {
-        certResolver = "nathilcom";
-        domains = [{ main = "sonarr.nathil.com"; }];
+        certResolver = "sergioteixeiraxyz";
+        domains = [{ main = "sonarr.sergioteixeira.xyz"; }];
       };
     };
 

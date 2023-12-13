@@ -68,7 +68,7 @@
       service = "unifi";
       entryPoints = [ "https" ];
       tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
-      tls.certResolver = "nathilcom";
+      tls.certResolver = "sergioteixeiraxyz";
     };
 
     routers.codeserver = {
@@ -76,7 +76,7 @@
       service = "codeserver";
       entryPoints = [ "https" ];
       tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
-      tls.certResolver = "nathilcom";
+      tls.certResolver = "sergioteixeiraxyz";
     };
 
     routers.nomad = {
@@ -84,7 +84,7 @@
       service = "nomad";
       entryPoints = [ "https" ];
       tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
-      tls.certResolver = "nathilcom";
+      tls.certResolver = "sergioteixeiraxyz";
     };
 
     routers.prometheus = {
@@ -92,7 +92,7 @@
       service = "prometheus";
       entryPoints = [ "https" ];
       tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
-      tls.certResolver = "nathilcom";
+      tls.certResolver = "sergioteixeiraxyz";
     };
 
     routers.grafana = {
@@ -100,7 +100,7 @@
       service = "grafana";
       entryPoints = [ "https" ];
       tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
-      tls.certResolver = "nathilcom";
+      tls.certResolver = "sergioteixeiraxyz";
     };
 
     routers.dashboard = {
@@ -108,7 +108,7 @@
       service = "api@internal";
       entryPoints = [ "https" ];
       tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
-      tls.certResolver = "nathilcom";
+      tls.certResolver = "sergioteixeiraxyz";
     };
   };
 

@@ -10,12 +10,12 @@
   services.traefik.dynamicConfigOptions.http = {
     routers.jellyfin = {
       entryPoints = [ "https" ];
-      rule = "Host(`jellyfin.nathil.com`)";
+      rule = "Host(`jellyfin.sergioteixeira.xyz`)";
       service = "jellyfin";
 
       tls = {
-        certResolver = "nathilcom";
-        domains = [{ main = "*.nathil.com"; }];
+        certResolver = "sergioteixeiraxyz";
+        domains = [{ main = "*.sergioteixeira.xyz"; }];
       };
     };
 

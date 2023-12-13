@@ -20,12 +20,12 @@
   services.traefik.dynamicConfigOptions.http = {
     routers.transmission = {
       entryPoints = [ "https" ];
-      rule = "Host(`downloader.nathil.com`)";
+      rule = "Host(`downloader.sergioteixeira.xyz`)";
       service = "transmission";
 
       tls = {
-        certResolver = "nathilcom";
-        domains = [{ main = "*.nathil.com"; }];
+        certResolver = "sergioteixeiraxyz";
+        domains = [{ main = "*.sergioteixeira.xyz"; }];
       };
     };
 

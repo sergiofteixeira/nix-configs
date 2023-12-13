@@ -12,12 +12,12 @@
   services.traefik.dynamicConfigOptions.http = {
     routers.radarr = {
       entryPoints = [ "https" ];
-      rule = "Host(`radar.nathil.com`)";
+      rule = "Host(`radar.sergioteixeira.xyz`)";
       service = "radarr";
 
       tls = {
-        certResolver = "nathilcom";
-        domains = [{ main = "*.nathil.com"; }];
+        certResolver = "sergioteixeiraxyz";
+        domains = [{ main = "*.sergioteixeira.xyz"; }];
       };
     };
 

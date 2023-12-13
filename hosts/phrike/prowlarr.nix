@@ -9,12 +9,12 @@
   services.traefik.dynamicConfigOptions.http = {
     routers.prowlarr = {
       entryPoints = [ "https" ];
-      rule = "Host(`prowlar.nathil.com`)";
+      rule = "Host(`prowlar.sergioteixeira.xyz`)";
       service = "prowlarr";
 
       tls = {
-        certResolver = "nathilcom";
-        domains = [{ main = "*.nathil.com"; }];
+        certResolver = "sergioteixeiraxyz";
+        domains = [{ main = "*.sergioteixeira.xyz"; }];
       };
     };
 
