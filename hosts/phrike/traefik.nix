@@ -8,7 +8,7 @@
 
     log.level = "INFO";
 
-    certificatesResolvers.nathilcom.acme = {
+    certificatesResolvers.sergioteixeiraxyz.acme = {
       email = "sergiofpteixeira@gmail.com";
       storage = "/var/lib/traefik/acme.json";
 
@@ -64,50 +64,50 @@
     };
 
     routers.unifi = {
-      rule = "Host(`unifi.nathil.com`)";
+      rule = "Host(`unifi.sergioteixeira.xyz`)";
       service = "unifi";
       entryPoints = [ "https" ];
-      tls.domains = [{ main = "*.nathil.com"; }];
+      tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
       tls.certResolver = "nathilcom";
     };
 
     routers.codeserver = {
-      rule = "Host(`codeserver.nathil.com`)";
+      rule = "Host(`codeserver.sergioteixeira.xyz`)";
       service = "codeserver";
       entryPoints = [ "https" ];
-      tls.domains = [{ main = "*.nathil.com"; }];
+      tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
       tls.certResolver = "nathilcom";
     };
 
     routers.nomad = {
-      rule = "Host(`nomad.nathil.com`)";
+      rule = "Host(`nomad.sergioteixeira.xyz`)";
       service = "nomad";
       entryPoints = [ "https" ];
-      tls.domains = [{ main = "*.nathil.com"; }];
+      tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
       tls.certResolver = "nathilcom";
     };
 
     routers.prometheus = {
-      rule = "Host(`prometheus.nathil.com`)";
+      rule = "Host(`prometheus.sergioteixeira.xyz`)";
       service = "prometheus";
       entryPoints = [ "https" ];
-      tls.domains = [{ main = "*.nathil.com"; }];
+      tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
       tls.certResolver = "nathilcom";
     };
 
     routers.grafana = {
-      rule = "Host(`grafana.nathil.com`)";
+      rule = "Host(`grafana.sergioteixeira.xyz`)";
       service = "grafana";
       entryPoints = [ "https" ];
-      tls.domains = [{ main = "*.nathil.com"; }];
+      tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
       tls.certResolver = "nathilcom";
     };
 
     routers.dashboard = {
-      rule = "Host(`traefik.nathil.com`)";
+      rule = "Host(`traefik.sergioteixeira.xyz`)";
       service = "api@internal";
       entryPoints = [ "https" ];
-      tls.domains = [{ main = "*.nathil.com"; }];
+      tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
       tls.certResolver = "nathilcom";
     };
   };
