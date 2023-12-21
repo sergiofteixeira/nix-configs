@@ -38,8 +38,8 @@
   home.file.".config/nvim".source = pkgs.fetchFromGitHub {
     owner = "sergiofteixeira";
     repo = "nvim";
-    rev = "9b4b2c5b548d72e99730ac7f56bdd820b69353f2";
-    sha256 = "sha256-kWB6snkp0ko0TrYtJ+Skw0fY/RSrB2ftpdHvRARVLSc=";
+    rev = "a199165f12784d1937efd6f9e87d7fb951863904";
+    sha256 = "sha256-LmAybskPpdh7Q6OXhlODXzbU6CZxqB/4lZEn+HUNDd4=";
   };
 
   programs.bat.enable = true;
