@@ -9,7 +9,7 @@
     agenix.url = "github:ryantm/agenix";
     nixinate.url = "github:matthewcroughan/nixinate";
     darwin.url = "github:lnl7/nix-darwin";
-        darwin.inputs.nixpkgs.follows = "nixpkgs";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, vscode-server, home-manager, agenix, nixinate, darwin, ... }: {
@@ -78,21 +78,40 @@
     };
 
     # darwin configs
-    darwinConfigurations.m1pro = darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      pkgs = import nixpkgs { system = "aarch64-darwin"; };
-      modules = [
-        ./hosts/m1pro/darwin.nix
-        home-manager.darwinModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.steixeira.imports = [ ./hosts/m1pro/home.nix ];
-          };
-          users.users.steixeira.home = "/Users/steixeira";
-        }
-      ];
+    darwinConfigurations = {
+      m1pro = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        pkgs = import nixpkgs { system = "aarch64-darwin"; };
+        modules = [
+          ./hosts/m1pro/darwin.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.steixeira.imports = [ ./hosts/m1pro/home.nix ];
+            };
+            users.users.steixeira.home = "/Users/steixeira";
+          }
+        ];
+      };
+
+      m1work = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        pkgs = import nixpkgs { system = "aarch64-darwin"; };
+        modules = [
+          ./hosts/m1pro/darwin.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.steixeira.imports = [ ./hosts/m1work/home.nix ];
+            };
+            users.users.steixeira.home = "/Users/steixeira";
+          }
+        ];
+      };
     };
 
   };

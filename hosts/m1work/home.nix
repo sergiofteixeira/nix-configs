@@ -49,7 +49,7 @@
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
 
-  programs.exa.enable = true;
+  programs.eza.enable = true;
 
   programs.git = {
     enable = true;
@@ -72,11 +72,11 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    enableSyntaxHighlighting = true;
+    enableSyntaxHighlighting.enable = true;
     enableAutosuggestions = true;
     shellAliases = {
       ls = "ls --color=auto -F";
-      nixswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1pro";
+      nixswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1work";
       vim = "nvim";
       vi = "nvim";
       k = "kubectl";
