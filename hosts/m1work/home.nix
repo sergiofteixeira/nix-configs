@@ -72,7 +72,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    enableSyntaxHighlighting.enable = true;
+    syntaxHighlighting.enable = true;
     enableAutosuggestions = true;
     shellAliases = {
       ls = "ls --color=auto -F";
