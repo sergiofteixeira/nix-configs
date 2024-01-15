@@ -25,6 +25,7 @@
     nix-prefetch-scripts
     go
     gopls
+    neovim
     nodejs
   ];
 
@@ -38,8 +39,8 @@
   home.file.".config/nvim".source = pkgs.fetchFromGitHub {
     owner = "sergiofteixeira";
     repo = "nvim";
-    rev = "a199165f12784d1937efd6f9e87d7fb951863904";
-    sha256 = "sha256-LmAybskPpdh7Q6OXhlODXzbU6CZxqB/4lZEn+HUNDd4=";
+    rev = "f1b63467b3e5733fdb43cd6b333c11838257c0af";
+    sha256 = "sha256-4U0Nenxwc3SculPjxD4WiMU3hV4W3sYaFXQsOG2E08o=";
   };
 
   programs.bat.enable = true;
