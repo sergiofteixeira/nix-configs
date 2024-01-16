@@ -38,7 +38,8 @@
   home.file = {
     ".config/ghostty/config" = {
       text = ''
-      font-size = 20
+      font-family = MesloLGS Nerd Font Mono
+      font-size = 17
       font-feature = ss01
       font-feature = ss02
       font-feature = ss03
@@ -152,11 +153,6 @@
       gcloud.disabled = true;
       line_break.disabled = true;
     };
-  };
-
-  programs.kitty = {
-    enable = true;
-    extraConfig = builtins.readFile ./kitty.conf;
   };
 
   programs.zoxide = {
