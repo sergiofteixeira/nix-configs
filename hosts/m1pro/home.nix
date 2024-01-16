@@ -35,12 +35,41 @@
     EDITOR = "nvim";
   };
 
-  home.file.".config/nvim".recursive = true;
-  home.file.".config/nvim".source = pkgs.fetchFromGitHub {
-    owner = "sergiofteixeira";
-    repo = "nvim";
-    rev = "37ed205d17c646978d7704f134e42cc3015d3814";
-    sha256 = "sha256-pYnTTqTyJ27v+xwMe4yA9WDk/a3v6I9jjLLHn2ft34E=";
+  home.file = {
+    ".config/ghostty/config" = {
+      text = ''
+      font-size = 20
+      font-feature = ss01
+      font-feature = ss02
+      font-feature = ss03
+      font-feature = ss04
+      font-feature = ss05
+      font-feature = ss06
+      font-feature = ss07
+      font-feature = ss08
+      font-feature = liga
+      font-feature = dlig
+      font-feature = calt
+
+      adjust-cell-width = 0
+      adjust-cell-height = 0
+
+      clipboard-read = "allow"
+      clipboard-paste-protection = false
+      clipboard-trim-trailing-spaces = true
+      theme = JetBrains Darcula
+      '';
+      executable = false;
+    };
+    ".config/nvim" = {
+      recursive = true;
+      source = pkgs.fetchFromGitHub {
+        owner = "sergiofteixeira";
+        repo = "nvim";
+        rev = "37ed205d17c646978d7704f134e42cc3015d3814";
+        sha256 = "sha256-pYnTTqTyJ27v+xwMe4yA9WDk/a3v6I9jjLLHn2ft34E=";
+      };
+    };
   };
 
   programs.bat.enable = true;

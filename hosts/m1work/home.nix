@@ -37,8 +37,29 @@
 
   home.file = {
     ".config/ghostty/config" = {
-      source = "./ghostty.conf";
-      recursive = true;
+      text = ''
+      font-size = 20
+      font-feature = ss01
+      font-feature = ss02
+      font-feature = ss03
+      font-feature = ss04
+      font-feature = ss05
+      font-feature = ss06
+      font-feature = ss07
+      font-feature = ss08
+      font-feature = liga
+      font-feature = dlig
+      font-feature = calt
+
+      adjust-cell-width = 0
+      adjust-cell-height = 0
+
+      clipboard-read = "allow"
+      clipboard-paste-protection = false
+      clipboard-trim-trailing-spaces = true
+      theme = JetBrains Darcula
+      '';
+      executable = false;
     };
     ".config/nvim" = {
       recursive = true;
