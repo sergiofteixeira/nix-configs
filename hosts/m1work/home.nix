@@ -35,12 +35,20 @@
     EDITOR = "nvim";
   };
 
-  home.file.".config/nvim".recursive = true;
-  home.file.".config/nvim".source = pkgs.fetchFromGitHub {
-    owner = "sergiofteixeira";
-    repo = "nvim";
-    rev = "37ed205d17c646978d7704f134e42cc3015d3814";
-    sha256 = "sha256-pYnTTqTyJ27v+xwMe4yA9WDk/a3v6I9jjLLHn2ft34E=";
+  home.file = {
+    ".config/ghostty/config" = {
+      source = "./ghostty.conf";
+      recursive = true;
+    };
+    ".config/nvim" = {
+      recursive = true;
+      source = pkgs.fetchFromGitHub {
+        owner = "sergiofteixeira";
+        repo = "nvim";
+        rev = "37ed205d17c646978d7704f134e42cc3015d3814";
+        sha256 = "sha256-pYnTTqTyJ27v+xwMe4yA9WDk/a3v6I9jjLLHn2ft34E=";
+      };
+    };
   };
 
   programs.bat.enable = true;
