@@ -15,7 +15,6 @@
     awscli2
     nixfmt
     watch
-    #terraform
     terraform-ls
     rustup
     go
@@ -27,6 +26,10 @@
     gopls
     neovim
     nodejs
+    ruby
+    ruff
+    yq
+    python311
   ];
 
   home.sessionVariables = {
@@ -38,27 +41,37 @@
   home.file = {
     ".config/ghostty/config" = {
       text = ''
-      font-family = MesloLGS Nerd Font Mono
-      font-size = 17
-      font-feature = ss01
-      font-feature = ss02
-      font-feature = ss03
-      font-feature = ss04
-      font-feature = ss05
-      font-feature = ss06
-      font-feature = ss07
-      font-feature = ss08
-      font-feature = liga
-      font-feature = dlig
-      font-feature = calt
+        font-family = Liga SFMono Nerd Font
+        font-size = 17
+        font-feature = ss01
+        font-feature = ss02
+        font-feature = ss03
+        font-feature = ss04
+        font-feature = ss05
+        font-feature = ss06
+        font-feature = ss07
+        font-feature = ss08
+        font-feature = liga
+        font-feature = dlig
+        font-feature = calt
 
-      adjust-cell-width = 0
-      adjust-cell-height = 0
+        adjust-cell-width = 0
+        adjust-cell-height = 0
 
-      clipboard-read = "allow"
-      clipboard-paste-protection = false
-      clipboard-trim-trailing-spaces = true
-      theme = JetBrains Darcula
+        clipboard-read = "allow"
+        clipboard-paste-protection = false
+        clipboard-trim-trailing-spaces = true
+        background=#1b1e28
+        foreground=#a6accd
+        cursor-color=#ffffff
+        palette=0=#1b1e28
+        palette=1=#d0679d
+        palette=2=#5de4c7
+        palette=3=#fffac2
+        palette=4=#89ddff
+        palette=5=#fcc5e9
+        palette=6=#add7ff
+        palette=7=#ffffff
       '';
       executable = false;
     };
@@ -67,8 +80,8 @@
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "37ed205d17c646978d7704f134e42cc3015d3814";
-        sha256 = "sha256-pYnTTqTyJ27v+xwMe4yA9WDk/a3v6I9jjLLHn2ft34E=";
+        rev = "c9f0b91ae10e920721f8d36ea30a7b66126b32b6";
+        sha256 = "sha256-AlhQlaqsxf7JyRR31il96eETtBwEpRFAufnJ86UtVhc=";
       };
     };
   };
@@ -147,6 +160,7 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
+    enableFishIntegration = true;
     settings = {
       add_newline = false;
       aws.disabled = true;
@@ -157,6 +171,29 @@
 
   programs.zoxide = {
     enable = true;
+  };
+
+  programs.fish = {
+    enable = true;
+
+    shellInit = ''
+    '';
+    interactiveShellInit = ''
+    '';
+
+    shellAliases = {
+      loginprod = "aws sso login --profile prod";
+      logindev = "aws sso login --profile dev";
+      ls = "ls --color=auto -F";
+      nixswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1work";
+      vim = "nvim";
+      vi = "nvim";
+      k = "kubectl";
+      kx = "kubectx";
+      po = "kubectl get pod";
+      gc = "git checkout";
+      gs = "git status";
+    };
   };
 
 }

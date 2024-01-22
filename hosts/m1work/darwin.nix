@@ -16,6 +16,7 @@
   nix.settings.trusted-users = [ "steixeira" ];
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToEscape = true;
+  users.users.yourname.shell = pkgs.fish;
 
   system.keyboard.userKeyMapping =
     let
