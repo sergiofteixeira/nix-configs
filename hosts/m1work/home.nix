@@ -30,6 +30,9 @@
     ruff
     yq
     python311
+    python311Packages.requests
+    poetry
+    redis
   ];
 
   home.sessionVariables = {
@@ -61,17 +64,7 @@
         clipboard-read = "allow"
         clipboard-paste-protection = false
         clipboard-trim-trailing-spaces = true
-        background=#1b1e28
-        foreground=#a6accd
-        cursor-color=#ffffff
-        palette=0=#1b1e28
-        palette=1=#d0679d
-        palette=2=#5de4c7
-        palette=3=#fffac2
-        palette=4=#89ddff
-        palette=5=#fcc5e9
-        palette=6=#add7ff
-        palette=7=#ffffff
+        theme = Monokai Remastered
       '';
       executable = false;
     };
@@ -80,8 +73,8 @@
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "c9f0b91ae10e920721f8d36ea30a7b66126b32b6";
-        sha256 = "sha256-AlhQlaqsxf7JyRR31il96eETtBwEpRFAufnJ86UtVhc=";
+        rev = "8db3045125fc78173bc3f2d64a64bc4d8901be4b";
+        sha256 = "sha256-EoL+M0VKT6qne5oo+9MLmi5Bd8kuJUspYJwmR3zO0vo=";
       };
     };
   };
@@ -197,4 +190,3 @@
   };
 
 }
-

@@ -16,7 +16,7 @@
   nix.settings.trusted-users = [ "steixeira" ];
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToEscape = true;
-  users.users.yourname.shell = pkgs.fish;
+  users.users.steixeira.shell = pkgs.fish;
 
   system.keyboard.userKeyMapping =
     let
@@ -31,9 +31,6 @@
     ];
 
   security.pam.enableSudoTouchIdAuth = true;
-
-  fonts.fontDir.enable = true; # DANGER
-  fonts.fonts = [ (pkgs.nerdfonts.override { fonts = [ "Meslo" ]; }) ];
 
   services.nix-daemon.enable = true;
 
@@ -80,7 +77,7 @@
   homebrew = {
     enable = true;
     caskArgs.no_quarantine = true;
-    casks = [ "arc" "alt-tab" "betterdisplay" "1password" "visual-studio-code" "google-chrome" "slack" "raycast" "spotify" "tailscale" "firefox" "docker" "vlc" "linearmouse" ];
+    casks = [ "arc" "amethyst" "alt-tab" "betterdisplay" "1password" "visual-studio-code" "google-chrome" "slack" "raycast" "spotify" "tailscale" "firefox" "docker" "vlc" "linearmouse" ];
     brews = [ "fabianishere/personal/pam_reattach" ];
   };
 }
