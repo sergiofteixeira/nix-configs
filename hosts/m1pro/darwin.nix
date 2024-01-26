@@ -1,13 +1,13 @@
 { pkgs, ... }: {
   # here go the darwin preferences and config items
   programs.zsh.enable = true;
+  programs.fish.enable = true;
   environment = {
-    shells = with pkgs; [ bash zsh ];
-    loginShell = pkgs.zsh;
+    shells = with pkgs; [ bash zsh fish ];
     systemPackages = [ pkgs.coreutils ];
     systemPath = [ "/opt/homebrew/bin" ];
-    pathsToLink = [ "/Applications" ];
   };
+  users.users."steixeira".shell = pkgs.fish;
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
@@ -37,7 +37,7 @@
   services.nix-daemon.enable = true;
 
   networking = {
-    hostName = "tars";
+    hostName = "TARS";
   };
 
   system.defaults = {
@@ -46,7 +46,7 @@
     finder._FXShowPosixPathInTitle = true;
     finder.CreateDesktop = false;
 
-    dock.autohide = true;
+    dock.autohide = false;
     dock.autohide-delay = 1.0e-2;
     dock.autohide-time-modifier = 1.0e-2;
     dock.show-recents = false;
@@ -79,7 +79,7 @@
   homebrew = {
     enable = true;
     caskArgs.no_quarantine = true;
-    casks = [ "arc" "alt-tab" "betterdisplay" "1password" "visual-studio-code" "google-chrome" "slack" "raycast" "spotify" "tailscale" "kitty" "firefox" "docker" "vlc" "linearmouse" ];
+    casks = [ "arc" "amethyst" "alt-tab" "betterdisplay" "1password" "visual-studio-code" "google-chrome" "slack" "raycast" "spotify" "tailscale" "firefox" "docker" "vlc" "linearmouse" ];
     brews = [ "fabianishere/personal/pam_reattach" ];
   };
 }

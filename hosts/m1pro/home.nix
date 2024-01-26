@@ -27,6 +27,9 @@
     gopls
     neovim
     nodejs
+    yq
+    ruff
+    python311
   ];
 
   home.sessionVariables = {
@@ -38,26 +41,26 @@
   home.file = {
     ".config/ghostty/config" = {
       text = ''
-      font-size = 20
-      font-feature = ss01
-      font-feature = ss02
-      font-feature = ss03
-      font-feature = ss04
-      font-feature = ss05
-      font-feature = ss06
-      font-feature = ss07
-      font-feature = ss08
-      font-feature = liga
-      font-feature = dlig
-      font-feature = calt
+        font-size = 18
+        font-feature = ss01
+        font-feature = ss02
+        font-feature = ss03
+        font-feature = ss04
+        font-feature = ss05
+        font-feature = ss06
+        font-feature = ss07
+        font-feature = ss08
+        font-feature = liga
+        font-feature = dlig
+        font-feature = calt
 
-      adjust-cell-width = 0
-      adjust-cell-height = 0
+        adjust-cell-width = 0
+        adjust-cell-height = 0
 
-      clipboard-read = "allow"
-      clipboard-paste-protection = false
-      clipboard-trim-trailing-spaces = true
-      theme = JetBrains Darcula
+        clipboard-read = "allow"
+        clipboard-paste-protection = false
+        clipboard-trim-trailing-spaces = true
+        theme = JetBrains Darcula
       '';
       executable = false;
     };
@@ -66,8 +69,8 @@
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "37ed205d17c646978d7704f134e42cc3015d3814";
-        sha256 = "sha256-pYnTTqTyJ27v+xwMe4yA9WDk/a3v6I9jjLLHn2ft34E=";
+        rev = "8db3045125fc78173bc3f2d64a64bc4d8901be4b";
+        sha256 = "sha256-EoL+M0VKT6qne5oo+9MLmi5Bd8kuJUspYJwmR3zO0vo=";
       };
     };
   };
@@ -76,7 +79,7 @@
   programs.bat.config.theme = "TwoDark";
 
   programs.fzf.enable = true;
-  programs.fzf.enableZshIntegration = true;
+  programs.fzf.enableFishIntegration = true;
 
   programs.exa.enable = true;
 
@@ -98,24 +101,7 @@
     };
   };
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    enableSyntaxHighlighting = true;
-    enableAutosuggestions = true;
-    shellAliases = {
-      ls = "ls --color=auto -F";
-      nixswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1pro";
-      vim = "nvim";
-      vi = "nvim";
-      k = "kubectl";
-      kx = "kubectx";
-      po = "kubectl get pod";
-      gc = "git checkout";
-      gs = "git status";
-    };
-
-  };
+  programs.zsh.enable = true;
 
   programs.tmux = {
     enable = true;
@@ -145,7 +131,7 @@
 
   programs.starship = {
     enable = true;
-    enableZshIntegration = true;
+    enableFishIntegration = true;
     settings = {
       add_newline = false;
       aws.disabled = true;
@@ -154,13 +140,27 @@
     };
   };
 
-  programs.kitty = {
+  programs.fish = {
     enable = true;
-    extraConfig = builtins.readFile ./kitty.conf;
-  };
 
-  programs.zoxide = {
-    enable = true;
+    shellInit = ''
+    '';
+    interactiveShellInit = ''
+    '';
+
+    shellAliases = {
+      loginprod = "aws sso login --profile prod";
+      logindev = "aws sso login --profile dev";
+      ls = "ls --color=auto -F";
+      nixswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1work";
+      vim = "nvim";
+      vi = "nvim";
+      k = "kubectl";
+      kx = "kubectx";
+      po = "kubectl get pod";
+      gc = "git checkout";
+      gs = "git status";
+    };
   };
 
 }
