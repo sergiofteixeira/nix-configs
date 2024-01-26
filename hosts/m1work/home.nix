@@ -130,6 +130,7 @@
     plugins = [
       pkgs.tmuxPlugins.gruvbox
     ];
+    shell = "${pkgs.fish}/bin/fish";
     shortcut = "l";
     secureSocket = false;
 

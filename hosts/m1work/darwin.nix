@@ -2,8 +2,8 @@
   # here go the darwin preferences and config items
   programs.zsh.enable = true;
   environment = {
-    shells = with pkgs; [ bash zsh ];
-    loginShell = pkgs.zsh;
+    shells = with pkgs; [ fish ];
+    loginShell = pkgs.fish;
     systemPackages = [ pkgs.coreutils ];
     systemPath = [ "/opt/homebrew/bin" ];
     pathsToLink = [ "/Applications" ];
