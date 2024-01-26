@@ -83,7 +83,7 @@
   programs.bat.config.theme = "TwoDark";
 
   programs.fzf.enable = true;
-  programs.fzf.enableZshIntegration = true;
+  programs.fzf.enableFishIntegration = true;
 
   programs.eza.enable = true;
 
@@ -105,24 +105,24 @@
     };
   };
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-    enableAutosuggestions = true;
-    shellAliases = {
-      ls = "ls --color=auto -F";
-      nixswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1work";
-      vim = "nvim";
-      vi = "nvim";
-      k = "kubectl";
-      kx = "kubectx";
-      po = "kubectl get pod";
-      gc = "git checkout";
-      gs = "git status";
-    };
+  #programs.zsh = {
+    #enable = true;
+    #enableCompletion = true;
+    #syntaxHighlighting.enable = true;
+    #enableAutosuggestions = true;
+    #shellAliases = {
+      #ls = "ls --color=auto -F";
+      #nixswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1work";
+      #vim = "nvim";
+      #vi = "nvim";
+      #k = "kubectl";
+      #kx = "kubectx";
+      #po = "kubectl get pod";
+      #gc = "git checkout";
+      #gs = "git status";
+    #};
 
-  };
+  #};
 
   programs.tmux = {
     enable = true;
@@ -153,7 +153,6 @@
 
   programs.starship = {
     enable = true;
-    enableZshIntegration = true;
     enableFishIntegration = true;
     settings = {
       add_newline = false;

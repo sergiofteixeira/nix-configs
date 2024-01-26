@@ -1,6 +1,5 @@
 { pkgs, ... }: {
   # here go the darwin preferences and config items
-  programs.zsh.enable = true;
   environment = {
     shells = with pkgs; [ fish ];
     loginShell = pkgs.fish;
