@@ -1,11 +1,10 @@
 { pkgs, ... }: {
   # here go the darwin preferences and config items
+  programs.fish.enable = true;
   environment = {
-    shells = with pkgs; [ fish ];
-    loginShell = pkgs.fish;
+    shells = with pkgs; [ fish zsh ];
     systemPackages = [ pkgs.coreutils ];
     systemPath = [ "/opt/homebrew/bin" ];
-    pathsToLink = [ "/Applications" ];
   };
   nix.extraOptions = ''
     experimental-features = nix-command flakes

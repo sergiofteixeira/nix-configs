@@ -166,27 +166,30 @@
     enable = true;
   };
 
-  programs.fish = {
-    enable = true;
+  programs.bash.enable = true;
+  programs.zsh.enable = true;
 
-    shellInit = ''
-    '';
-    interactiveShellInit = ''
-    '';
+  #programs.fish = {
+    #enable = true;
 
-    shellAliases = {
-      loginprod = "aws sso login --profile prod";
-      logindev = "aws sso login --profile dev";
-      ls = "ls --color=auto -F";
-      nixswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1work";
-      vim = "nvim";
-      vi = "nvim";
-      k = "kubectl";
-      kx = "kubectx";
-      po = "kubectl get pod";
-      gc = "git checkout";
-      gs = "git status";
-    };
-  };
+    #shellInit = ''
+    #'';
+    #interactiveShellInit = ''
+    #'';
+
+    #shellAliases = {
+      #loginprod = "aws sso login --profile prod";
+      #logindev = "aws sso login --profile dev";
+      #ls = "ls --color=auto -F";
+      #nixswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1work";
+      #vim = "nvim";
+      #vi = "nvim";
+      #k = "kubectl";
+      #kx = "kubectx";
+      #po = "kubectl get pod";
+      #gc = "git checkout";
+      #gs = "git status";
+    #};
+  #};
 
 }
