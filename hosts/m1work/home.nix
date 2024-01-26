@@ -45,7 +45,7 @@
     ".config/ghostty/config" = {
       text = ''
         font-family = Liga SFMono Nerd Font
-        font-size = 17
+        font-size = 20
         font-feature = ss01
         font-feature = ss02
         font-feature = ss03
