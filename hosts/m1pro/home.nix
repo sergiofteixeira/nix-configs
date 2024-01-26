@@ -156,19 +156,9 @@
     };
   };
 
-  programs.kitty = {
-    enable = true;
-    extraConfig = builtins.readFile ./kitty.conf;
-  };
-
+  programs.bash.enable = true;
   programs.fish = {
     enable = true;
-
-    shellInit = ''
-    '';
-    interactiveShellInit = ''
-    '';
-
     shellAliases = {
       loginprod = "aws sso login --profile prod";
       logindev = "aws sso login --profile dev";
