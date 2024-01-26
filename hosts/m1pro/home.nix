@@ -27,9 +27,6 @@
     gopls
     neovim
     nodejs
-    yq
-    ruff
-    python311
   ];
 
   home.sessionVariables = {
@@ -41,7 +38,7 @@
   home.file = {
     ".config/ghostty/config" = {
       text = ''
-        font-size = 18
+        font-size = 20
         font-feature = ss01
         font-feature = ss02
         font-feature = ss03
@@ -79,6 +76,7 @@
   programs.bat.config.theme = "TwoDark";
 
   programs.fzf.enable = true;
+  programs.fzf.enableZshIntegration = true;
   programs.fzf.enableFishIntegration = true;
 
   programs.exa.enable = true;
@@ -101,7 +99,24 @@
     };
   };
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
+    enableAutosuggestions = true;
+    shellAliases = {
+      ls = "ls --color=auto -F";
+      nixswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1pro";
+      vim = "nvim";
+      vi = "nvim";
+      k = "kubectl";
+      kx = "kubectx";
+      po = "kubectl get pod";
+      gc = "git checkout";
+      gs = "git status";
+    };
+
+  };
 
   programs.tmux = {
     enable = true;
@@ -131,6 +146,7 @@
 
   programs.starship = {
     enable = true;
+    enableZshIntegration = true;
     enableFishIntegration = true;
     settings = {
       add_newline = false;
@@ -138,6 +154,11 @@
       gcloud.disabled = true;
       line_break.disabled = true;
     };
+  };
+
+  programs.kitty = {
+    enable = true;
+    extraConfig = builtins.readFile ./kitty.conf;
   };
 
   programs.fish = {
