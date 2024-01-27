@@ -1,5 +1,7 @@
 { pkgs, ... }: {
+
   home.stateVersion = "22.11";
+
   home.packages = with pkgs; [
     docker
     docker-compose
@@ -15,7 +17,6 @@
     awscli2
     nixfmt
     watch
-    #terraform
     terraform-ls
     rustup
     go
@@ -27,6 +28,11 @@
     gopls
     neovim
     nodejs
+    ruff
+    yq
+    python311
+    poetry
+    redis
   ];
 
   home.sessionVariables = {
@@ -36,50 +42,27 @@
   };
 
   home.file = {
+    ".config/fish/theme.fish" = {
+      source = ../../additional-files/fish/theme.fish;
+    };
     ".config/ghostty/config" = {
-      text = ''
-        font-size = 20
-        font-feature = ss01
-        font-feature = ss02
-        font-feature = ss03
-        font-feature = ss04
-        font-feature = ss05
-        font-feature = ss06
-        font-feature = ss07
-        font-feature = ss08
-        font-feature = liga
-        font-feature = dlig
-        font-feature = calt
-
-        adjust-cell-width = 0
-        adjust-cell-height = 0
-
-        clipboard-read = "allow"
-        clipboard-paste-protection = false
-        clipboard-trim-trailing-spaces = true
-        theme = JetBrains Darcula
-      '';
-      executable = false;
+      source = ../../additional-files/ghostty/config;
     };
     ".config/nvim" = {
       recursive = true;
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "8db3045125fc78173bc3f2d64a64bc4d8901be4b";
-        sha256 = "sha256-EoL+M0VKT6qne5oo+9MLmi5Bd8kuJUspYJwmR3zO0vo=";
+        rev = "a567c82d5531349fa0e1396ce2d4418007f6116e";
+        sha256 = "sha256-Ntk/ezyzwG56TIdE07pvGbhz/Yswb3pDEjB70mUPQZE=";
       };
     };
   };
 
-  programs.bat.enable = true;
-  programs.bat.config.theme = "TwoDark";
-
   programs.fzf.enable = true;
-  programs.fzf.enableZshIntegration = true;
   programs.fzf.enableFishIntegration = true;
 
-  programs.exa.enable = true;
+  programs.eza.enable = true;
 
   programs.git = {
     enable = true;
@@ -102,11 +85,11 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     enableAutosuggestions = true;
     shellAliases = {
       ls = "ls --color=auto -F";
-      nixswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1pro";
+      nixswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1work";
       vim = "nvim";
       vi = "nvim";
       k = "kubectl";
@@ -124,6 +107,7 @@
     plugins = [
       pkgs.tmuxPlugins.gruvbox
     ];
+    shell = "${pkgs.fish}/bin/fish";
     shortcut = "l";
     secureSocket = false;
 
@@ -146,7 +130,6 @@
 
   programs.starship = {
     enable = true;
-    enableZshIntegration = true;
     enableFishIntegration = true;
     settings = {
       add_newline = false;
@@ -156,9 +139,18 @@
     };
   };
 
+  programs.zoxide = {
+    enable = true;
+  };
+
   programs.bash.enable = true;
   programs.fish = {
     enable = true;
+    shellInit = ''
+      if test -e ~/.config/fish/theme.fish
+        source ~/.config/fish/theme.fish
+      end
+    '';
     shellAliases = {
       loginprod = "aws sso login --profile prod";
       logindev = "aws sso login --profile dev";
