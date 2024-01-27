@@ -33,6 +33,7 @@
     python311
     poetry
     redis
+    gh
   ];
 
   home.sessionVariables = {
