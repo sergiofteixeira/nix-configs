@@ -42,6 +42,9 @@
   };
 
   home.file = {
+    ".config/fish/theme.fish" = {
+      source = ../../fish_files/theme.fish;
+    };
     ".config/ghostty/config" = {
       text = ''
         font-family = Liga SFMono Nerd Font
@@ -64,7 +67,7 @@
         clipboard-read = "allow"
         clipboard-paste-protection = false
         clipboard-trim-trailing-spaces = true
-        theme = Monokai Remastered
+        theme = kanagawabones
       '';
       executable = false;
     };
@@ -73,8 +76,8 @@
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "8db3045125fc78173bc3f2d64a64bc4d8901be4b";
-        sha256 = "sha256-EoL+M0VKT6qne5oo+9MLmi5Bd8kuJUspYJwmR3zO0vo=";
+        rev = "a567c82d5531349fa0e1396ce2d4418007f6116e";
+        sha256 = "sha256-Ntk/ezyzwG56TIdE07pvGbhz/Yswb3pDEjB70mUPQZE=";
       };
     };
   };
@@ -169,6 +172,36 @@
   programs.bash.enable = true;
   programs.fish = {
     enable = true;
+    interactiveShellInit = ''
+      set -l foreground DCD7BA normal
+      set -l selection 2D4F67 brcyan
+      set -l comment 727169 brblack
+      set -l red C34043 red
+      set -l orange FF9E64 brred
+      set -l yellow C0A36E yellow
+      set -l green 76946A green
+      set -l purple 957FB8 magenta
+      set -l cyan 7AA89F cyan
+      set -l pink D27E99 brmagenta
+      set -g fish_color_normal $foreground
+      set -g fish_color_command $cyan
+      set -g fish_color_keyword $pink
+      set -g fish_color_quote $yellow
+      set -g fish_color_redirection $foreground
+      set -g fish_color_end $orange
+      set -g fish_color_error $red
+      set -g fish_color_param $purple
+      set -g fish_color_comment $comment
+      set -g fish_color_selection --background=$selection
+      set -g fish_color_search_match --background=$selection
+      set -g fish_color_operator $green
+      set -g fish_color_escape $pink
+      set -g fish_color_autosuggestion $comment
+      set -g fish_pager_color_progress $comment
+      set -g fish_pager_color_prefix $cyan
+      set -g fish_pager_color_completion $foreground
+      set -g fish_pager_color_description $comment
+    '';
     shellAliases = {
       loginprod = "aws sso login --profile prod";
       logindev = "aws sso login --profile dev";
