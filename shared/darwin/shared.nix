@@ -108,12 +108,12 @@
     plugins = [
       pkgs.tmuxPlugins.gruvbox
     ];
-    shell = "${pkgs.fish}/bin/fish";
     shortcut = "l";
     secureSocket = false;
 
     extraConfig = ''
       unbind C-b
+      set-option -g default-shell /run/current-system/sw/bin/fish
       set -g prefix C-t
       set -ga terminal-overrides ",*256col*:Tc"
       bind -n C-k send-keys "clear"\; send-keys "Enter"
