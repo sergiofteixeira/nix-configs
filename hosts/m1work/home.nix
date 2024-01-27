@@ -43,33 +43,10 @@
 
   home.file = {
     ".config/fish/theme.fish" = {
-      source = ../../additional-files/theme.fish;
+      source = ../../additional-files/fish/theme.fish;
     };
     ".config/ghostty/config" = {
-      text = ''
-        font-family = Liga SFMono Nerd Font
-        font-size = 20
-        font-feature = ss01
-        font-feature = ss02
-        font-feature = ss03
-        font-feature = ss04
-        font-feature = ss05
-        font-feature = ss06
-        font-feature = ss07
-        font-feature = ss08
-        font-feature = liga
-        font-feature = dlig
-        font-feature = calt
-
-        adjust-cell-width = 0
-        adjust-cell-height = 0
-
-        clipboard-read = "allow"
-        clipboard-paste-protection = false
-        clipboard-trim-trailing-spaces = true
-        theme = kanagawabones
-      '';
-      executable = false;
+      source = ../../additional-files/ghostty/config;
     };
     ".config/nvim" = {
       recursive = true;
