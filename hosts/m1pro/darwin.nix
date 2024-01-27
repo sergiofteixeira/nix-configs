@@ -44,7 +44,7 @@
 
     finder.AppleShowAllExtensions = true;
     finder._FXShowPosixPathInTitle = true;
-    finder.CreateDesktop = false;
+    finder.CreateDesktop = true;
 
     dock.autohide = false;
     dock.autohide-delay = 1.0e-2;
