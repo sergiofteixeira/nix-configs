@@ -1,9 +1,8 @@
 { pkgs, ... }: {
   # here go the darwin preferences and config items
-  programs.zsh.enable = true;
   programs.fish.enable = true;
   environment = {
-    shells = with pkgs; [ fish zsh ];
+    shells = with pkgs; [ fish ];
     systemPackages = [ pkgs.coreutils ];
     systemPath = [ "/opt/homebrew/bin" ];
   };
@@ -15,7 +14,7 @@
   nix.settings.trusted-users = [ "steixeira" ];
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToEscape = true;
-  users.users."steixeira".shell = pkgs.fish;
+  users.users.steixeira.shell = pkgs.fish;
 
   system.keyboard.userKeyMapping =
     let

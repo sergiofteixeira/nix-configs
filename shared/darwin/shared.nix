@@ -83,25 +83,6 @@
     };
   };
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-    enableAutosuggestions = true;
-    shellAliases = {
-      ls = "ls --color=auto -F";
-      nixswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1work";
-      vim = "nvim";
-      vi = "nvim";
-      k = "kubectl";
-      kx = "kubectx";
-      po = "kubectl get pod";
-      gc = "git checkout";
-      gs = "git status";
-    };
-
-  };
-
   programs.tmux = {
     enable = true;
     terminal = "xterm-256color";
