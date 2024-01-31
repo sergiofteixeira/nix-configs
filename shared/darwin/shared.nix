@@ -3,6 +3,8 @@
   home.stateVersion = "22.11";
 
   home.packages = with pkgs; [
+    meslo-lg
+    drawio
     docker
     docker-compose
     kubectl
@@ -31,9 +33,13 @@
     ruff
     yq
     python311
+    python311Packages.pip
+    python311Packages.virtualenv
     poetry
     redis
     gh
+    pulumi
+    eks-node-viewer
   ];
 
   home.sessionVariables = {
