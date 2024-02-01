@@ -41,6 +41,7 @@
     gh
     pulumi
     eks-node-viewer
+    hadolint
   ];
 
   home.sessionVariables = {

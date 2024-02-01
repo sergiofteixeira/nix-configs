@@ -42,9 +42,7 @@
     finder._FXShowPosixPathInTitle = true;
     finder.CreateDesktop = true;
 
-    dock.autohide = true;
-    dock.autohide-delay = 1.0e-2;
-    dock.autohide-time-modifier = 1.0e-2;
+    dock.autohide = false;
     dock.show-recents = false;
 
     CustomSystemPreferences = {
