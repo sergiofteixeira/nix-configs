@@ -73,9 +73,9 @@
 
   system.stateVersion = 4;
   homebrew = {
-    enable = true;
+    enable = false;
     caskArgs.no_quarantine = true;
-    casks = [ "arc" "amethyst" "alt-tab" "betterdisplay" "1password" "visual-studio-code" "google-chrome" "slack" "raycast" "spotify" "tailscale" "firefox" "docker" "vlc" "linearmouse" "zed" ];
+    casks = [ "alt-tab" "betterdisplay" "1password" "visual-studio-code" "google-chrome" "slack" "raycast" "spotify" "tailscale" "docker" "vlc" "linearmouse" "orbstack" "devutils" ];
     brews = [ "fabianishere/personal/pam_reattach" ];
   };
 }

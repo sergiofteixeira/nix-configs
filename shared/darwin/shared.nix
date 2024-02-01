@@ -35,6 +35,7 @@
     python311
     python311Packages.pip
     python311Packages.virtualenv
+    python311Packages.pydantic
     poetry
     redis
     gh
@@ -143,7 +144,8 @@
       loginprod = "aws sso login --profile prod";
       logindev = "aws sso login --profile dev";
       ls = "ls --color=auto -F";
-      nixswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1work";
+      workswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1work";
+      homeswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1pro";
       vim = "nvim";
       vi = "nvim";
       k = "kubectl";
