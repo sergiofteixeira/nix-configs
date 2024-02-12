@@ -3,6 +3,7 @@
   home.stateVersion = "22.11";
 
   home.packages = with pkgs; [
+    inter
     meslo-lg
     drawio
     docker
@@ -42,6 +43,7 @@
     pulumi
     eks-node-viewer
     hadolint
+    bun
   ];
 
   home.sessionVariables = {
@@ -62,13 +64,14 @@
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "a567c82d5531349fa0e1396ce2d4418007f6116e";
-        sha256 = "sha256-Ntk/ezyzwG56TIdE07pvGbhz/Yswb3pDEjB70mUPQZE=";
+        rev = "d9248fa9c802a42ad56c59dc9500ece979efef15";
+        sha256 = "sha256-5GQGNOVExfvqqXkoDZPjnNvkmCP73J3Zu/yUxAObMzY=";
       };
     };
   };
 
   programs.fzf.enable = true;
+  programs.direnv.enable = true;
   programs.fzf.enableFishIntegration = true;
 
   programs.eza.enable = true;
@@ -77,6 +80,10 @@
     enable = true;
     userName = "Sergio Teixeira";
     userEmail = "sergiofpteixeira@gmail.com";
+    signing = {
+      key = "/Users/steixeira/.ssh/id_ed25519";
+      signByDefault = true;
+    };
     aliases = {
       prettylog =
         "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(r) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
@@ -88,6 +95,7 @@
       init.defaultBranch = "main";
       pull.rebase = true;
       push.autoSetupRemote = true;
+      gpg.format = "ssh";
     };
   };
 
@@ -137,6 +145,7 @@
   programs.fish = {
     enable = true;
     shellInit = ''
+      direnv hook fish | source
       if test -e ~/.config/fish/theme.fish
         source ~/.config/fish/theme.fish
       end
