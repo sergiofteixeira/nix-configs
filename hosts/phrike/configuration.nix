@@ -13,6 +13,8 @@
     ./tailscale.nix
     ./node-exporter.nix
     ./containers.nix
+    ./jellyfin.nix
+    ./lidarr.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -95,8 +97,6 @@
     bazarr
     traefik
     htop
-    jellyfin
-    jellyfin-ffmpeg
     tailscale
     prometheus-node-exporter
     unifi
