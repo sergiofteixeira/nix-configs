@@ -9,7 +9,7 @@
   };
 
   services.traefik.dynamicConfigOptions.http = {
-    routers.lidar = {
+    routers.lidarr = {
       entryPoints = [ "https" ];
       rule = "Host(`lidarr.sergioteixeira.xyz`)";
       service = "lidarrr";
@@ -20,7 +20,7 @@
       };
     };
 
-    services.bazarr.loadBalancer.servers = [{ url = "http://localhost:8686"; }];
+    services.lidarr.loadBalancer.servers = [{ url = "http://localhost:8686"; }];
   };
 }
 
