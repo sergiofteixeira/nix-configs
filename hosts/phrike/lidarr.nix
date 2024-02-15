@@ -12,7 +12,7 @@
     routers.lidarr = {
       entryPoints = [ "https" ];
       rule = "Host(`lidarr.sergioteixeira.xyz`)";
-      service = "lidarrr";
+      service = "lidarr";
 
       tls = {
         certResolver = "sergioteixeiraxyz";
