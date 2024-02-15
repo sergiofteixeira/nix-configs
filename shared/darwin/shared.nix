@@ -3,6 +3,7 @@
   home.stateVersion = "22.11";
 
   home.packages = with pkgs; [
+    hubble
     inter
     meslo-lg
     drawio
@@ -64,8 +65,8 @@
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "d9248fa9c802a42ad56c59dc9500ece979efef15";
-        sha256 = "sha256-5GQGNOVExfvqqXkoDZPjnNvkmCP73J3Zu/yUxAObMzY=";
+        rev = "e3f516fad5dd2edee1d124ff8c75e845f04d5ee5";
+        sha256 = "sha256-1I4IIZasW2jUv1K0ajEMAdpwTq87R29A8eNhC3jkYOE=";
       };
     };
   };
