@@ -9,7 +9,7 @@
   };
 
   services.traefik.dynamicConfigOptions.http = {
-    routers.bazarr = {
+    routers.lidar = {
       entryPoints = [ "https" ];
       rule = "Host(`lidarr.sergioteixeira.xyz`)";
       service = "lidarrr";
