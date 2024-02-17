@@ -98,7 +98,6 @@
     LC_CTYPE = "en_US.UTF-8";
     LC_ALL = "en_US.UTF-8";
     EDITOR = "nvim";
-    PLASMA_USE_QT_SCALING = "2";
     PAGER = "less -FirSwX";
   };
 
