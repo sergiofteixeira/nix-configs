@@ -47,17 +47,17 @@
       loadBalancer.servers = [{ url = "https://localhost:8443"; }];
     };
 
-    services.prometheus = {
-      loadBalancer.servers = [{ url = "http://192.168.1.81:9090"; }];
-    };
+    #services.prometheus = {
+      #loadBalancer.servers = [{ url = "http://192.168.1.81:9090"; }];
+    #};
 
-    services.grafana = {
-      loadBalancer.servers = [{ url = "http://192.168.1.81:3000"; }];
-    };
+    #services.grafana = {
+      #loadBalancer.servers = [{ url = "http://192.168.1.81:3000"; }];
+    #};
 
-    services.nomad = {
-      loadBalancer.servers = [{ url = "http://192.168.1.81:4646"; }];
-    };
+    #services.nomad = {
+      #loadBalancer.servers = [{ url = "http://192.168.1.81:4646"; }];
+    #};
 
     routers.unifi = {
       rule = "Host(`unifi.sergioteixeira.xyz`)";
@@ -67,37 +67,29 @@
       tls.certResolver = "sergioteixeiraxyz";
     };
 
-    routers.codeserver = {
-      rule = "Host(`codeserver.sergioteixeira.xyz`)";
-      service = "codeserver";
-      entryPoints = [ "https" ];
-      tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
-      tls.certResolver = "sergioteixeiraxyz";
-    };
+    #routers.nomad = {
+      #rule = "Host(`nomad.sergioteixeira.xyz`)";
+      #service = "nomad";
+      #entryPoints = [ "https" ];
+      #tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
+      #tls.certResolver = "sergioteixeiraxyz";
+    #};
 
-    routers.nomad = {
-      rule = "Host(`nomad.sergioteixeira.xyz`)";
-      service = "nomad";
-      entryPoints = [ "https" ];
-      tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
-      tls.certResolver = "sergioteixeiraxyz";
-    };
+    #routers.prometheus = {
+      #rule = "Host(`prometheus.sergioteixeira.xyz`)";
+      #service = "prometheus";
+      #entryPoints = [ "https" ];
+      #tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
+      #tls.certResolver = "sergioteixeiraxyz";
+    #};
 
-    routers.prometheus = {
-      rule = "Host(`prometheus.sergioteixeira.xyz`)";
-      service = "prometheus";
-      entryPoints = [ "https" ];
-      tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
-      tls.certResolver = "sergioteixeiraxyz";
-    };
-
-    routers.grafana = {
-      rule = "Host(`grafana.sergioteixeira.xyz`)";
-      service = "grafana";
-      entryPoints = [ "https" ];
-      tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
-      tls.certResolver = "sergioteixeiraxyz";
-    };
+    #routers.grafana = {
+      #rule = "Host(`grafana.sergioteixeira.xyz`)";
+      #service = "grafana";
+      #entryPoints = [ "https" ];
+      #tls.domains = [{ main = "*.sergioteixeira.xyz"; }];
+      #tls.certResolver = "sergioteixeiraxyz";
+    #};
 
     routers.dashboard = {
       rule = "Host(`traefik.sergioteixeira.xyz`)";
