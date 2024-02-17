@@ -6,6 +6,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    #./sway.nix
     #../../modules/monitoring/grafana.nix
     #../../modules/monitoring/prometheus.nix
   ];
