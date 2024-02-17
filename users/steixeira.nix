@@ -38,6 +38,7 @@
 
   home.packages = with pkgs; [
     # languages
+    _1password-gui
     nodejs
     terraform-ls
     kubectx
