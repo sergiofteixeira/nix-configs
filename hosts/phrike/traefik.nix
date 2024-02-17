@@ -47,10 +47,6 @@
       loadBalancer.servers = [{ url = "https://localhost:8443"; }];
     };
 
-    services.codeserver = {
-      loadBalancer.servers = [{ url = "http://192.168.1.81:4444"; }];
-    };
-
     services.prometheus = {
       loadBalancer.servers = [{ url = "http://192.168.1.81:9090"; }];
     };

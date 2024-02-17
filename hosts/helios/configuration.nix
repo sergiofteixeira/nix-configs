@@ -6,8 +6,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../modules/monitoring/grafana.nix
-    ../../modules/monitoring/prometheus.nix
+    #../../modules/monitoring/grafana.nix
+    #../../modules/monitoring/prometheus.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -35,14 +35,11 @@
     LC_TIME = "pt_PT.UTF-8";
   };
 
-  services.code-server = {
-    enable = true;
-    host = "192.168.1.81";
-    auth = "none";
-    user = "steixeira";
-  };
-
   services.xserver = {
+    enable = true;
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
+    desktopManager.plasma5.useQtScaling = true;
     layout = "us";
     xkbVariant = "";
   };
@@ -58,7 +55,7 @@
     description = "Sergio Teixeira";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [ ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 
   users.users."steixeira".openssh.authorizedKeys.keys = [
@@ -92,7 +89,8 @@
     "--write-kubeconfig-mode 777"
   ];
   programs.zsh.enable = true;
-  
+  programs.fish.enable = true;
+
   services.nomad = {
     enable = true;
     package = pkgs.nomad_1_6;
@@ -102,6 +100,7 @@
     extraPackages = [
       pkgs.openjdk11
     ];
+
 
     enableDocker = true;
     settings = {
@@ -127,6 +126,15 @@
         enabled = true;
       };
     };
+  };
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
   };
 
   networking.firewall.enable = false;

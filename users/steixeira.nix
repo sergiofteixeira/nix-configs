@@ -21,19 +21,24 @@
     extraConfig = builtins.readFile ./configs/kitty/kitty.conf;
   };
 
-  home.file.".config/nvim".recursive = true;
-  home.file.".config/nvim".source = pkgs.fetchFromGitHub {
-    owner = "sergiofteixeira";
-    repo = "nvim";
-    rev = "9dba2a9df4def169a262e0fedc174edd1cc5a6b7";
-    sha256 = "sha256-h1bMsTzrMgKmgPO+7/aTOYlFMeedAnY4piQO3grtOHc=";
+  home.file = {
+    ".config/fish/theme.fish" = {
+      source = ../additional-files/fish/theme.fish;
+    };
+    ".config/nvim" = {
+      recursive = true;
+      source = pkgs.fetchFromGitHub {
+        owner = "sergiofteixeira";
+        repo = "nvim";
+        rev = "9dba2a9df4def169a262e0fedc174edd1cc5a6b7";
+        sha256 = "sha256-h1bMsTzrMgKmgPO+7/aTOYlFMeedAnY4piQO3grtOHc=";
+      };
+    };
   };
 
   home.packages = with pkgs; [
     # languages
     nodejs
-    nodePackages.typescript
-    terraform
     terraform-ls
     kubectx
     awscli2
@@ -48,6 +53,11 @@
     nixpkgs-fmt
     htop
     gnumake
+    python311
+    python311Packages.flake8
+    poetry
+    ruff-lsp
+    ruff
 
     neofetch
     zip
@@ -55,6 +65,7 @@
     unzip
     p7zip
     magic-wormhole
+    firefox
 
     # utils
     ripgrep # recursively searches directories for a regex pattern
@@ -87,14 +98,17 @@
     LC_CTYPE = "en_US.UTF-8";
     LC_ALL = "en_US.UTF-8";
     EDITOR = "nvim";
+    PLASMA_USE_QT_SCALING = "2";
     PAGER = "less -FirSwX";
   };
 
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
+  programs.fzf.enableFishIntegration = true;
 
   programs.starship = {
     enableZshIntegration = true;
+    enableFishIntegration = true;
     enable = true;
     settings = {
       add_newline = false;
@@ -121,6 +135,28 @@
       gs = "git status";
     };
 
+  };
+
+  programs.fish = {
+    enable = true;
+    shellInit = ''
+      if test -e ~/.config/fish/theme.fish
+        source ~/.config/fish/theme.fish
+      end
+    '';
+    shellAliases = {
+      loginprod = "aws sso login --profile prod";
+      logindev = "aws sso login --profile dev";
+      ls = "ls --color=auto -F";
+      heliosswitch = "sudo nixos-rebuild switch  --flake .#helios";
+      vim = "nvim";
+      vi = "nvim";
+      k = "kubectl";
+      kx = "kubectx";
+      po = "kubectl get pod";
+      gc = "git checkout";
+      gs = "git status";
+    };
   };
 
   programs.bash = {
