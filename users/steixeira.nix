@@ -16,6 +16,11 @@
     };
   };
 
+  programs.chromium = {
+    enable = true;
+    commandLineArgs = ["--force-device-scale-factor=1.3"];
+  };
+
   programs.kitty = {
     enable = true;
     extraConfig = builtins.readFile ./configs/kitty/kitty.conf;
@@ -37,6 +42,7 @@
   };
 
   home.packages = with pkgs; [
+    i3status
     # languages
     _1password-gui
     nodejs
@@ -216,58 +222,46 @@
       modifier = "Mod1";
       terminal = "kitty";
       fonts = {
-        names = [ "Liberation Mono" ];
+        names = [ "MesloLGS NF" ];
         style = "Regular";
-        size = 11.0;
+        size = 17.0;
       };
-      output = {
-        "Virtual-1" = {
-          mode = "1600x1200";
-
+      input = {
+        "*" = {
+          natural_scroll = "disabled";
         };
       };
       bars = [
         {
           fonts = {
-            names = [ "Liberation Mono" ];
+            names = [ "MesloLGS NF" ];
             style = "Regular";
-            size = 11.0;
+            size = 17.0;
           };
           position = "bottom";
           statusCommand = "i3status";
         }
       ];
       keybindings = {
-        #Launch stuff
         "${modifier}+Return" = "exec ${terminal}";
-        "${modifier}+Shift+b" = "exec firefox";
-        "${modifier}+Shift+Return" = "exec fuzzel";
-        "${modifier}+d" = "exec wofi --show run";
+        "${modifier}+Shift+f" = "exec firefox";
+        "${modifier}+d" = "exec bemenu-run";
 
-        # Windows
         "${modifier}+q" = "kill";
+        "${modifier}+minus" = "scratchpad show";
+        "${modifier}+c" = "exec grim  -g '$(slurp)' /tmp/$(date +'%H:%M:%S.png')
+";
 
-        # Layouts
         "${modifier}+b" = "splith";
         "${modifier}+v" = "splitv";
-
-        # Switch the current container between different layout styles
         "${modifier}+s" = "layout stacking";
         "${modifier}+w" = "layout tabbed";
         "${modifier}+e" = "layout toggle split";
-
         "${modifier}+f" = "fullscreen";
-
-        # Toggle the current focus between tiling and floating mode
         "${modifier}+Shift+space" = "floating toggle";
-
-        # Swap focus between the tiling area and the floating area
         "${modifier}+space" = "focus mode_toggle";
-
-        # Move focus to the parent container
         "${modifier}+a" = "focus parent";
 
-        # Workspaces
         "${modifier}+1" = "workspace number 1";
         "${modifier}+2" = "workspace number 2";
         "${modifier}+3" = "workspace number 3";
@@ -287,11 +281,7 @@
         "${modifier}+Shift+7" = "move container to workspace number 7";
         "${modifier}+Shift+8" = "move container to workspace number 8";
         "${modifier}+Shift+9" = "move container to workspace number 9";
-
-        # Resize
         "${modifier}+r" = "mode resize";
-
-        # Other keybindings
         "${modifier}+Shift+r" = "reload";
         "${modifier}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
       };
@@ -310,6 +300,11 @@
         };
       };
     };
+    extraConfig = ''
+      output DP-4 disable
+      exec dbus-sway-environment
+      exec configure-gtk
+    '';
   };
 
   home.stateVersion = "23.05";
