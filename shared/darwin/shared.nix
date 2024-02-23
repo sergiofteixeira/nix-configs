@@ -6,7 +6,6 @@
     hubble
     inter
     meslo-lg
-    drawio
     docker
     docker-compose
     kubectl
@@ -65,8 +64,8 @@
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "d91df5ecc7ba052946c3b993b86844204c349113";
-        sha256 = "sha256-JJ+mYTEj5XDNVxBve3I3brN8f4V9P/P8dIxVZkYY3Kc=";
+        rev = "ec2e1bf43ac467a36cc10eace8bfb6069de80c91";
+        sha256 = "sha256-dgvTb50fNaDZxpJ4Hy6BWhZs2O9IILdgTsvRQtaEKIM=";
       };
     };
   };
