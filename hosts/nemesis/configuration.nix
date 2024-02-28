@@ -17,6 +17,10 @@
   networking.hostName = "nemesis";
   networking.wireless.enable = true;
   networking.networkmanager.enable = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "steixeira" ];
+  nix.gc.automatic = true;
+  nix.gc.options = "--delete-older-than 7d";
 
   time.timeZone = "Europe/Lisbon";
 
