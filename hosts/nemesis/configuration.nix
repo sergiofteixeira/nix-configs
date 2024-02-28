@@ -4,7 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./fonts.nix
+      ../mixins/fonts.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -18,7 +18,7 @@
   networking.wireless.enable = true;
   networking.wireless.userControlled.enable = true;
   networking.wireless.networks."Quintaz Laurazz Farmzzz".pskRaw = "ef02b72e4ef4fced065234ed2ffef652fadaafaca69328b2be5c925cae5a77f3";
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = false;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "steixeira" ];
   nix.gc.automatic = true;
@@ -109,6 +109,7 @@
   ];
 
   environment.variables.XCURSOR_SIZE = "48";
+  #environment.variables.STEAM_FORCE_DESKTOPUI_SCALING = "2";
 
   nixpkgs.config.allowUnfree = true;
   programs.fish.enable = true;
@@ -119,12 +120,15 @@
     gcc
     neovim
     git
-    vimPlugins.packer-nvim
     vulkan-tools
   ];
 
+  programs.steam = {
+    enable = true;
+  };
+
 
   networking.firewall.enable = false;
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "23.11";
 
 }

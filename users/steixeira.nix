@@ -18,7 +18,7 @@
 
   programs.chromium = {
     enable = true;
-    commandLineArgs = [ "--force-device-scale-factor=2" ];
+    commandLineArgs = [ "--force-device-scale-factor=2 --force-dark-mode" ];
   };
 
   programs.kitty = {

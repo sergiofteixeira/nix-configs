@@ -4,18 +4,18 @@
 
 { pkgs, ... }: {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./fonts.nix
-    #../../modules/monitoring/grafana.nix
-    #../../modules/monitoring/prometheus.nix
+    ../mixins/fonts.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "helios";
-  networking.networkmanager.enable = true;
+  networking.wireless.enable = true;
+  networking.wireless.userControlled.enable = true;
+  networking.wireless.networks."Quintaz Laurazz Farmzzz".pskRaw = "ef02b72e4ef4fced065234ed2ffef652fadaafaca69328b2be5c925cae5a77f3";
+  networking.networkmanager.enable = false;
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
@@ -125,62 +125,19 @@
     neovim
     git
   ];
-  services.k3s.enable = false;
-  services.k3s.extraFlags = toString [
-    "--write-kubeconfig-mode 777"
-  ];
-  programs.zsh.enable = true;
+
   programs.fish.enable = true;
 
-  services.nomad = {
-    enable = true;
-    package = pkgs.nomad_1_6;
-
-    dropPrivileges = false;
-
-    extraPackages = [
-      pkgs.openjdk11
-    ];
-
-
-    enableDocker = true;
-    settings = {
-      datacenter = "helios";
-      plugin.raw_exec.config.enabled = true;
-
-
-      plugin.docker = {
-        enabled = true;
-        endpoint = "unix:///var/run/docker.sock";
-        volumes.enabled = true;
-      };
-
-      plugin.java = {
-        enabled = true;
-      };
-
-      server = {
-        enabled = true;
-        bootstrap_expect = 1; # for demo; no fault tolerance
-      };
-      client = {
-        enabled = true;
-      };
-    };
-  };
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
   };
 
   networking.firewall.enable = false;
-  networking.firewall.allowedTCPPorts = [ 80 443 9090 3000 4444 ];
 
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.05"; 
 
 }
