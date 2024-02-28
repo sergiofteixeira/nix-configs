@@ -17,6 +17,15 @@
   networking.hostName = "helios";
   networking.networkmanager.enable = true;
 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth.settings = {
+    General = {
+      Enable = "Source,Sink,Media,Socket";
+      Experimental = true;
+    };
+  };
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "steixeira" ];
   nix.gc.automatic = true;
@@ -35,6 +44,8 @@
     LC_TELEPHONE = "pt_PT.UTF-8";
     LC_TIME = "pt_PT.UTF-8";
   };
+
+  services.blueman.enable = true;
 
   services.xserver = {
     dpi = 192;
@@ -108,6 +119,7 @@
   environment.variables.XCURSOR_SIZE = "48";
 
   environment.systemPackages = with pkgs; [
+    pavucontrol
     sddm-chili-theme
     gcc
     neovim
