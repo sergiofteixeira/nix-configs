@@ -121,17 +121,6 @@
 
 
   networking.firewall.enable = false;
-  home.file = {
-    ".config/nvim" = {
-      recursive = true;
-      source = pkgs.fetchFromGitHub {
-        owner = "sergiofteixeira";
-        repo = "nvim";
-        rev = "9dba2a9df4def169a262e0fedc174edd1cc5a6b7";
-        sha256 = "sha256-h1bMsTzrMgKmgPO+7/aTOYlFMeedAnY4piQO3grtOHc=";
-      };
-    };
-  };
   system.stateVersion = "23.11"; # Did you read the comment?
 
 }
