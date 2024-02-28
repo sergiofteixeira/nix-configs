@@ -16,6 +16,8 @@
 
   networking.hostName = "nemesis";
   #networking.wireless.enable = true;
+  networking.wireless.userControlled.enable = true;
+  networking.wireless.networks."Quintaz Laurazz Farmzzz".pskRaw = "ef02b72e4ef4fced065234ed2ffef652fadaafaca69328b2be5c925cae5a77f3";
   networking.networkmanager.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "steixeira" ];
@@ -41,6 +43,7 @@
   services.xserver = {
     dpi = 192;
     enable = true;
+    videoDrivers = [ "amdgpu" ];
     displayManager = {
       sddm = {
         enable = true;
@@ -117,6 +120,7 @@
     neovim
     git
     vimPlugins.packer-nvim
+    vulkan-tools
   ];
 
 
