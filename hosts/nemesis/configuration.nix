@@ -15,7 +15,7 @@
   };
 
   networking.hostName = "nemesis";
-  networking.wireless.enable = true;
+  #networking.wireless.enable = true;
   networking.networkmanager.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "steixeira" ];
