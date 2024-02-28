@@ -40,7 +40,20 @@
     dpi = 192;
     enable = true;
     displayManager = {
-      sddm.enable = true;
+      sddm = {
+        enable = true;
+        theme = "chili";
+        settings = {
+          X11 = {
+            ServerArguments = "-dpi 192";
+            EnableHiDPI = true;
+          };
+          Theme = {
+            CursorTheme = "macOS-BigSur";
+            CursorSize = 48;
+          };
+        };
+      };
       defaultSession = "none+i3";
     };
     desktopManager = {
@@ -95,6 +108,7 @@
   environment.variables.XCURSOR_SIZE = "48";
 
   environment.systemPackages = with pkgs; [
+    sddm-chili-theme
     gcc
     neovim
     git
