@@ -21,8 +21,6 @@
 
 
         modules = [
-          vscode-server.nixosModules.default
-          ({ config, pkgs, ... }: { services.vscode-server.enable = true; })
           ./hosts/helios/configuration.nix
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
@@ -34,14 +32,24 @@
             home-manager.useUserPackages = true;
             home-manager.users.steixeira = import ./users/steixeira.nix;
           }
+        ];
+      };
+
+      nemesis = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+
+        modules = [
+          ./hosts/nemesis/configuration.nix
+          agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
           {
-            _module.args.nixinate = {
-              host = "192.168.1.81";
-              sshUser = "steixeira";
-              buildOn = "remote";
-              substituteOnTarget = true;
-              hermetic = false;
-            };
+            environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
+          }
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.steixeira = import ./users/steixeira.nix;
           }
         ];
       };
@@ -54,7 +62,6 @@
           {
             environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
           }
-          ({ config, pkgs, ... }: { services.vscode-server.enable = true; })
           ./hosts/phrike/configuration.nix
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
