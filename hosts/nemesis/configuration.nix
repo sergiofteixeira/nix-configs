@@ -15,7 +15,7 @@
   };
 
   networking.hostName = "nemesis";
-  #networking.wireless.enable = true;
+  networking.wireless.enable = true;
   networking.wireless.userControlled.enable = true;
   networking.wireless.networks."Quintaz Laurazz Farmzzz".pskRaw = "ef02b72e4ef4fced065234ed2ffef652fadaafaca69328b2be5c925cae5a77f3";
   networking.networkmanager.enable = true;
