@@ -37,15 +37,20 @@
   };
 
   services.xserver = {
+    dpi = 192;
     enable = true;
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
-    desktopManager.plasma5.useQtScaling = true;
+    displayManager = {
+      sddm.enable = true;
+      defaultSession = "none+i3";
+    };
+    desktopManager = {
+      xterm.enable = false;
+    };
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
-        dmenu 
-        i3lock 
+        dmenu
+        i3lock
       ];
     };
     layout = "us";
@@ -86,6 +91,8 @@
   nixpkgs.config.permittedInsecurePackages = [
     "nodejs-16.20.2"
   ];
+
+  environment.variables.XCURSOR_SIZE = "48";
 
   environment.systemPackages = with pkgs; [
     gcc

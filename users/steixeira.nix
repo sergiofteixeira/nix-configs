@@ -18,7 +18,7 @@
 
   programs.chromium = {
     enable = true;
-    commandLineArgs = ["--force-device-scale-factor=2"];
+    commandLineArgs = [ "--force-device-scale-factor=2" ];
   };
 
   programs.kitty = {
@@ -41,7 +41,14 @@
     };
   };
 
+  xsession.pointerCursor = {
+    name = "macOS-BigSur";
+    package = pkgs.apple-cursor;
+    size = 48;
+  };
+
   home.packages = with pkgs; [
+    lxappearance
     i3status
     # languages
     _1password-gui
