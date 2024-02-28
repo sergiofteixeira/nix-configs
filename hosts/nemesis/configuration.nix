@@ -4,7 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../mixins/fonts.nix
+      ../../mixins/fonts.nix
     ];
 
   boot.loader.systemd-boot.enable = true;

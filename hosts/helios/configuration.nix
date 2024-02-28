@@ -5,7 +5,7 @@
 { pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    ../mixins/fonts.nix
+    ../../mixins/fonts.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -138,6 +138,6 @@
 
   networking.firewall.enable = false;
 
-  system.stateVersion = "23.05"; 
+  system.stateVersion = "23.05";
 
 }
