@@ -41,6 +41,13 @@
     displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
     desktopManager.plasma5.useQtScaling = true;
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu 
+        i3lock 
+      ];
+    };
     layout = "us";
     xkbVariant = "";
   };

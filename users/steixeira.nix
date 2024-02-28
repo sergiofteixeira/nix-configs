@@ -18,7 +18,7 @@
 
   programs.chromium = {
     enable = true;
-    commandLineArgs = ["--force-device-scale-factor=1.3"];
+    commandLineArgs = ["--force-device-scale-factor=2"];
   };
 
   programs.kitty = {
@@ -98,6 +98,7 @@
     # fonts
     meslo-lgs-nf
     meslo-lg
+    go-font
   ];
 
   home.sessionVariables = {
