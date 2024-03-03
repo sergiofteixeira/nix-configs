@@ -121,6 +121,7 @@
     neovim
     git
     vulkan-tools
+    mangohud
   ];
 
   programs.steam = {

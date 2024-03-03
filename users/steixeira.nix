@@ -90,6 +90,7 @@
     fd
     wget
     curl
+    pavucontrol
 
     # misc
     file
