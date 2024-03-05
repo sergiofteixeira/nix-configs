@@ -10,7 +10,7 @@
       antialias = true;
       defaultFonts = {
         monospace = [ "Source Code Pro" ];
-        sansSerif = [ "Roboto" ];
+        sansSerif = [ "Inter" ];
         serif = [ "Roboto Slab" ];
       };
     };
@@ -19,6 +19,7 @@
       [
         terminus_font
         source-sans-pro
+        inter
         roboto
         cozette
         # https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/nerdfonts/shas.nix
