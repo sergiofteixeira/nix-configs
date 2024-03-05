@@ -12,114 +12,116 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, vscode-server, home-manager, agenix, nixinate, darwin, ... }: {
+  outputs = { self, nixpkgs, vscode-server, home-manager, agenix, nixinate
+    , darwin, ... }: {
 
-    apps = nixinate.nixinate.x86_64-linux self;
-    nixosConfigurations = {
-      helios = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      apps = nixinate.nixinate.x86_64-linux self;
+      nixosConfigurations = {
+        helios = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
 
+          modules = [
+            ./hosts/helios/configuration.nix
+            agenix.nixosModules.default
+            home-manager.nixosModules.home-manager
+            {
+              environment.systemPackages =
+                [ agenix.packages.x86_64-linux.default ];
+            }
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.steixeira = import ./users/steixeira.nix;
+            }
+          ];
+        };
 
-        modules = [
-          ./hosts/helios/configuration.nix
-          agenix.nixosModules.default
-          home-manager.nixosModules.home-manager
-          {
-            environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
-          }
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.steixeira = import ./users/steixeira.nix;
-          }
-        ];
+        nemesis = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+
+          modules = [
+            ./hosts/nemesis/configuration.nix
+            agenix.nixosModules.default
+            home-manager.nixosModules.home-manager
+            {
+              environment.systemPackages =
+                [ agenix.packages.x86_64-linux.default ];
+            }
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.steixeira = import ./users/steixeira.nix;
+            }
+          ];
+        };
+
+        phrike = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+
+          modules = [
+            vscode-server.nixosModules.default
+            {
+              environment.systemPackages =
+                [ agenix.packages.x86_64-linux.default ];
+            }
+            ./hosts/phrike/configuration.nix
+            agenix.nixosModules.default
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.steixeira = import ./users/steixeira.nix;
+            }
+            {
+              _module.args.nixinate = {
+                host = "192.168.1.80";
+                sshUser = "steixeira";
+                buildOn = "remote";
+                substituteOnTarget = true;
+                hermetic = false;
+              };
+            }
+          ];
+        };
+
       };
 
-      nemesis = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      # darwin configs
+      darwinConfigurations = {
+        m1pro = darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          pkgs = import nixpkgs { system = "aarch64-darwin"; };
+          modules = [
+            ./hosts/m1pro/darwin.nix
+            home-manager.darwinModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.steixeira.imports = [ ./shared/darwin/shared.nix ];
+              };
+              users.users.steixeira.home = "/Users/steixeira";
+            }
+          ];
+        };
 
-
-        modules = [
-          ./hosts/nemesis/configuration.nix
-          agenix.nixosModules.default
-          home-manager.nixosModules.home-manager
-          {
-            environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
-          }
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.steixeira = import ./users/steixeira.nix;
-          }
-        ];
-      };
-
-      phrike = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-
-        modules = [
-          vscode-server.nixosModules.default
-          {
-            environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
-          }
-          ./hosts/phrike/configuration.nix
-          agenix.nixosModules.default
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.steixeira = import ./users/steixeira.nix;
-          }
-          {
-            _module.args.nixinate = {
-              host = "192.168.1.80";
-              sshUser = "steixeira";
-              buildOn = "remote";
-              substituteOnTarget = true;
-              hermetic = false;
-            };
-          }
-        ];
+        m1work = darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          pkgs = import nixpkgs { system = "aarch64-darwin"; };
+          modules = [
+            ./hosts/m1work/darwin.nix
+            home-manager.darwinModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.steixeira.imports = [ ./shared/darwin/shared.nix ];
+              };
+              users.users.steixeira.home = "/Users/steixeira";
+            }
+          ];
+        };
       };
 
     };
-
-    # darwin configs
-    darwinConfigurations = {
-      m1pro = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        pkgs = import nixpkgs { system = "aarch64-darwin"; };
-        modules = [
-          ./hosts/m1pro/darwin.nix
-          home-manager.darwinModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.steixeira.imports = [ ./shared/darwin/shared.nix ];
-            };
-            users.users.steixeira.home = "/Users/steixeira";
-          }
-        ];
-      };
-
-      m1work = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        pkgs = import nixpkgs { system = "aarch64-darwin"; };
-        modules = [
-          ./hosts/m1work/darwin.nix
-          home-manager.darwinModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.steixeira.imports = [ ./shared/darwin/shared.nix ];
-            };
-            users.users.steixeira.home = "/Users/steixeira";
-          }
-        ];
-      };
-    };
-
-  };
 }

@@ -2,9 +2,12 @@
 
   home.stateVersion = "22.11";
   home.packages = with pkgs; [
+    terraform-docs
+    pre-commit
     sops
     hubble
     inter
+    go-font
     meslo-lg
     docker
     docker-compose
@@ -102,9 +105,7 @@
   programs.tmux = {
     enable = true;
     terminal = "xterm-256color";
-    plugins = [
-      pkgs.tmuxPlugins.gruvbox
-    ];
+    plugins = [ pkgs.tmuxPlugins.gruvbox ];
     shortcut = "l";
     secureSocket = false;
 
@@ -137,9 +138,7 @@
     };
   };
 
-  programs.zoxide = {
-    enable = true;
-  };
+  programs.zoxide = { enable = true; };
 
   programs.bash.enable = true;
   programs.fish = {
@@ -167,4 +166,3 @@
   };
 
 }
-
