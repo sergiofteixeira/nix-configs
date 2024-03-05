@@ -48,6 +48,7 @@
   };
 
   home.packages = with pkgs; [
+    pre-commit
     lxappearance
     i3status
     # languages
