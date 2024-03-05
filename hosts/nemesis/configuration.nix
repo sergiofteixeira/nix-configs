@@ -75,6 +75,8 @@
     xkbVariant = "";
   };
 
+  services.tailscale.enable = true;
+
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -116,6 +118,7 @@
 
 
   environment.systemPackages = with pkgs; [
+    mprime
     sddm-chili-theme
     gcc
     neovim
