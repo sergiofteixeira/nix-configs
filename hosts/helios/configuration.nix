@@ -26,6 +26,13 @@
     };
   };
 
+  # Enable Docker and set to backend (over podman default)
+  virtualisation = {
+    docker.enable = true;
+    docker.storageDriver = "overlay2";
+    oci-containers.backend = "docker";
+  };
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "steixeira" ];
   nix.gc.automatic = true;
@@ -90,7 +97,7 @@
   users.users.steixeira = {
     isNormalUser = true;
     description = "Sergio Teixeira";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [ ];
     shell = pkgs.fish;
   };

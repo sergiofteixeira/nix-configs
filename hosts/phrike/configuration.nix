@@ -51,7 +51,7 @@
   users.users.steixeira = {
     isNormalUser = true;
     description = "steixeira";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
