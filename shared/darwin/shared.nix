@@ -2,6 +2,7 @@
 
   home.stateVersion = "22.11";
   home.packages = with pkgs; [
+    gofumpt
     terraform-docs
     pre-commit
     sops
