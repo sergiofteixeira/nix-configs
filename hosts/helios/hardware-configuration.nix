@@ -31,6 +31,8 @@
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
+
+  hardware.steam-hardware.enable = true;
   
   hardware.opengl = {
     enable = true;

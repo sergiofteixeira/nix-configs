@@ -2,7 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  steam_autostart = (pkgs.makeAutostartItem { name = "steam"; package = pkgs.steam; });
+in
+{
   imports = [
     ./hardware-configuration.nix
     ../../mixins/fonts.nix
@@ -53,6 +57,7 @@
   };
 
   services.blueman.enable = true;
+  services.getty.autologinUser = "steixeira";
   services.tailscale.enable = true;
   services.tailscale.useRoutingFeatures = "both";
 
@@ -60,6 +65,10 @@
     dpi = 192;
     enable = true;
     displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "steixeira";
+      };
       sddm = {
         enable = true;
         theme = "chili";
@@ -128,6 +137,7 @@
   environment.variables.XCURSOR_SIZE = "48";
 
   environment.systemPackages = with pkgs; [
+    steam_autostart
     pavucontrol
     sddm-chili-theme
     gcc
@@ -144,6 +154,12 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
+  hardware.steam-hardware.enable = true;
 
   networking.firewall.enable = false;
 
