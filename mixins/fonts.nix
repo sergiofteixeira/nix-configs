@@ -9,26 +9,21 @@
       hinting.enable = true;
       antialias = true;
       defaultFonts = {
-        monospace = [ "Source Code Pro" ];
         sansSerif = [ "Inter" ];
+        monospace = [ "Liberation Mono" ];
+        emoji = [ "Noto Color Emoji" ];
         serif = [ "Roboto Slab" ];
       };
     };
 
     packages = with pkgs;
       [
-        terminus_font
-        source-sans-pro
+        liberation_ttf
         inter
+        jetbrains-mono
         roboto
-        cozette
-        # https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/nerdfonts/shas.nix
-        (nerdfonts.override { fonts = [ "Iosevka" "IBMPlexMono" ]; })
-
-        siji # https://github.com/stark/siji
-        ipafont # display jap symbols like シートベルツ in polybar
         noto-fonts-emoji # emoji
-        source-code-pro
+        noto-fonts
       ];
   };
 
