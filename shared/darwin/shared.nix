@@ -2,12 +2,14 @@
 
   home.stateVersion = "22.11";
   home.packages = with pkgs; [
+    gotools
     gofumpt
     terraform-docs
     pre-commit
     sops
     hubble
     inter
+    roboto-mono
     go-font
     meslo-lg
     docker
@@ -68,8 +70,8 @@
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "42bc62ba57bd6df805dc57a7640acf41ecbf559a";
-        sha256 = "sha256-XcMqDFqV3CweGw0Ytv0G5uhgsknulp4SdVHOgkrCK1k=";
+        rev = "02f0ba8cf11a9ab5c00f92baee662d46b66907f6";
+        sha256 = "sha256-YJeYbUM/sCpMmgf8ZdNwAoq1mKRHCqw8lrMIfQGbIJA=";
       };
     };
   };
