@@ -15,6 +15,7 @@
     ./containers.nix
     ./jellyfin.nix
     ./lidarr.nix
+    ./vaultwarden.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -42,6 +43,7 @@
     LC_TELEPHONE = "pt_PT.UTF-8";
     LC_TIME = "pt_PT.UTF-8";
   };
+
 
   services.xserver = {
     layout = "us";
@@ -88,6 +90,7 @@
 
   environment.systemPackages = with pkgs; [
     neovim
+    gcc
     git
     nixfmt
     plex
