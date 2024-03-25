@@ -90,7 +90,6 @@
 
   environment.systemPackages = with pkgs; [
     neovim
-    gcc
     git
     nixfmt
     plex

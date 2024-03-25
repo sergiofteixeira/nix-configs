@@ -62,6 +62,7 @@
     kubernetes-helm
     go
     rustc
+    gcc
     cargo
     tree-sitter
     nixfmt
