@@ -109,6 +109,7 @@
           system = "aarch64-darwin";
           pkgs = import nixpkgs { system = "aarch64-darwin"; };
           modules = [
+            agenix.nixosModules.default
             ./hosts/m1work/darwin.nix
             home-manager.darwinModules.home-manager
             {

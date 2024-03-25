@@ -11,6 +11,11 @@
   '';
   nixpkgs.config.allowUnfree = true;
 
+  system.activationScripts.postActivation.text = ''
+    ln -sfn /run/current-system/sw/bin/ /usr/local/bin
+    ln -sfn /run/current-system/sw/lib/ /usr/local/lib
+  '';
+
   nix.settings.trusted-users = [ "steixeira" ];
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToEscape = true;
