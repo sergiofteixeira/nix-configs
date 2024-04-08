@@ -2,6 +2,7 @@
 
   home.stateVersion = "22.11";
   home.packages = with pkgs; [
+    p7zip
     gotools
     gofumpt
     terraform-docs
@@ -50,6 +51,7 @@
     eks-node-viewer
     hadolint
     bun
+    kube-bench
   ];
 
   home.sessionVariables = {
@@ -70,8 +72,8 @@
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "02f0ba8cf11a9ab5c00f92baee662d46b66907f6";
-        sha256 = "sha256-YJeYbUM/sCpMmgf8ZdNwAoq1mKRHCqw8lrMIfQGbIJA=";
+        rev = "005bfd7a4c9822eff14c5b5bb3a2c28a20256ad4";
+        sha256 = "sha256-IPaU4x1i1zXX746IPOQCoP4PPpNTSLCLhQ/80KXhn0I=";
       };
     };
   };
@@ -108,7 +110,6 @@
   programs.tmux = {
     enable = true;
     terminal = "xterm-256color";
-    plugins = [ pkgs.tmuxPlugins.gruvbox ];
     shortcut = "l";
     secureSocket = false;
 
@@ -124,9 +125,18 @@
       set-option -sg escape-time 10
       set-option -g history-limit 50000
       set-window-option -g mode-keys vi
-      set-option -g status-position bottom
       set -g set-clipboard on
       bind -n C-n next-window
+      set-option -g status-left-length 200
+      set-option -g status-left " #{session_name}  "
+      set-option -g status-right "#(date '+%I:%M %p') "
+      set-option -g status-style "bg=default" # gruvbox dark
+      set-option -g window-status-format "#{window_index}:#{window_name}#{window_flags} " # window_name -> pane_current_command
+      set-option -g window-status-current-format "#{window_index}:#{window_name}#{window_flags} "
+      set-option -g window-status-current-style "fg=#e1a345"  #for gruvbox use: dcc7a0 or aeb6ff
+      set-option -g window-status-last-style "fg=#936a2e"
+      set-option -g window-status-activity-style none
+      set -g status-justify left
     '';
   };
 

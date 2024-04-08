@@ -98,7 +98,7 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.steixeira.imports = [ ./shared/darwin/shared.nix ];
+                users.steixeira.imports = [ ./users/steixeira.nix ];
               };
               users.users.steixeira.home = "/Users/steixeira";
             }
@@ -116,7 +116,7 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.steixeira.imports = [ ./shared/darwin/shared.nix ];
+                users.steixeira.imports = [ ./users/steixeira.nix ];
               };
               users.users.steixeira.home = "/Users/steixeira";
             }

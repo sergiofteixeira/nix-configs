@@ -5,6 +5,7 @@
     [
       ./hardware-configuration.nix
       ../../mixins/fonts.nix
+      ../../modules/linux.nix
     ];
 
   boot.loader.systemd-boot.enable = true;

@@ -2,29 +2,30 @@
 
 {
   home.username = "steixeira";
-  home.homeDirectory = "/home/steixeira";
 
   programs.git = {
     enable = true;
     userName = "Sergio Teixeira";
     userEmail = "sergiofpteixeira@gmail.com";
+    signing = {
+      key = "/Users/steixeira/.ssh/id_ed25519";
+      signByDefault = true;
+    };
+    aliases = {
+      prettylog =
+        "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(r) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
+      root = "rev-parse --show-toplevel";
+    };
     extraConfig = {
-      branch.autosetuprebase = "always";
       color.ui = true;
       github.user = "sergiofteixeira";
       init.defaultBranch = "main";
+      pull.rebase = true;
+      push.autoSetupRemote = true;
+      gpg.format = "ssh";
     };
   };
 
-  programs.chromium = {
-    enable = true;
-    commandLineArgs = [ "--force-device-scale-factor=2 --force-dark-mode" ];
-  };
-
-  programs.kitty = {
-    enable = true;
-    extraConfig = builtins.readFile ./configs/kitty/kitty.conf;
-  };
 
   home.file = {
     ".config/fish/theme.fish" = {
@@ -35,63 +36,62 @@
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "c433ff43d0f94b9d06050431f994c3b9da890c12";
-        sha256 = "sha256-nQsJ8A1dCuL97xWrJ6wCkSCR0/WYzBmv2+6Oo2byT4s=";
+        rev = "005bfd7a4c9822eff14c5b5bb3a2c28a20256ad4";
+        sha256 = "sha256-IPaU4x1i1zXX746IPOQCoP4PPpNTSLCLhQ/80KXhn0I=";
       };
     };
   };
 
-  xsession.pointerCursor = {
-    name = "macOS-BigSur";
-    package = pkgs.apple-cursor;
-    size = 48;
-  };
 
   home.packages = with pkgs; [
-    pre-commit
-    lxappearance
-    i3status
+
     # languages
-    _1password-gui
     nodejs
     terraform-ls
-    kubectx
-    awscli2
-    kubectl
-    pulumi-bin
-    kubernetes-helm
+    terraform-docs
+    sops
     go
+    gopls
+    gotools
+    gofumpt
     rustc
     cargo
     tree-sitter
     nixfmt
-    nixpkgs-fmt
-    htop
-    gnumake
     python311
-    python311Packages.flake8
     poetry
+    nil
     ruff-lsp
     ruff
+    
+    # devops
+    kubectx
+    awscli2
+    kubectl
+    kubetail
+    kubernetes-helm
+    kube-bench
+    redis
+    eks-node-viewer
+    eks-node-viewer
 
+    # utils
+    ripgrep 
+    jq 
+    yq-go 
+    eza 
+    fzf
+    fd
+    wget
+    curl
+    pre-commit
     neofetch
     zip
     xz
     unzip
-    p7zip
-    magic-wormhole
-    firefox
-
-    # utils
-    ripgrep # recursively searches directories for a regex pattern
-    jq # A lightweight and flexible command-line JSON processor
-    yq-go # yaml processer https://github.com/mikefarah/yq
-    eza # A modern replacement for ‘ls’
-    fzf # A command-line fuzzy finder
-    fd
-    wget
-    curl
-    pavucontrol
+    htop
+    gnumake
+    nix-prefetch-scripts
 
     # misc
     file
@@ -103,15 +103,11 @@
     slack
     redshift
 
-    lm_sensors # for `sensors` command
-    vimPlugins.packer-nvim
-
     # fonts
     meslo-lgs-nf
     meslo-lg
     go-font
-    nil
-    xfce.thunar
+    inter
   ];
 
   home.sessionVariables = {
@@ -119,7 +115,8 @@
     LC_CTYPE = "en_US.UTF-8";
     LC_ALL = "en_US.UTF-8";
     EDITOR = "nvim";
-    PAGER = "less -FirSwX";
+    PAGER = "less";
+    CLICLOLOR = 1;
   };
 
   programs.fzf.enable = true;
@@ -168,7 +165,9 @@
       loginprod = "aws sso login --profile prod";
       logindev = "aws sso login --profile dev";
       ls = "ls --color=auto -F";
-      heliosswitch = "sudo nixos-rebuild switch  --flake .#helios";
+      phrikeswitch = "sudo nixos-rebuild switch  --flake .#phrike";
+      workswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1work";
+      homeswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1pro";
       vim = "nvim";
       vi = "nvim";
       k = "kubectl";
@@ -182,15 +181,6 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
-    bashrcExtra = ''
-      export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
-      export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
-      if command -v fzf-share >/dev/null; then
-        source "$(fzf-share)/key-bindings.bash"
-        source "$(fzf-share)/completion.bash"
-      fi
-    '';
-
     shellAliases = {
       k = "kubectl";
       vim = "nvim";
@@ -206,9 +196,7 @@
   programs.tmux = {
     enable = true;
     terminal = "xterm-256color";
-    plugins = [
-      pkgs.tmuxPlugins.gruvbox
-    ];
+    plugins = [ pkgs.tmuxPlugins.gruvbox ];
     shortcut = "l";
     secureSocket = false;
 
@@ -229,7 +217,7 @@
     '';
   };
 
-
   home.stateVersion = "23.05";
   programs.home-manager.enable = true;
 }
+
