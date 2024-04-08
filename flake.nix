@@ -93,6 +93,8 @@
           pkgs = import nixpkgs { system = "aarch64-darwin"; };
           modules = [
             ./hosts/m1pro/darwin.nix
+            ./shared/darwin/homebrew.nix
+            ./shared/darwin/defaults.nix
             home-manager.darwinModules.home-manager
             {
               home-manager = {
@@ -111,6 +113,8 @@
           modules = [
             agenix.nixosModules.default
             ./hosts/m1work/darwin.nix
+            ./shared/darwin/homebrew.nix
+            ./shared/darwin/defaults.nix
             home-manager.darwinModules.home-manager
             {
               home-manager = {

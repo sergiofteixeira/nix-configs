@@ -26,7 +26,6 @@
     };
   };
 
-
   home.file = {
     ".config/fish/theme.fish" = {
       source = ../additional-files/fish/theme.fish;
@@ -41,7 +40,6 @@
       };
     };
   };
-
 
   home.packages = with pkgs; [
 
@@ -63,7 +61,7 @@
     nil
     ruff-lsp
     ruff
-    
+
     # devops
     kubectx
     awscli2
@@ -76,10 +74,11 @@
     eks-node-viewer
 
     # utils
-    ripgrep 
-    jq 
-    yq-go 
-    eza 
+    neovim
+    ripgrep
+    jq
+    yq-go
+    eza
     fzf
     fd
     wget
@@ -97,11 +96,7 @@
     file
     which
     tree
-    gnupg
-    btop # replacement of htop/nmon
     nix-prefetch-scripts
-    slack
-    redshift
 
     # fonts
     meslo-lgs-nf
@@ -220,4 +215,3 @@
   home.stateVersion = "23.05";
   programs.home-manager.enable = true;
 }
-
