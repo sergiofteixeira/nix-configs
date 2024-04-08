@@ -71,6 +71,7 @@
     redis
     eks-node-viewer
     eks-node-viewer
+    gh
 
     # utils
     neovim
