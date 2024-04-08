@@ -27,9 +27,8 @@
   };
 
   home.file = {
-    ".config/fish/theme.fish" = {
-      source = ../additional-files/fish/theme.fish;
-    };
+    ".config/fish/theme.fish" = { source = ./configs/fish/theme.fish; };
+    ".config/ghostty/config" = { source = ./config/ghostty/config; };
     ".config/nvim" = {
       recursive = true;
       source = pkgs.fetchFromGitHub {

@@ -92,8 +92,8 @@
           system = "aarch64-darwin";
           pkgs = import nixpkgs { system = "aarch64-darwin"; };
           modules = [
-            ./shared/darwin/homebrew.nix
-            ./shared/darwin/defaults.nix
+            ./modules/darwin/homebrew.nix
+            ./modules/darwin/defaults.nix
             home-manager.darwinModules.home-manager
             {
               home-manager = {
@@ -113,8 +113,8 @@
           pkgs = import nixpkgs { system = "aarch64-darwin"; };
           modules = [
             agenix.nixosModules.default
-            ./shared/darwin/homebrew.nix
-            ./shared/darwin/defaults.nix
+            ./modules/darwin/homebrew.nix
+            ./modules/darwin/defaults.nix
             home-manager.darwinModules.home-manager
             {
               home-manager = {
