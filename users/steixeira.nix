@@ -133,7 +133,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     enableAutosuggestions = true;
     shellAliases = {
       ls = "ls --color=auto -F";

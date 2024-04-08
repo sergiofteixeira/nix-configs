@@ -92,7 +92,6 @@
           system = "aarch64-darwin";
           pkgs = import nixpkgs { system = "aarch64-darwin"; };
           modules = [
-            ./hosts/m1pro/darwin.nix
             ./shared/darwin/homebrew.nix
             ./shared/darwin/defaults.nix
             home-manager.darwinModules.home-manager
@@ -103,6 +102,8 @@
                 users.steixeira.imports = [ ./users/steixeira.nix ];
               };
               users.users.steixeira.home = "/Users/steixeira";
+              system.stateVersion = 4;
+              networking = { hostName = "TARS"; };
             }
           ];
         };
@@ -112,7 +113,6 @@
           pkgs = import nixpkgs { system = "aarch64-darwin"; };
           modules = [
             agenix.nixosModules.default
-            ./hosts/m1work/darwin.nix
             ./shared/darwin/homebrew.nix
             ./shared/darwin/defaults.nix
             home-manager.darwinModules.home-manager
@@ -123,6 +123,8 @@
                 users.steixeira.imports = [ ./users/steixeira.nix ];
               };
               users.users.steixeira.home = "/Users/steixeira";
+              system.stateVersion = 4;
+              networking = { hostName = "CASE"; };
             }
           ];
         };
