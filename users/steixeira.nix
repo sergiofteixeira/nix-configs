@@ -73,6 +73,7 @@
     eks-node-viewer
     eks-node-viewer
     gh
+    deploy-rs
 
     # utils
     neovim
