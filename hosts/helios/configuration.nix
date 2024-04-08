@@ -4,12 +4,15 @@
 
 { pkgs, ... }:
 let
-  steam_autostart = (pkgs.makeAutostartItem { name = "steam"; package = pkgs.steam; });
-in
-{
+  steam_autostart = (pkgs.makeAutostartItem {
+    name = "steam";
+    package = pkgs.steam;
+  });
+in {
   imports = [
     ./hardware-configuration.nix
-    ../../mixins/fonts.nix
+    ../../modules/fonts.nix
+    ../../modules/linux.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -18,7 +21,8 @@ in
   networking.hostName = "helios";
   networking.wireless.enable = true;
   networking.wireless.userControlled.enable = true;
-  networking.wireless.networks."Quintaz Laurazz Farmzzz".pskRaw = "ef02b72e4ef4fced065234ed2ffef652fadaafaca69328b2be5c925cae5a77f3";
+  networking.wireless.networks."Quintaz Laurazz Farmzzz".pskRaw =
+    "ef02b72e4ef4fced065234ed2ffef652fadaafaca69328b2be5c925cae5a77f3";
   networking.networkmanager.enable = false;
 
   hardware.bluetooth.enable = true;
@@ -85,15 +89,10 @@ in
       };
       defaultSession = "none+i3";
     };
-    desktopManager = {
-      xterm.enable = false;
-    };
+    desktopManager = { xterm.enable = false; };
     windowManager.i3 = {
       enable = true;
-      extraPackages = with pkgs; [
-        dmenu
-        i3lock
-      ];
+      extraPackages = with pkgs; [ dmenu i3lock ];
     };
     layout = "us";
     xkbVariant = "";
@@ -117,22 +116,17 @@ in
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICySDx70VKoXhwoQbGGx1FpZsqWMhJxcOipc76eFztVZ"
   ];
 
-  security.sudo.extraRules = [
-    {
-      users = [ "steixeira" ];
-      commands = [
-        {
-          command = "ALL";
-          options = [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
-        }
-      ];
-    }
-  ];
+  security.sudo.extraRules = [{
+    users = [ "steixeira" ];
+    commands = [{
+      command = "ALL";
+      options =
+        [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
+    }];
+  }];
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "nodejs-16.20.2"
-  ];
+  nixpkgs.config.permittedInsecurePackages = [ "nodejs-16.20.2" ];
 
   environment.variables.XCURSOR_SIZE = "48";
 
