@@ -2,23 +2,26 @@
 
 {
   imports = [
+    ./acme.nix
+    ./bazarr.nix
+    ./containers.nix
     ./hardware-configuration.nix
-    ./traefik.nix
+    ./jellyfin.nix
+    ./nginx.nix
+    ./node-exporter.nix
+    ./plex.nix
+    ./prowlarr.nix
     ./radarr.nix
     ./sonarr.nix
-    ./prowlarr.nix
-    ./bazarr.nix
-    ./transmission.nix
-    ./plex.nix
     ./tailscale.nix
-    ./node-exporter.nix
-    ./containers.nix
-    ./jellyfin.nix
-    ./lidarr.nix
+    ./transmission.nix
     ./vaultwarden.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.settings.trusted-users = [ "steixeira" ];
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 7d";
@@ -52,7 +55,11 @@
   users.users.steixeira = {
     isNormalUser = true;
     description = "steixeira";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
@@ -61,14 +68,17 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICySDx70VKoXhwoQbGGx1FpZsqWMhJxcOipc76eFztVZ"
   ];
 
-  security.sudo.extraRules = [{
-    users = [ "steixeira" ];
-    commands = [{
-      command = "ALL";
-      options =
-        [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
-    }];
-  }];
+  security.sudo.extraRules = [
+    {
+      users = [ "steixeira" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
+        }
+      ];
+    }
+  ];
 
   programs.zsh.enable = true;
 
@@ -93,7 +103,6 @@
     sonarr
     prowlarr
     bazarr
-    traefik
     htop
     tailscale
     prometheus-node-exporter
@@ -121,8 +130,10 @@
     allowedUDPPorts = [ config.services.tailscale.port ];
 
     # allow you to SSH in over the public internet
-    allowedTCPPorts = [ 80 443 ];
+    allowedTCPPorts = [
+      80
+      443
+    ];
   };
   system.stateVersion = "23.05"; # Did you read the comment?
-
 }
