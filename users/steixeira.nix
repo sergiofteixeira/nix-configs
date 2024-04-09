@@ -12,8 +12,7 @@
       signByDefault = true;
     };
     aliases = {
-      prettylog =
-        "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(r) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
+      prettylog = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(r) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
       root = "rev-parse --show-toplevel";
     };
     extraConfig = {
@@ -27,15 +26,19 @@
   };
 
   home.file = {
-    ".config/fish/theme.fish" = { source = ./configs/fish/theme.fish; };
-    ".config/ghostty/config" = { source = ./configs/ghostty/config; };
+    ".config/fish/theme.fish" = {
+      source = ./configs/fish/theme.fish;
+    };
+    ".config/ghostty/config" = {
+      source = ./configs/ghostty/config;
+    };
     ".config/nvim" = {
       recursive = true;
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "005bfd7a4c9822eff14c5b5bb3a2c28a20256ad4";
-        sha256 = "sha256-IPaU4x1i1zXX746IPOQCoP4PPpNTSLCLhQ/80KXhn0I=";
+        rev = "d6c037b636ff85529708177a99dbe4bc59a31a9b";
+        sha256 = "sha256-1ldOnPlBwgHxG7WZoqJfOL7MzjkM9HNrwAWreQr5QNU=";
       };
     };
   };
@@ -148,7 +151,6 @@
       gc = "git checkout";
       gs = "git status";
     };
-
   };
 
   programs.fish = {

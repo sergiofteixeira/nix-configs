@@ -12,8 +12,18 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, vscode-server, home-manager, agenix, nixinate
-    , darwin, ... }: {
+  outputs =
+    {
+      self,
+      nixpkgs,
+      vscode-server,
+      home-manager,
+      agenix,
+      nixinate,
+      darwin,
+      ...
+    }:
+    {
 
       apps = nixinate.nixinate.x86_64-linux self;
       nixosConfigurations = {
@@ -24,10 +34,7 @@
             ./hosts/helios/configuration.nix
             agenix.nixosModules.default
             home-manager.nixosModules.home-manager
-            {
-              environment.systemPackages =
-                [ agenix.packages.x86_64-linux.default ];
-            }
+            { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -43,10 +50,7 @@
             ./hosts/nemesis/configuration.nix
             agenix.nixosModules.default
             home-manager.nixosModules.home-manager
-            {
-              environment.systemPackages =
-                [ agenix.packages.x86_64-linux.default ];
-            }
+            { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -60,10 +64,7 @@
 
           modules = [
             vscode-server.nixosModules.default
-            {
-              environment.systemPackages =
-                [ agenix.packages.x86_64-linux.default ];
-            }
+            { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
             ./hosts/phrike/configuration.nix
             agenix.nixosModules.default
             home-manager.nixosModules.home-manager
@@ -83,7 +84,6 @@
             }
           ];
         };
-
       };
 
       # darwin configs
@@ -103,7 +103,9 @@
               };
               users.users.steixeira.home = "/Users/steixeira";
               system.stateVersion = 4;
-              networking = { hostName = "TARS"; };
+              networking = {
+                hostName = "TARS";
+              };
             }
           ];
         };
@@ -124,11 +126,12 @@
               };
               users.users.steixeira.home = "/Users/steixeira";
               system.stateVersion = 4;
-              networking = { hostName = "CASE"; };
+              networking = {
+                hostName = "CASE";
+              };
             }
           ];
         };
       };
-
     };
 }
