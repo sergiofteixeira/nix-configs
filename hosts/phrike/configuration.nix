@@ -3,7 +3,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/linux.nix
     ./traefik.nix
     ./radarr.nix
     ./sonarr.nix
@@ -45,7 +44,6 @@
     LC_TIME = "pt_PT.UTF-8";
   };
 
-
   services.xserver = {
     layout = "us";
     xkbVariant = "";
@@ -63,17 +61,14 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICySDx70VKoXhwoQbGGx1FpZsqWMhJxcOipc76eFztVZ"
   ];
 
-  security.sudo.extraRules = [
-    {
-      users = [ "steixeira" ];
-      commands = [
-        {
-          command = "ALL";
-          options = [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
-        }
-      ];
-    }
-  ];
+  security.sudo.extraRules = [{
+    users = [ "steixeira" ];
+    commands = [{
+      command = "ALL";
+      options =
+        [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
+    }];
+  }];
 
   programs.zsh.enable = true;
 

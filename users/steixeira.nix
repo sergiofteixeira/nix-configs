@@ -55,7 +55,7 @@
     gcc
     cargo
     tree-sitter
-    nixfmt
+    nixfmt-rfc-style
     python311
     poetry
     nil

@@ -4,7 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/fonts.nix
-    ../../modules/linux.nix
+    ../../modules/linux-desktop-options.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

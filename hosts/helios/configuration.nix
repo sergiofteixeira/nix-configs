@@ -9,11 +9,7 @@ let
     package = pkgs.steam;
   });
 in {
-  imports = [
-    ./hardware-configuration.nix
-    ../../modules/fonts.nix
-    ../../modules/linux.nix
-  ];
+  imports = [ ./hardware-configuration.nix ../../modules/fonts.nix ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
