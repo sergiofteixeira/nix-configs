@@ -8,7 +8,7 @@
     userName = "Sergio Teixeira";
     userEmail = "sergiofpteixeira@gmail.com";
     signing = {
-      key = "/Users/steixeira/.ssh/id_ed25519";
+      key = "~/.ssh/id_ed25519";
       signByDefault = true;
     };
     aliases = {

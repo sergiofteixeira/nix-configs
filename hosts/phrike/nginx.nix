@@ -1,4 +1,7 @@
 { config, ... }:
+let
+  acmeHost = "sergioteixeira.xyz";
+in
 {
   services.nginx = {
     enable = true;
@@ -9,7 +12,7 @@
 
     virtualHosts = {
       "unifi.sergioteixeira.xyz" = {
-        useACMEHost = "*.sergioteixeira.xyz";
+        useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
           proxyPass = "https://localhost:8443";
@@ -17,7 +20,7 @@
         };
       };
       "bazarr.sergioteixeira.xyz" = {
-        useACMEHost = "*.sergioteixeira.xyz";
+        useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
           proxyPass = "http://localhost:${toString config.services.bazarr.listenPort}";
@@ -25,7 +28,7 @@
         };
       };
       "jellyfin.sergioteixeira.xyz" = {
-        useACMEHost = "*.sergioteixeira.xyz";
+        useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
           proxyPass = "http://localhost:8096";
@@ -33,7 +36,7 @@
         };
       };
       "plex.sergioteixeira.xyz" = {
-        useACMEHost = "*.sergioteixeira.xyz";
+        useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
           proxyPass = "http://localhost:32400";
@@ -41,7 +44,7 @@
         };
       };
       "prowlar.sergioteixeira.xyz" = {
-        useACMEHost = "*.sergioteixeira.xyz";
+        useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
           proxyPass = "http://localhost:9696";
@@ -49,7 +52,7 @@
         };
       };
       "radar.sergioteixeira.xyz" = {
-        useACMEHost = "*.sergioteixeira.xyz";
+        useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
           proxyPass = "http://localhost:7878";
@@ -57,7 +60,7 @@
         };
       };
       "sonar.sergioteixeira.xyz" = {
-        useACMEHost = "*.sergioteixeira.xyz";
+        useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
           proxyPass = "http://localhost:8989";
@@ -65,7 +68,7 @@
         };
       };
       "downloader.sergioteixeira.xyz" = {
-        useACMEHost = "*.sergioteixeira.xyz";
+        useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
           proxyPass = "http://localhost:9091";
@@ -73,7 +76,7 @@
         };
       };
       "vault.sergioteixeira.xyz" = {
-        useACMEHost = "*.sergioteixeira.xyz";
+        useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
           proxyPass = "http://localhost:8000";
