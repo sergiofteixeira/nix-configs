@@ -136,7 +136,7 @@
     enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     shellAliases = {
       ls = "ls --color=auto -F";
       nixswitch = "darwin-rebuild switch --flake ~/nix-configs/.#m1pro";
