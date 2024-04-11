@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    vscode-server.url = "github:nix-community/nixos-vscode-server";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     agenix.url = "github:ryantm/agenix";
@@ -16,7 +15,6 @@
     {
       self,
       nixpkgs,
-      vscode-server,
       home-manager,
       agenix,
       nixinate,
@@ -63,7 +61,6 @@
           system = "x86_64-linux";
 
           modules = [
-            vscode-server.nixosModules.default
             { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
             ./hosts/phrike/configuration.nix
             agenix.nixosModules.default
