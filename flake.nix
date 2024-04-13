@@ -52,6 +52,7 @@
 
           modules = [
             ./hosts/ixion/configuration.nix
+            disko.nixosModules.disko
             agenix.nixosModules.default
             home-manager.nixosModules.home-manager
             { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }

@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./disko.nix
     ../../modules/fonts.nix
     ../../modules/linux-desktop-options.nix
   ];
