@@ -1,15 +1,10 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { pkgs, ... }:
-let
-  steam_autostart = (pkgs.makeAutostartItem {
-    name = "steam";
-    package = pkgs.steam;
-  });
-in {
-  imports = [ ./hardware-configuration.nix ../../modules/fonts.nix ];
+{
+  imports = [
+    ./hardware-configuration.nix
+    ./disko.nix
+    ../../modules/fonts.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -17,8 +12,7 @@ in {
   networking.hostName = "helios";
   networking.wireless.enable = true;
   networking.wireless.userControlled.enable = true;
-  networking.wireless.networks."Quintaz Laurazz Farmzzz".pskRaw =
-    "ef02b72e4ef4fced065234ed2ffef652fadaafaca69328b2be5c925cae5a77f3";
+  networking.wireless.networks."Quintaz Laurazz Farmzzz".pskRaw = "ef02b72e4ef4fced065234ed2ffef652fadaafaca69328b2be5c925cae5a77f3";
   networking.networkmanager.enable = false;
 
   hardware.bluetooth.enable = true;
@@ -37,7 +31,10 @@ in {
     oci-containers.backend = "docker";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.settings.trusted-users = [ "steixeira" ];
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 7d";
@@ -85,10 +82,15 @@ in {
       };
       defaultSession = "none+i3";
     };
-    desktopManager = { xterm.enable = false; };
+    desktopManager = {
+      xterm.enable = false;
+    };
     windowManager.i3 = {
       enable = true;
-      extraPackages = with pkgs; [ dmenu i3lock ];
+      extraPackages = with pkgs; [
+        dmenu
+        i3lock
+      ];
     };
     layout = "us";
     xkbVariant = "";
@@ -103,7 +105,11 @@ in {
   users.users.steixeira = {
     isNormalUser = true;
     description = "Sergio Teixeira";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     packages = with pkgs; [ ];
     shell = pkgs.fish;
   };
@@ -112,14 +118,17 @@ in {
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICySDx70VKoXhwoQbGGx1FpZsqWMhJxcOipc76eFztVZ"
   ];
 
-  security.sudo.extraRules = [{
-    users = [ "steixeira" ];
-    commands = [{
-      command = "ALL";
-      options =
-        [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
-    }];
-  }];
+  security.sudo.extraRules = [
+    {
+      users = [ "steixeira" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
+        }
+      ];
+    }
+  ];
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [ "nodejs-16.20.2" ];
@@ -127,7 +136,6 @@ in {
   environment.variables.XCURSOR_SIZE = "48";
 
   environment.systemPackages = with pkgs; [
-    steam_autostart
     pavucontrol
     sddm-chili-theme
     gcc
@@ -145,14 +153,7 @@ in {
     pulse.enable = true;
   };
 
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
-  };
-  hardware.steam-hardware.enable = true;
-
   networking.firewall.enable = false;
 
   system.stateVersion = "23.05";
-
 }
