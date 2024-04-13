@@ -74,8 +74,8 @@
         i3lock
       ];
     };
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
+    xkb.variant = "";
   };
 
   services.tailscale.enable = true;

@@ -13,7 +13,7 @@
     extraConfig = builtins.readFile ./configs/kitty/kitty.conf;
   };
 
-  xsession.pointerCursor = {
+  home.pointerCursor = {
     name = "macOS-BigSur";
     package = pkgs.apple-cursor;
     size = 48;
