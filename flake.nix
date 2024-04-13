@@ -9,6 +9,8 @@
     nixinate.url = "github:matthewcroughan/nixinate";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+    inputs.disko.url = "github:nix-community/disko";
+    inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -19,6 +21,7 @@
       agenix,
       nixinate,
       darwin,
+      disko,
       ...
     }:
     {
@@ -29,6 +32,7 @@
           system = "x86_64-linux";
 
           modules = [
+            disko.nixosModules.disko
             ./hosts/helios/configuration.nix
             agenix.nixosModules.default
             home-manager.nixosModules.home-manager
