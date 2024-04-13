@@ -9,8 +9,10 @@
     nixinate.url = "github:matthewcroughan/nixinate";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-    inputs.disko.url = "github:nix-community/disko";
-    inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
+    disko = {
+      url = "github:nix-community/disko";
+    };
+    disko.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
