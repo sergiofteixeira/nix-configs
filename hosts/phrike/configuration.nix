@@ -97,7 +97,7 @@
   environment.systemPackages = with pkgs; [
     neovim
     git
-    nixfmt
+    nixfmt-rfc-style
     plex
     radarr
     sonarr
