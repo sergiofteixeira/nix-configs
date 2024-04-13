@@ -62,10 +62,6 @@
     dpi = 192;
     enable = true;
     displayManager = {
-      autoLogin = {
-        enable = true;
-        user = "steixeira";
-      };
       sddm = {
         enable = true;
         theme = "chili";

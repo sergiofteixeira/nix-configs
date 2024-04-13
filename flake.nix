@@ -47,11 +47,11 @@
           ];
         };
 
-        nemesis = nixpkgs.lib.nixosSystem {
+        ixion = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
           modules = [
-            ./hosts/nemesis/configuration.nix
+            ./hosts/ixion/configuration.nix
             agenix.nixosModules.default
             home-manager.nixosModules.home-manager
             { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
