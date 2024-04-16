@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./disko.nix
+    ./i3.nix
     ../../modules/fonts.nix
   ];
 
@@ -41,41 +42,6 @@
     LC_PAPER = "pt_PT.UTF-8";
     LC_TELEPHONE = "pt_PT.UTF-8";
     LC_TIME = "pt_PT.UTF-8";
-  };
-
-  services.xserver = {
-    dpi = 192;
-    enable = true;
-    videoDrivers = [ "amdgpu" ];
-    displayManager = {
-      sddm = {
-        enable = true;
-        theme = "chili";
-        settings = {
-          X11 = {
-            ServerArguments = "-dpi 192";
-            EnableHiDPI = true;
-          };
-          Theme = {
-            CursorTheme = "macOS-BigSur";
-            CursorSize = 48;
-          };
-        };
-      };
-      defaultSession = "none+i3";
-    };
-    desktopManager = {
-      xterm.enable = false;
-    };
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        dmenu
-        i3lock
-      ];
-    };
-    xkb.layout = "us";
-    xkb.variant = "";
   };
 
   services.tailscale.enable = true;

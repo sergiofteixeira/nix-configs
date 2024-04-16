@@ -1,23 +1,39 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+
+let
+  isLinux = pkgs.stdenv.isLinux;
+in
 
 {
   home.username = "steixeira";
 
-  programs.chromium = {
-    enable = true;
-    commandLineArgs = [ "--force-device-scale-factor=2 --force-dark-mode" ];
-  };
+  programs.chromium =
+    if isLinux then
+      {
+        enable = lib.mkIf pkgs.stdenv.isLinux;
+        commandLineArgs = [ "--force-device-scale-factor=2 --force-dark-mode" ];
+      }
+    else
+      { enable = false; };
 
-  programs.kitty = {
-    enable = true;
-    extraConfig = builtins.readFile ./configs/kitty/kitty.conf;
-  };
+  programs.kitty =
+    if isLinux then
+      {
+        enable = true;
+        extraConfig = builtins.readFile ./configs/kitty/kitty.conf;
+      }
+    else
+      { enable = false; };
 
-  home.pointerCursor = {
-    name = "macOS-BigSur";
-    package = pkgs.apple-cursor;
-    size = 48;
-  };
+  home.pointerCursor =
+    if isLinux then
+      {
+        name = "macOS-BigSur";
+        package = pkgs.apple-cursor;
+        size = 48;
+      }
+    else
+      { inherit (pkgs.null) null; };
 
   programs.git = {
     enable = true;
