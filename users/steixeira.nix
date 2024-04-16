@@ -25,15 +25,11 @@ in
     else
       { enable = false; };
 
-  home.pointerCursor =
-    if isLinux then
-      {
-        name = "macOS-BigSur";
-        package = pkgs.apple-cursor;
-        size = 48;
-      }
-    else
-      { inherit (pkgs.null) null; };
+  home.pointerCursor = lib.mkIf (isLinux) {
+    name = "macOS-BigSur";
+    package = pkgs.apple-cursor;
+    size = 48;
+  };
 
   programs.git = {
     enable = true;
