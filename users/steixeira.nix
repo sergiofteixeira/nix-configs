@@ -54,6 +54,7 @@ in
   };
 
   home.file = {
+    ".config/i3/config" = lib.mkIf (isLinux) { source = ./configs/i3/config; };
     ".config/fish/theme.fish" = {
       source = ./configs/fish/theme.fish;
     };

@@ -27,7 +27,9 @@
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
+        clipmenu
         dmenu
+        i3status
         i3lock
       ];
     };
