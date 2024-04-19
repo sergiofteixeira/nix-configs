@@ -7,10 +7,12 @@ in
 {
   home.username = "steixeira";
 
+  fonts.fontconfig.enable = true;
+
   programs.chromium =
     if isLinux then
       {
-        enable = lib.mkIf pkgs.stdenv.isLinux;
+        enable = true;
         commandLineArgs = [ "--force-device-scale-factor=2 --force-dark-mode" ];
       }
     else
@@ -106,6 +108,7 @@ in
     eks-node-viewer
     gh
     deploy-rs
+    nh
 
     # utils
     neovim

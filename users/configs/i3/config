@@ -2,10 +2,11 @@ set $mod Mod1
 
 font pango:monospace 12
 focus_on_window_activation focus
-workspace_layout tabbed
+#workspace_layout tabbed
 
 exec --no-startup-id nm-applet
-exec_always --no-startup-id exec clipmenud
+exec --no-startup-id exec redshift -O 4500
+exec_always for id in $(xinput list | grep "pointer" | cut -d '=' -f 2 | cut -f 1); do xinput --set-prop $id 'libinput Accel Profile Enabled' 0, 1; done
 
 bindsym $mod+Tab workspace back_and_forth
 
@@ -79,8 +80,8 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:"
-set $ws2 "2:"
+set $ws1 "1"
+set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"

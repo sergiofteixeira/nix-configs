@@ -1,32 +1,29 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   fonts = {
-    enableDefaultPackages = true;
-    fontDir.enable = true; # ls /run/current-system/sw/share/X11/fonts/
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      font-awesome
+      source-han-sans
+      source-han-sans-japanese
+      source-han-serif-japanese
+      (nerdfonts.override { fonts = [ "Meslo" ]; })
+    ];
     fontconfig = {
       enable = true;
-      cache32Bit = true;
-      hinting.enable = true;
-      antialias = true;
       defaultFonts = {
-        sansSerif = [ "Inter" ];
-        monospace = [ "Liberation Mono" ];
-        emoji = [ "Noto Color Emoji" ];
-        serif = [ "Roboto Slab" ];
+        monospace = [ "Meslo LG M Regular Nerd Font Complete Mono" ];
+        serif = [
+          "Noto Serif"
+          "Source Han Serif"
+        ];
+        sansSerif = [
+          "Noto Sans"
+          "Source Han Sans"
+        ];
       };
     };
-
-    packages = with pkgs;
-      [
-        liberation_ttf
-        inter
-        jetbrains-mono
-        roboto
-        noto-fonts-emoji # emoji
-        noto-fonts
-      ];
   };
-
-  environment.systemPackages = with pkgs;[ font-manager ];
 }
-

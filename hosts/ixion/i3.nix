@@ -27,13 +27,18 @@
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
+        firefox
         clipmenu
         dmenu
         i3status
         i3lock
+        redshift
+        xfce.thunar
+        bitwarden-desktop
       ];
     };
     xkb.layout = "us";
     xkb.variant = "";
   };
+  services.clipmenu.enable = true;
 }
