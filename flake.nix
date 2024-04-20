@@ -54,6 +54,7 @@
         ixion = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
+          overlays = import ./overlays;
           modules = [
             ./hosts/ixion/configuration.nix
             disko.nixosModules.disko

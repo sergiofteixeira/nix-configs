@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   fonts = {
     enableDefaultPackages = false;
@@ -38,7 +38,6 @@
       dejavu_fonts
       hack-font
       inter
-      inputs.self.packages.${pkgs.system}.sf-mono
       #noto-fonts
       #noto-fonts-cjk
       #noto-fonts-emoji
