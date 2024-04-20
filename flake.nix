@@ -29,7 +29,7 @@
       darwin,
       disko,
       ...
-    }:
+    }@inputs:
     {
 
       apps = nixinate.nixinate.x86_64-linux self;
@@ -54,7 +54,7 @@
         ixion = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
-          overlays = import ./overlays;
+          overlays = import ./overlays { inherit inputs; };
           modules = [
             ./hosts/ixion/configuration.nix
             disko.nixosModules.disko
