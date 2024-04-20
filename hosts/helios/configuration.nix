@@ -129,7 +129,10 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [ "nodejs-16.20.2" ];
 
-  environment.variables.XCURSOR_SIZE = "48";
+  environment.variables = {
+    XCURSOR_SIZE = "48";
+    FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0";
+  };
 
   environment.systemPackages = with pkgs; [
     pavucontrol

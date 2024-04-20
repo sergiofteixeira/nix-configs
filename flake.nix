@@ -13,6 +13,10 @@
       url = "github:nix-community/disko";
     };
     disko.inputs.nixpkgs.follows = "nixpkgs";
+    sf-mono-liga = {
+      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
+      flake = false;
+    };
   };
 
   outputs =

@@ -35,6 +35,7 @@
         redshift
         xfce.thunar
         bitwarden-desktop
+        lxappearance
       ];
     };
     xkb.layout = "us";

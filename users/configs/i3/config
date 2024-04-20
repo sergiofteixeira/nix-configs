@@ -21,7 +21,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+q kill
 
 # open clipboard manager
-bindsym $mod+i exec clipmenu
+bindsym $mod+i exec clipmenu -fn monospace:size=16
 bindsym $mod+p exec 1password
 
 
