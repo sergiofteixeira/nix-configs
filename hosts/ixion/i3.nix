@@ -36,6 +36,7 @@
         xfce.thunar
         bitwarden-desktop
         lxappearance
+        xclip
       ];
     };
     xkb.layout = "us";
