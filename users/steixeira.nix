@@ -63,6 +63,10 @@ in
     ".config/ghostty/config" = {
       source = ./configs/ghostty/config;
     };
+    };
+    "monument_valley.jpg" = {
+      source = ./wallpapers/monument_valley.jpg;
+    };
     ".config/nvim" = {
       recursive = true;
       source = pkgs.fetchFromGitHub {
