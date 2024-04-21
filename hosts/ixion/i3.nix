@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   services.xserver = {
     dpi = 192;
@@ -19,10 +24,12 @@
           };
         };
       };
-      defaultSession = "none+i3";
+      defaultSession = "gnome";
+      #defaultSession = "none+i3";
     };
     desktopManager = {
       xterm.enable = false;
+      gnome.enable = true;
     };
     windowManager.i3 = {
       enable = true;
