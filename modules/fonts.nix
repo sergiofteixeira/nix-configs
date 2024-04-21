@@ -9,8 +9,7 @@
       antialias = true;
 
       defaultFonts = {
-        monospace = [ "DejaVu Sans Mono" ];
-        #sansSerif = [ "Inter" ];
+        monospace = [ "Liga SFMono Nerd Font" ];
         sansSerif = [ "Tex Gyre Heros" ];
         serif = [ "Libertinus Serif" ];
       };
@@ -38,6 +37,7 @@
       dejavu_fonts
       hack-font
       inter
+      sf-mono-liga-bin
       #noto-fonts
       #noto-fonts-cjk
       #noto-fonts-emoji

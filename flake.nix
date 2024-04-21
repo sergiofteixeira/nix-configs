@@ -13,10 +13,7 @@
       url = "github:nix-community/disko";
     };
     disko.inputs.nixpkgs.follows = "nixpkgs";
-    sf-mono-liga = {
-      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
-      flake = false;
-    };
+    nixpkgs-s2k.url = "github:shaunsingh/nixpkgs-s2k";
   };
 
   outputs =
@@ -28,12 +25,12 @@
       nixinate,
       darwin,
       disko,
+      nixpkgs-s2k,
       ...
-    }@inputs:
+    }:
     {
 
       apps = nixinate.nixinate.x86_64-linux self;
-      overlays = import ./derivations { inherit inputs; };
       nixosConfigurations = {
         helios = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -57,6 +54,7 @@
 
           modules = [
             ./hosts/ixion/configuration.nix
+            { nixpkgs.overlays = [ nixpkgs-s2k.overlay ]; }
             disko.nixosModules.disko
             agenix.nixosModules.default
             home-manager.nixosModules.home-manager

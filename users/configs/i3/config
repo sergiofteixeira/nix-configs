@@ -5,7 +5,7 @@ focus_on_window_activation focus
 #workspace_layout tabbed
 
 exec --no-startup-id nm-applet
-exec --no-startup-id exec redshift -O 4500
+exec --no-startup-id exec redshift -O 4200
 exec_always for id in $(xinput list | grep "pointer" | cut -d '=' -f 2 | cut -f 1); do xinput --set-prop $id 'libinput Accel Profile Enabled' 0, 1; done
 
 bindsym $mod+Tab workspace back_and_forth
