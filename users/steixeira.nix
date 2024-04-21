@@ -63,8 +63,7 @@ in
     ".config/ghostty/config" = {
       source = ./configs/ghostty/config;
     };
-    };
-    "monument_valley.jpg" = {
+    "walls/monument_valley.jpg" = {
       source = ./wallpapers/monument_valley.jpg;
     };
     ".config/nvim" = {
