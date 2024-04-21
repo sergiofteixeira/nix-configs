@@ -54,12 +54,7 @@
 
           modules = [
             ./hosts/ixion/configuration.nix
-            {
-              nixpkgs.overlays = [
-                nixpkgs-s2k.overlay
-                (import ./overlays/gnome.nix)
-              ];
-            }
+            { nixpkgs.overlays = [ nixpkgs-s2k.overlay ]; }
             disko.nixosModules.disko
             agenix.nixosModules.default
             home-manager.nixosModules.home-manager
