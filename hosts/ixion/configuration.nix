@@ -91,14 +91,18 @@
   programs.fish.enable = true;
 
   environment.systemPackages = with pkgs; [
-    sunshine
-    mprime
-    sddm-chili-theme
     gcc
     neovim
     git
     vulkan-tools
     mangohud
+    firefox
+    bitwarden-desktop
+    gnome-randr
+    gnome.gnome-tweaks
+    gnome.gnome-shell-extensions
+    gnomeExtensions.user-themes
+    gnomeExtensions.tailscale-status
   ];
 
   programs.steam = {
