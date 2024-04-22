@@ -24,7 +24,11 @@
     "nix-command"
     "flakes"
   ];
-  nix.settings.trusted-users = [ "steixeira" ];
+  nix.settings.trusted-users = [
+    "steixeira"
+    "root"
+    "gdm"
+  ];
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 7d";
 

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Exec=gnome-randr modify 'DP-1' --mode '5120x2880@60.000' --scale 2
+Hidden=false
+X-GNOME-Autostart-enabled=true
+Name=resolution
+Comment=set resolution

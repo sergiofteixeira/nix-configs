@@ -63,8 +63,8 @@ in
     ".config/ghostty/config" = {
       source = ./configs/ghostty/config;
     };
-    ".config/monitors.xml" = {
-      source = ./configs/gdm/monitors.xml;
+    ".config/autostart/resolution.desktop" = {
+      source = ./configs/gdm/resolution.desktop;
     };
     ".config/nvim" = {
       recursive = true;

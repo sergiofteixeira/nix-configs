@@ -1,29 +1,43 @@
+{ pkgs, ... }:
 {
-  pkgs,
-  config,
-  lib,
-  ...
-}:
-{
+  #systemd.services.gnome-randr = {
+  #enable = true;
+  #description = "gnome-randr";
+  #unitConfig = {
+  #Type = "simple";
+  #};
+  #serviceConfig = {
+  #Environment = "DISPLAY=:0";
+  #ExecStart = "${pkgs.gnome-randr}/bin/gnome-randr modify 'DP-1' --mode '5120x2880@60.000'";
+  #ExecStartPre = "${pkgs.coreutils}/bin/sleep 2";
+  #};
+  #after = [ "display-manager.service" ];
+  #wantedBy = [ "multi-user.target" ];
+  #};
+
   services.xserver = {
-    dpi = 192;
+    #dpi = 192;
     enable = true;
     videoDrivers = [ "amdgpu" ];
     displayManager = {
-      sddm = {
+      gdm = {
         enable = true;
-        theme = "chili";
-        settings = {
-          X11 = {
-            ServerArguments = "-dpi 192";
-            EnableHiDPI = true;
-          };
-          Theme = {
-            CursorTheme = "macOS-BigSur";
-            CursorSize = 48;
-          };
-        };
+        wayland = true;
       };
+      #sddm = {
+      #enable = true;
+      #theme = "chili";
+      #settings = {
+      #X11 = {
+      #ServerArguments = "-dpi 192";
+      #EnableHiDPI = true;
+      #};
+      #Theme = {
+      #CursorTheme = "macOS-BigSur";
+      #CursorSize = 48;
+      #};
+      #};
+      #};
       defaultSession = "gnome";
       #defaultSession = "none+i3";
     };
@@ -44,6 +58,10 @@
         bitwarden-desktop
         lxappearance
         xclip
+        way-displays
+        meson
+        gnome-randr
+        gnome.gnome-tweaks
       ];
     };
     xkb.layout = "us";
