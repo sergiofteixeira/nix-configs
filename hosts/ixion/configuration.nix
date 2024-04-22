@@ -103,6 +103,7 @@
     gnome.gnome-shell-extensions
     gnomeExtensions.user-themes
     gnomeExtensions.tailscale-status
+    yaru-theme
   ];
 
   programs.steam = {

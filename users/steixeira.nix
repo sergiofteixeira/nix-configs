@@ -251,32 +251,6 @@ in
       bind -n C-n next-window
     '';
   };
-  gtk = {
-    enable = true;
-    iconTheme = {
-      name = "Yaru";
-    };
-    theme = {
-      name = "Yaru";
-      package = pkgs.yaru-theme;
-    };
-    cursorTheme = {
-      name = "Yaru";
-      package = pkgs.yaru-theme;
-    };
-    gtk3.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=0
-      '';
-    };
-    gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=0
-      '';
-    };
-  };
-  home.sessionVariables.GTK_THEME = "Yaru";
-
   home.stateVersion = "23.05";
   programs.home-manager.enable = true;
 }
