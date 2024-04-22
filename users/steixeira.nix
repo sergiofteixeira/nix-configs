@@ -63,6 +63,9 @@ in
     ".config/ghostty/config" = {
       source = ./configs/ghostty/config;
     };
+    ".config/monitors.xml" = {
+      source = ./configs/gdm/monitors.xml;
+    };
     ".config/nvim" = {
       recursive = true;
       source = pkgs.fetchFromGitHub {
