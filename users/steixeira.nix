@@ -65,6 +65,7 @@ in
     };
     ".config/autostart/resolution.desktop" = {
       source = ./configs/gdm/resolution.desktop;
+      force = true;
     };
     ".config/nvim" = {
       recursive = true;
