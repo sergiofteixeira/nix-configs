@@ -62,6 +62,9 @@
         meson
         gnome-randr
         gnome.gnome-tweaks
+        gnome.gnome-shell-extensions
+        gnomeExtensions.user-themes
+        gnomeExtensions.tailscale-status
       ];
     };
     xkb.layout = "us";

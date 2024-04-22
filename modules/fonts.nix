@@ -38,10 +38,8 @@
       hack-font
       inter
       sf-mono-liga-bin
-      #noto-fonts
-      #noto-fonts-cjk
-      #noto-fonts-emoji
-      #ubuntu_font_family
+      ubuntu_font_family
+      nerdfonts
     ];
   };
 }
