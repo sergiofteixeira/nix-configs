@@ -68,8 +68,8 @@ in
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "76d2923d302d3829c3a26dce80ff207b4efce628";
-        sha256 = "sha256-i+pRggnHFHQrtyntJOuYM2h3fSYqZCW2LfpQtDvi+YM=";
+        rev = "c41671504127f188e6eedee8c2cc659c9bcb170f";
+        sha256 = "sha256-c2bcbgsISKOwBcgo0Cm0bZEodSenDSvxPRjqLK7QtfY=";
       };
     };
   };
@@ -128,6 +128,7 @@ in
     htop
     gnumake
     nix-prefetch-scripts
+    argo
 
     # misc
     file
@@ -227,11 +228,30 @@ in
   programs.tmux = {
     enable = true;
     terminal = "xterm-256color";
-    plugins = [ pkgs.tmuxPlugins.gruvbox ];
+    plugins = [ ];
     shortcut = "l";
     secureSocket = false;
 
     extraConfig = ''
+      set -g status-bg terminal
+      set-option -wg window-status-separator ""
+      set-option -wg monitor-activity on
+      set-option -wg monitor-bell on
+      set-option -g status-interval 1
+      set-option -wg mode-style bg=terminal,fg="#5FB3A1"
+      set-option -g status-style bg=terminal,fg="#E4F0FB"
+      set-option -wg window-status-style fg="#A6ACCD"
+      set-option -wg window-status-activity-style bg=terminal,fg="#ADD7FF"
+      set-option -wg window-status-bell-style bg="#303340",fg="#ADD7FF"
+      set-option -wg window-status-current-style bg=terminal,fg="#5DE4C7"
+      set-option -g pane-active-border-style fg="#5FB3A1"
+      set-option -g pane-border-style fg="#303340"
+      set-option -g message-style bg="#E4F0FB",fg="#171922"
+      set-option -g message-command-style bg="#171922",fg="#E4F0FB"
+      set-option -g display-panes-active-colour "#5DE4C7"
+      set-option -g display-panes-colour "#E4F0FB"
+      set -g status-justify centre
+      set-option -wg clock-mode-colour "#E4F0FB"
       unbind C-b
       set -g prefix C-t
       set -ga terminal-overrides ",*256col*:Tc"
