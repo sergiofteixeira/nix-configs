@@ -27,12 +27,6 @@ in
     else
       { enable = false; };
 
-  home.pointerCursor = lib.mkIf (isLinux) {
-    name = "macOS-BigSur";
-    package = pkgs.apple-cursor;
-    size = 48;
-  };
-
   programs.git = {
     enable = true;
     userName = "Sergio Teixeira";
@@ -104,7 +98,6 @@ in
     kubernetes-helm
     kube-bench
     redis
-    eks-node-viewer
     eks-node-viewer
     gh
     deploy-rs
