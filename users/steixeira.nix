@@ -6,7 +6,6 @@ in
 
 {
   home.username = "steixeira";
-
   fonts.fontconfig.enable = true;
 
   programs.chromium =
@@ -72,6 +71,7 @@ in
 
     # languages
     nodejs
+    terraform
     terraform-ls
     terraform-docs
     sops
@@ -262,5 +262,6 @@ in
   };
 
   home.stateVersion = "23.05";
+  nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;
 }

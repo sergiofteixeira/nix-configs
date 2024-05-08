@@ -1,1 +1,4 @@
-{ pkgs, ... }: { system.stateVersion = 4; }
+{ pkgs, ... }:
+{
+  system.stateVersion = 4;
+}

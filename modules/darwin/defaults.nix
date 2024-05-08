@@ -1,8 +1,13 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+{
   programs.zsh.enable = true;
   programs.fish.enable = true;
   environment = {
-    shells = with pkgs; [ bash zsh fish ];
+    shells = with pkgs; [
+      bash
+      zsh
+      fish
+    ];
     systemPackages = [ pkgs.coreutils ];
     systemPath = [ "/opt/homebrew/bin" ];
   };
@@ -16,13 +21,17 @@
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToEscape = true;
 
-  system.keyboard.userKeyMapping = let
-    fn = 1095216660483;
-    left_control = 30064771296;
-  in [{
-    HIDKeyboardModifierMappingSrc = fn;
-    HIDKeyboardModifierMappingDst = left_control;
-  }];
+  system.keyboard.userKeyMapping =
+    let
+      fn = 1095216660483;
+      left_control = 30064771296;
+    in
+    [
+      {
+        HIDKeyboardModifierMappingSrc = fn;
+        HIDKeyboardModifierMappingDst = left_control;
+      }
+    ];
 
   security.pam.enableSudoTouchIdAuth = true;
 
@@ -43,7 +52,9 @@
     dock.show-recents = false;
 
     CustomSystemPreferences = {
-      NSGlobalDomain = { NSWindowShouldDragOnGesture = true; };
+      NSGlobalDomain = {
+        NSWindowShouldDragOnGesture = true;
+      };
     };
 
     NSGlobalDomain = {
