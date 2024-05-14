@@ -6,6 +6,7 @@ in
 
 {
   home.username = "steixeira";
+
   fonts.fontconfig.enable = true;
 
   programs.chromium =
@@ -61,8 +62,8 @@ in
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "c41671504127f188e6eedee8c2cc659c9bcb170f";
-        sha256 = "sha256-c2bcbgsISKOwBcgo0Cm0bZEodSenDSvxPRjqLK7QtfY=";
+        rev = "03203ac3c31004caa9aa9ec5b5d6a1dca93b4906";
+        sha256 = "sha256-09lVdsrn+XcqEeSOoaWC08N5xWV9EdDvFUxmdo+9Dzw=";
       };
     };
   };
@@ -71,7 +72,6 @@ in
 
     # languages
     nodejs
-    terraform
     terraform-ls
     terraform-docs
     sops
@@ -102,6 +102,7 @@ in
     gh
     deploy-rs
     nh
+    trivy
 
     # utils
     neovim
@@ -134,6 +135,9 @@ in
     meslo-lg
     go-font
     inter
+    monocraft
+    martian-mono
+    scientifica
   ];
 
   home.sessionVariables = {
@@ -262,6 +266,5 @@ in
   };
 
   home.stateVersion = "23.05";
-  nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;
 }
