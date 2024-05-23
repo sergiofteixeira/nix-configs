@@ -16,6 +16,7 @@
     ./tailscale.nix
     ./transmission.nix
     ./vaultwarden.nix
+    ./loki.nix
   ];
 
   nix.settings.experimental-features = [
