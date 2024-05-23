@@ -4,12 +4,15 @@
   inputs,
   ...
 }:
+let
+  grafana-loki = inputs.loki;
+in
 
 {
   # Configure Loki service
   services.loki = {
     enable = true;
-    package = inputs.lloki.packages.${pkgs.system}.loki;
+    package = grafana-loki.packages.${pkgs.system}.loki;
     configuration = {
       auth_enabled = false;
       server = {

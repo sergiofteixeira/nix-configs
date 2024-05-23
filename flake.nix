@@ -26,7 +26,6 @@
       nixinate,
       darwin,
       disko,
-      loki,
       nixpkgs-s2k,
       ...
     }:
@@ -73,12 +72,7 @@
           system = "x86_64-linux";
 
           modules = [
-            {
-              environment.systemPackages = [
-                agenix.packages.x86_64-linux.default
-                loki.packages.x86_64-linux.loki
-              ];
-            }
+            { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
             ./hosts/phrike/configuration.nix
             agenix.nixosModules.default
             home-manager.nixosModules.home-manager
