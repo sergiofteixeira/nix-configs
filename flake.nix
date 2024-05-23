@@ -14,6 +14,7 @@
     };
     disko.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs-s2k.url = "github:shaunsingh/nixpkgs-s2k";
+    loki.url = "github:grafana/loki";
   };
 
   outputs =
@@ -25,6 +26,7 @@
       nixinate,
       darwin,
       disko,
+      loki,
       nixpkgs-s2k,
       ...
     }:
@@ -71,7 +73,12 @@
           system = "x86_64-linux";
 
           modules = [
-            { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
+            {
+              environment.systemPackages = [
+                agenix.packages.x86_64-linux.default
+                loki.packages.x86_64-linux.loki
+              ];
+            }
             ./hosts/phrike/configuration.nix
             agenix.nixosModules.default
             home-manager.nixosModules.home-manager
