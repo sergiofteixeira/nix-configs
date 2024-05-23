@@ -28,7 +28,7 @@
       disko,
       nixpkgs-s2k,
       ...
-    }:
+    }@inputs:
     {
 
       apps = nixinate.nixinate.x86_64-linux self;
@@ -70,8 +70,12 @@
 
         phrike = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+          };
 
           modules = [
+            { _module.args = inputs; }
             { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
             ./hosts/phrike/configuration.nix
             agenix.nixosModules.default
