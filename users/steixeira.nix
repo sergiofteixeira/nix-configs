@@ -62,8 +62,8 @@ in
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "03203ac3c31004caa9aa9ec5b5d6a1dca93b4906";
-        sha256 = "sha256-09lVdsrn+XcqEeSOoaWC08N5xWV9EdDvFUxmdo+9Dzw=";
+        rev = "5e773117005d4c0bd2e927f2ff1e09d5ae46400f";
+        sha256 = "sha256-htt80ELVtOOLP3Tj4zuBk45WXg7qb0DVovpWGcXrwLM=";
       };
     };
   };
@@ -72,6 +72,7 @@ in
 
     # languages
     nodejs
+    terragrunt
     terraform-ls
     terraform-docs
     sops
@@ -84,7 +85,8 @@ in
     cargo
     tree-sitter
     nixfmt-rfc-style
-    python311
+    pipenv
+    pyenv
     poetry
     nil
     ruff-lsp
@@ -103,6 +105,7 @@ in
     deploy-rs
     nh
     trivy
+    gnused
 
     # utils
     neovim
@@ -189,6 +192,9 @@ in
       if test -e ~/.config/fish/theme.fish
         source ~/.config/fish/theme.fish
       end
+      set -Ux PYENV_ROOT $HOME/.pyenv
+      fish_add_path $PYENV_ROOT/bin
+      pyenv init - | source
     '';
     shellAliases = {
       loginprod = "aws sso login --profile prod";
