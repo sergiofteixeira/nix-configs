@@ -62,8 +62,8 @@ in
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "5e773117005d4c0bd2e927f2ff1e09d5ae46400f";
-        sha256 = "sha256-htt80ELVtOOLP3Tj4zuBk45WXg7qb0DVovpWGcXrwLM=";
+        rev = "66d7a9f96bfd30bb224fd0756857d0790841d1e8";
+        sha256 = "sha256-kK9dX5Sz1T4j3uG4VkcMYQi/Pa9cX/k55/Kzu5x9USg=";
       };
     };
   };
@@ -164,6 +164,9 @@ in
       add_newline = false;
       aws.disabled = true;
       gcloud.disabled = true;
+      kubernetes = {
+        disabled = false;
+      };
       line_break.disabled = true;
     };
   };
