@@ -62,8 +62,8 @@ in
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "66d7a9f96bfd30bb224fd0756857d0790841d1e8";
-        sha256 = "sha256-kK9dX5Sz1T4j3uG4VkcMYQi/Pa9cX/k55/Kzu5x9USg=";
+        rev = "bba5a39a3364c3ab3d1e322553fb7c36d3a0de7d";
+        sha256 = "sha256-TFz1RsoqgpeIli0ToqhlUIPmSF/CCs2oxWHaKnEfgBE=";
       };
     };
   };
@@ -126,6 +126,7 @@ in
     gnumake
     nix-prefetch-scripts
     argo
+    zellij
 
     # misc
     file
