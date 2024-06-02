@@ -135,5 +135,23 @@
       443
     ];
   };
+
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_16;
+    authentication = pkgs.lib.mkForce ''
+      # TYPE  DATABASE        USER            ADDRESS                 METHOD
+      local   all             all                                     trust
+      host    all             all             127.0.0.1/32            trust
+      host    all             all             192.168.1.0/24          trust
+    '';
+    initialScript = pkgs.writeText "init.sql" ''
+      CREATE USER vault WITH PASSWORD 'vault;
+      CREATE DATABASE vault OWNER vault;
+      CREATE USER split WITH PASSWORD 'split;
+      CREATE DATABASE split OWNER split;
+    '';
+  };
+
   system.stateVersion = "23.05"; # Did you read the comment?
 }
