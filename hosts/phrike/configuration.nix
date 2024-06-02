@@ -143,14 +143,20 @@
       # TYPE  DATABASE        USER            ADDRESS                 METHOD
       local   all             all                                     trust
       host    all             all             127.0.0.1/32            trust
-      host    all             all             192.168.1.0/24          trust
+      host    all             all             all                     trust
     '';
-    initialScript = pkgs.writeText "init.sql" ''
-      CREATE USER vault WITH PASSWORD 'vault;
-      CREATE DATABASE vault OWNER vault;
-      CREATE USER split WITH PASSWORD 'split;
-      CREATE DATABASE split OWNER split;
-    '';
+    ensureDatabases = [ "split" ];
+    ensureUsers = [
+      {
+        name = "split";
+        ensureDBOwnership = true;
+        ensureClauses = {
+          superuser = true;
+          createrole = true;
+          createdb = true;
+        };
+      }
+    ];
   };
 
   system.stateVersion = "23.05"; # Did you read the comment?

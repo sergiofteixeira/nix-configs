@@ -22,8 +22,9 @@
       ports = [ "3000" ];
       extraOptions = [ "--network=host" ];
       environment = {
-        POSTGRES_PRISMA_URL = "postgresql://split:split@localhost/split";
-        POSTGRES_URL_NON_POOLING = "postgresql://split:split@localhost/split";
+        POSTGRES_PASSWORD = "split";
+        POSTGRES_PRISMA_URL = "postgresql://split:split@127.0.0.1/split";
+        POSTGRES_URL_NON_POOLING = "postgresql://split:split@127.0.0.1/split";
       };
     };
   };
