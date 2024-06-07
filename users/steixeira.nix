@@ -108,6 +108,7 @@ in
     gnused
 
     # utils
+    watch
     neovim
     ripgrep
     jq
