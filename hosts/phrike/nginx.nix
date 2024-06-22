@@ -75,11 +75,11 @@ in
           proxyWebsockets = true;
         };
       };
-      "vault.sergioteixeira.xyz" = {
+      "split.sergioteixeira.xyz" = {
         useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
-          proxyPass = "http://localhost:8000";
+          proxyPass = "http://localhost:3000";
           proxyWebsockets = true;
         };
       };

@@ -121,7 +121,7 @@
   };
 
   networking.firewall = {
-    enable = true;
+    enable = false;
 
     # always allow traffic from your Tailscale network
     trustedInterfaces = [ "tailscale0" ];
