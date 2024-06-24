@@ -4,7 +4,7 @@
   services.bazarr = {
     enable = true;
     openFirewall = true;
-    group = "wheel";
+    group = "media";
     user = "steixeira";
   };
 }

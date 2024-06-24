@@ -2,8 +2,8 @@
 
 {
   services.jellyfin = {
-    user = "steixeira";
     enable = true;
+    group = "media";
     openFirewall = true;
   };
 }

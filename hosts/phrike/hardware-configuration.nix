@@ -38,7 +38,7 @@
     fsType = "vfat";
   };
 
-  fileSystems."/home/steixeira/external_disk" = {
+  fileSystems."/data" = {
     device = "/dev/disk/by-uuid/2b415557-d7b0-4ee4-bd2c-145536cf403e";
     fsType = "ext4";
   };

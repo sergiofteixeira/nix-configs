@@ -15,7 +15,6 @@
     ./sonarr.nix
     ./tailscale.nix
     ./transmission.nix
-    ./vaultwarden.nix
   ];
 
   nix.settings.experimental-features = [
@@ -52,12 +51,14 @@
     xkb.variant = "";
   };
 
+  users.groups.media = { };
   users.users.steixeira = {
     isNormalUser = true;
     description = "steixeira";
     extraGroups = [
       "networkmanager"
       "wheel"
+      "media"
       "docker"
     ];
     packages = with pkgs; [ ];

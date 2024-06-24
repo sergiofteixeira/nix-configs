@@ -3,7 +3,7 @@
 {
   services.transmission = {
     user = "steixeira";
-    group = "wheel";
+    group = "media";
     enable = true;
     settings.rpc-authentication-required = false;
     settings.download-queue-enabled = false;
@@ -11,8 +11,8 @@
     settings.rpc-host-whitelist-enabled = false;
     settings.rpc-whitelist-enabled = false;
     settings.trash-original-torrent-files = true;
-    settings.download-dir = "/home/steixeira/external_disk/downloads";
-    settings.incomplete-dir = "/home/steixeira/external_disk/downloads/incomplete";
+    settings.download-dir = "/data";
+    settings.incomplete-dir = "/data";
     openFirewall = true;
     downloadDirPermissions = "777";
   };
