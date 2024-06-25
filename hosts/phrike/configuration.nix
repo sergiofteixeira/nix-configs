@@ -9,7 +9,7 @@
     ./jellyfin.nix
     ./nginx.nix
     ./node-exporter.nix
-    ./plex.nix
+    #./plex.nix
     ./prowlarr.nix
     ./radarr.nix
     ./sonarr.nix
