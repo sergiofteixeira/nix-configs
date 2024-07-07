@@ -11,8 +11,8 @@
     settings.rpc-host-whitelist-enabled = false;
     settings.rpc-whitelist-enabled = false;
     settings.trash-original-torrent-files = true;
-    settings.download-dir = "/data";
-    settings.incomplete-dir = "/data";
+    settings.download-dir = "/data/downloads";
+    settings.incomplete-dir = "/data/incomplete-downloads";
     openFirewall = true;
     downloadDirPermissions = "777";
   };
