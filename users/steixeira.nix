@@ -62,8 +62,8 @@ in
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "97efd2ff5b37fd21e265657588964d0de00dea55";
-        sha256 = "sha256-lJlLfA7/UH3abHuwLsD0sW7uHhCclNFX6m5hSNoth9M=";
+        rev = "3c7c22318dea87146ff53acd170b0a17cc34f938";
+        sha256 = "sha256-fjDCFo8PYb2D2c9eXwKOwKE69a+FlBS2IQ5tKeAtYNg=";
       };
     };
   };
@@ -71,7 +71,7 @@ in
   home.packages = with pkgs; [
 
     # languages
-    nodejs
+    nodejs_20
     terragrunt
     terraform-ls
     terraform-docs
