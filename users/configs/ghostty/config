@@ -18,4 +18,27 @@ adjust-cell-height = 0
 clipboard-read = "allow"
 clipboard-paste-protection = false
 clipboard-trim-trailing-spaces = true
-theme = GitHub Dark
+
+palette = 0=#1B1E28
+palette = 8=#D9E0EE
+# red
+palette = 1=#FF5555
+palette = 9=#FF5555
+# green
+palette = 2=#50FA7B
+palette = 10=#50FA7B
+# yellow
+palette = 3=#F1FA8C
+palette = 11=#F1FA8C
+# blue
+palette = 4=#BD93F9
+palette = 12=#BD93F9
+# purple/magenta
+palette = 5=#FF79C6
+palette = 13=#FF79C6
+# cyan
+palette = 6=#8BE9FD
+palette = 14=#8BE9FD
+# white
+palette = 7=#F8F8F2
+palette = 15=#F8F8F2
