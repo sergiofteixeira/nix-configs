@@ -3,6 +3,7 @@
 {
   imports = [
     ./acme.nix
+    ./adguard.nix
     ./bazarr.nix
     ./containers.nix
     ./hardware-configuration.nix
