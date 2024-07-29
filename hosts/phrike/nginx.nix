@@ -35,14 +35,6 @@ in
           proxyWebsockets = true;
         };
       };
-      #"plex.sergioteixeira.xyz" = {
-      #useACMEHost = acmeHost;
-      #forceSSL = true;
-      #locations."/" = {
-      #proxyPass = "http://localhost:32400";
-      #proxyWebsockets = true;
-      #};
-      #};
       "prowlar.sergioteixeira.xyz" = {
         useACMEHost = acmeHost;
         forceSSL = true;
@@ -75,7 +67,7 @@ in
           proxyWebsockets = true;
         };
       };
-      "split.sergioteixeira.xyz" = {
+      "adguard.sergioteixeira.xyz" = {
         useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
