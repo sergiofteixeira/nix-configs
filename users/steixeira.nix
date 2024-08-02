@@ -62,8 +62,8 @@ in
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "43dda86e6c3fdd4400db1d4ac93c4aa6b2749fb0";
-        sha256 = "sha256-+MhO0q/nOgyPl0l8rNe6x7uFYLDMj4KCChhsjKffM8c=";
+        rev = "26c389e5539587d8a308ff50eab3863840e4ea64";
+        sha256 = "sha256-TPTYJk99LOl8FeFvh7WergsaX+If961CsAqWaPV3XNY=";
       };
     };
   };
