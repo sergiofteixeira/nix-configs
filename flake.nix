@@ -14,6 +14,7 @@
     };
     disko.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs-s2k.url = "github:shaunsingh/nixpkgs-s2k";
+    nh_darwin.url = "github:ToyVo/nh_darwin";
   };
 
   outputs =
@@ -27,7 +28,7 @@
       disko,
       nixpkgs-s2k,
       ...
-    }:
+    }@inputs:
     {
 
       apps = nixinate.nixinate.x86_64-linux self;
@@ -96,9 +97,13 @@
       # darwin configs
       darwinConfigurations = {
         m1pro = darwin.lib.darwinSystem {
+          specialArgs = {
+            inherit inputs;
+          };
           system = "aarch64-darwin";
           pkgs = import nixpkgs { system = "aarch64-darwin"; };
           modules = [
+            { _module.args = inputs; }
             ./modules/darwin/homebrew.nix
             ./modules/darwin/defaults.nix
             home-manager.darwinModules.home-manager
@@ -118,9 +123,13 @@
         };
 
         m1work = darwin.lib.darwinSystem {
+          specialArgs = {
+            inherit inputs;
+          };
           system = "aarch64-darwin";
           pkgs = import nixpkgs { system = "aarch64-darwin"; };
           modules = [
+            { _module.args = inputs; }
             agenix.nixosModules.default
             ./modules/darwin/homebrew.nix
             ./modules/darwin/defaults.nix

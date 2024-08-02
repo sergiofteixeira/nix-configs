@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 
 let
   isLinux = pkgs.stdenv.isLinux;
@@ -143,6 +148,9 @@ in
     monocraft
     martian-mono
     scientifica
+
+    #other flakes
+    inputs.nh_darwin.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   home.sessionVariables = {
