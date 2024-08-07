@@ -16,9 +16,7 @@
       "linearmouse"
       "orbstack"
       "hammerspoon"
-      "pgadmin4"
-      "devpod"
-      "datagrip"
+      "gitify"
     ];
     brews = [ "fabianishere/personal/pam_reattach" ];
   };
