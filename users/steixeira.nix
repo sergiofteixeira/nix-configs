@@ -91,8 +91,10 @@ in
     nil
     ruff-lsp
     ruff
+    libcs50
 
     # devops
+    sshs
     kubectx
     awscli2
     kubectl
@@ -152,6 +154,9 @@ in
     EDITOR = "nvim";
     PAGER = "less";
     CLICLOLOR = 1;
+    C_INCLUDE_PATH = "${pkgs.libcs50}/include";
+    LD_LIBRARY_PATH = "${pkgs.libcs50}/lib";
+    LIBRARY_PATH = "${pkgs.libcs50}/lib";
   };
 
   programs.fzf.enable = true;
