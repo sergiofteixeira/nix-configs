@@ -1,5 +1,5 @@
 font-family = MesloLGS Nerd Font Mono
-font-size = 19
+font-size = 18
 font-feature = ss01
 font-feature = ss02
 font-feature = ss03
@@ -18,39 +18,4 @@ adjust-cell-height = 0
 clipboard-read = "allow"
 clipboard-paste-protection = false
 clipboard-trim-trailing-spaces = true
-
-# Special
-foreground = #b6beca
-background = #101419
-
-# Black
-palette = 0=#1c252c
-palette = 8=#384148
-
-# Red
-palette = 1=#e05f65
-palette = 9=#fc7b81
-
-# Green
-palette = 2=#78dba9
-palette = 10=#94f7c5
-
-# Yellow
-palette = 3=#f1cf8a
-palette = 11=#ffeba6
-
-# Blue
-palette = 4=#70a5eb
-palette = 12=#8cc1ff
-
-# Magenta
-palette = 5=#c68aee
-palette = 13=#e2a6ff
-
-# Cyan
-palette = 6=#74bee9
-palette = 14=#90daff
-
-# White
-palette = 7=#dee1e6
-palette = 15=#fafdff
+theme = nightfox
