@@ -62,7 +62,7 @@ in
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "3726872974ea8c9d5b6a60f875d3792f0710b626";
+        rev = "18198f5875257dfd2160226c0873e0ded7c74d27";
         sha256 = "sha256-ppJQAqKeNsTsFYPyhCcob5ag2eJUv9gYnpI+vhfmRgs=";
       };
     };
@@ -92,6 +92,7 @@ in
     ruff-lsp
     ruff
     libcs50
+    emacs
 
     # devops
     sshs
