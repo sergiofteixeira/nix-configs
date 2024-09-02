@@ -10,12 +10,12 @@
     ./jellyfin.nix
     ./nginx.nix
     ./node-exporter.nix
-    #./plex.nix
     ./prowlarr.nix
     ./radarr.nix
     ./sonarr.nix
     ./tailscale.nix
     ./transmission.nix
+    ./headscale.nix
   ];
 
   nix.settings.experimental-features = [

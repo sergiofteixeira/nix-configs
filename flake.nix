@@ -6,14 +6,12 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     agenix.url = "github:ryantm/agenix";
-    nixinate.url = "github:matthewcroughan/nixinate";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     disko = {
       url = "github:nix-community/disko";
     };
     disko.inputs.nixpkgs.follows = "nixpkgs";
-    nixpkgs-s2k.url = "github:shaunsingh/nixpkgs-s2k";
   };
 
   outputs =
@@ -22,55 +20,22 @@
       nixpkgs,
       home-manager,
       agenix,
-      nixinate,
       darwin,
       disko,
-      nixpkgs-s2k,
       ...
-    }:
+    }@inputs:
     {
 
-      apps = nixinate.nixinate.x86_64-linux self;
       nixosConfigurations = {
-        helios = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-
-          modules = [
-            disko.nixosModules.disko
-            ./hosts/helios/configuration.nix
-            agenix.nixosModules.default
-            home-manager.nixosModules.home-manager
-            { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.steixeira = import ./users/steixeira.nix;
-            }
-          ];
-        };
-
-        ixion = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-
-          modules = [
-            ./hosts/ixion/configuration.nix
-            { nixpkgs.overlays = [ nixpkgs-s2k.overlay ]; }
-            disko.nixosModules.disko
-            agenix.nixosModules.default
-            home-manager.nixosModules.home-manager
-            { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.steixeira = import ./users/steixeira.nix;
-            }
-          ];
-        };
 
         phrike = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+          };
 
           modules = [
+            { _module.args = inputs; }
             { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
             ./hosts/phrike/configuration.nix
             agenix.nixosModules.default
@@ -79,15 +44,6 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.steixeira = import ./users/steixeira.nix;
-            }
-            {
-              _module.args.nixinate = {
-                host = "192.168.1.80";
-                sshUser = "steixeira";
-                buildOn = "remote";
-                substituteOnTarget = true;
-                hermetic = false;
-              };
             }
           ];
         };
