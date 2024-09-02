@@ -15,7 +15,6 @@
     ./sonarr.nix
     ./tailscale.nix
     ./transmission.nix
-    ./headscale.nix
   ];
 
   nix.settings.experimental-features = [
