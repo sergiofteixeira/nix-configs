@@ -68,8 +68,8 @@ in
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "18198f5875257dfd2160226c0873e0ded7c74d27";
-        sha256 = "sha256-ppJQAqKeNsTsFYPyhCcob5ag2eJUv9gYnpI+vhfmRgs=";
+        rev = "88462809fd01ee8a2533304bc8981e86d210512a";
+        sha256 = "sha256-zp74jlwvNkv4lY0MLLopFJI1i02QecJzOSXo6Enx8xA=";
       };
     };
   };
@@ -162,11 +162,13 @@ in
     PAGER = "less";
     CLICLOLOR = 1;
     ANTHROPIC_API_KEY = "$(cat ${config.age.secrets.anthropicKey.path})";
+    GEMINI_API_KEY = "$(cat ${config.age.secrets.geminiKey.path})";
     VAULT_TOKEN = "$(cat ${config.age.secrets.vaultToken.path})";
     VAULT_ADDR = "$(cat ${config.age.secrets.vaultAddr.path})";
   };
 
   age.secrets.anthropicKey.file = ../secrets/anthropic_api_key.age;
+  age.secrets.geminiKey.file = ../secrets/gemini_api_key.age;
   age.secrets.vaultToken.file = ../secrets/vault_token.age;
   age.secrets.vaultAddr.file = ../secrets/vault_addr.age;
 

@@ -14,6 +14,11 @@ in
     system-phrike
     m1pro
   ];
+  "gemini_api_key.age".publicKeys = [
+    steixeira
+    system-phrike
+    m1pro
+  ];
   "tailscale_key.age".publicKeys = [
     steixeira
     system-phrike
