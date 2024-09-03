@@ -10,6 +10,9 @@ in
     system-phrike
     m1pro
   ];
+  "anthropic_api_key.age".publicKeys = [
+    steixeira
+  ];
   "tailscale_key.age".publicKeys = [
     steixeira
     system-phrike

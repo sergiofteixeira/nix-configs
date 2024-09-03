@@ -1,10 +1,16 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 let
   isLinux = pkgs.stdenv.isLinux;
 in
 
 {
+  age.identityPaths = [ "${config.home.homeDirectory}/.ssh/id_ed25519" ];
   home.username = "steixeira";
 
   fonts.fontconfig.enable = true;
@@ -158,7 +164,10 @@ in
     C_INCLUDE_PATH = "${pkgs.libcs50}/include";
     LD_LIBRARY_PATH = "${pkgs.libcs50}/lib";
     LIBRARY_PATH = "${pkgs.libcs50}/lib";
+    ANTHROPIC_API_KEY = "$(cat ${config.age.secrets.anthropicKey.path})";
   };
+
+  age.secrets.anthropicKey.file = ../secrets/anthropic_api_key.age;
 
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
