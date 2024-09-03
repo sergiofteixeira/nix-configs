@@ -97,8 +97,6 @@ in
     nil
     ruff-lsp
     ruff
-    libcs50
-    emacs
 
     # devops
     sshs
@@ -115,6 +113,7 @@ in
     nh
     trivy
     gnused
+    opentofu
 
     # utils
     watch
@@ -136,7 +135,6 @@ in
     gnumake
     nix-prefetch-scripts
     argo
-    zellij
 
     # misc
     file
