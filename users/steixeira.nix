@@ -161,9 +161,6 @@ in
     EDITOR = "nvim";
     PAGER = "less";
     CLICLOLOR = 1;
-    C_INCLUDE_PATH = "${pkgs.libcs50}/include";
-    LD_LIBRARY_PATH = "${pkgs.libcs50}/lib";
-    LIBRARY_PATH = "${pkgs.libcs50}/lib";
     ANTHROPIC_API_KEY = "$(cat ${config.age.secrets.anthropicKey.path})";
   };
 
