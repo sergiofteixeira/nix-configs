@@ -162,9 +162,13 @@ in
     PAGER = "less";
     CLICLOLOR = 1;
     ANTHROPIC_API_KEY = "$(cat ${config.age.secrets.anthropicKey.path})";
+    VAULT_TOKEN = "$(cat ${config.age.secrets.vaultToken.path})";
+    VAULT_ADDR = "$(cat ${config.age.secrets.vaultAddr.path})";
   };
 
   age.secrets.anthropicKey.file = ../secrets/anthropic_api_key.age;
+  age.secrets.vaultToken.file = ../secrets/vault_token.age;
+  age.secrets.vaultAddr.file = ../secrets/vault_addr.age;
 
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;

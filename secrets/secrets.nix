@@ -19,4 +19,14 @@ in
     system-phrike
     m1pro
   ];
+  "vault_token.age".publicKeys = [
+    steixeira
+    system-phrike
+    m1pro
+  ];
+  "vault_addr.age".publicKeys = [
+    steixeira
+    system-phrike
+    m1pro
+  ];
 }
