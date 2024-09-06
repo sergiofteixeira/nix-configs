@@ -147,9 +147,7 @@ in
     meslo-lg
     go-font
     inter
-    monocraft
-    martian-mono
-    scientifica
+    geist-font
   ];
 
   home.sessionVariables = {

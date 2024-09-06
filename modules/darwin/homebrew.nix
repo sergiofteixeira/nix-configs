@@ -17,7 +17,10 @@
       "orbstack"
       "hammerspoon"
       "gitify"
+      "nikitabobko/tap/aerospace"
     ];
-    brews = [ "fabianishere/personal/pam_reattach" ];
+    brews = [
+      "fabianishere/personal/pam_reattach"
+    ];
   };
 }
