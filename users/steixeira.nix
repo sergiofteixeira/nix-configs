@@ -68,8 +68,8 @@ in
       source = pkgs.fetchFromGitHub {
         owner = "sergiofteixeira";
         repo = "nvim";
-        rev = "88462809fd01ee8a2533304bc8981e86d210512a";
-        sha256 = "sha256-zp74jlwvNkv4lY0MLLopFJI1i02QecJzOSXo6Enx8xA=";
+        rev = "3aa21c545f0e5d32fc43689fa3663e218b732bf7";
+        sha256 = "sha256-q1klz19lW+oF95TGe72lzqHBIXKgU8lwznZZFk7+DuQ=";
       };
     };
   };
@@ -80,6 +80,7 @@ in
     nodejs_20
     terragrunt
     terraform-ls
+    deno
     terraform-docs
     sops
     go
@@ -97,6 +98,7 @@ in
     nil
     ruff-lsp
     ruff
+    nodePackages.live-server
 
     # devops
     sshs

@@ -1,5 +1,5 @@
-font-family = MesloLGS Nerd Font Mono
-font-size = 18
+font-family = GeistMono Nerd Font
+font-size = 20
 font-feature = ss01
 font-feature = ss02
 font-feature = ss03
@@ -18,4 +18,28 @@ adjust-cell-height = 0
 clipboard-read = "allow"
 clipboard-paste-protection = false
 clipboard-trim-trailing-spaces = true
-theme = kanagawabones
+# Poimandres Storm theme
+# black
+palette = 0=#1B1E28
+palette = 8=#A6ACCD
+# red
+palette = 1=#D0679D
+palette = 9=#D0679D
+# green
+palette = 2=#5DE4C7
+palette = 10=#5DE4C7
+# yellow
+palette = 3=#FFFAC2
+palette = 11=#FFFAC2
+# blue
+palette = 4=#89DDFF
+palette = 12=#ADD7FF
+# purple
+palette = 5=#FCC5E9
+palette = 13=#FAE4FC
+# aqua
+palette = 6=#ADD7FF
+palette = 14=#89DDFF
+# white
+palette = 7=#ffffff
+palette = 15=#ffffff
