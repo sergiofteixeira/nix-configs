@@ -58,13 +58,13 @@
             ./modules/darwin/homebrew.nix
             ./modules/darwin/defaults.nix
             home-manager.darwinModules.home-manager
-            { environment.systemPackages = [ agenix.packages.aarch64-darwin.default ]; }
-            agenix.nixosModules.default
+            agenix.darwinModules.default
             {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users.steixeira.imports = [ ./users/steixeira.nix ];
+                sharedModules = [ agenix.homeManagerModules.default ];
               };
               users.users.steixeira.home = "/Users/steixeira";
               system.stateVersion = 4;

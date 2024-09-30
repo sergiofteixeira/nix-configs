@@ -13,10 +13,7 @@
       "spotify"
       "tailscale"
       "docker"
-      "linearmouse"
       "orbstack"
-      "hammerspoon"
-      "gitify"
       "nikitabobko/tap/aerospace"
     ];
     brews = [
