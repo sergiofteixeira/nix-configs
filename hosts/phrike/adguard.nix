@@ -1,6 +1,0 @@
-{ ... }:
-{
-  services.adguardhome = {
-    enable = true;
-  };
-}
