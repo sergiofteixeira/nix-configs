@@ -107,7 +107,6 @@
     htop
     tailscale
     prometheus-node-exporter
-    unifi
     intel-gpu-tools
     ncdu
     transmission_4

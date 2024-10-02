@@ -11,14 +11,6 @@ in
     recommendedOptimisation = true;
 
     virtualHosts = {
-      "unifi.sergioteixeira.xyz" = {
-        useACMEHost = acmeHost;
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "https://localhost:8443";
-          proxyWebsockets = true;
-        };
-      };
       "bazarr.sergioteixeira.xyz" = {
         useACMEHost = acmeHost;
         forceSSL = true;
