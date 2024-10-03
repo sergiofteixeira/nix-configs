@@ -6,14 +6,15 @@
       image = "flaresolverr/flaresolverr:latest";
       ports = [ "8191:8191" ];
     };
-    containers.pihole = {
+
+    pihole = {
       autoStart = true;
       image = "pihole/pihole:latest";
 
       extraOptions = [
         "--cap-add=NET_ADMIN"
-        "--dns=127.0.0.1"
-        "--dns=1.1.1.1"
+        "--network=host"
+        "--pull=always"
       ];
 
       volumes = [
@@ -22,16 +23,17 @@
       ];
 
       environment = {
-        TZ = "America/Toronto";
-        ServerIP = "100.73.30.58";
+        TZ = "Europe/Lisbon";
+        ServerIP = "10.200.0.185";
         VIRTUAL_HOST = "pihole.sergioteixeira.xyz";
+        BLOCKING_ENABLED = "true";
+        DNSSEC = "false";
+        WEB_BIND_ADDR = "10.200.0.185";
+        WEBPASSWORD = "webpassword";
+        WEBTHEME = "default-dark";
+        WEB_PORT = "8053";
+        WEBUIBOXEDLAYOUT = "traditional";
       };
-
-      ports = [
-        "53:53/tcp"
-        "53:53/udp"
-        "8053:80/tcp"
-      ];
     };
   };
 }

@@ -11,6 +11,14 @@ in
     recommendedOptimisation = true;
 
     virtualHosts = {
+      "pihole.sergioteixeira.xyz" = {
+        useACMEHost = acmeHost;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://localhost:8053";
+          proxyWebsockets = true;
+        };
+      };
       "bazarr.sergioteixeira.xyz" = {
         useACMEHost = acmeHost;
         forceSSL = true;
