@@ -7,13 +7,14 @@ let
   ];
 
   generateRulesForEnv = env: {
-    name = "monitoring-machine";
+    name = "monitoring-machine-${env}";
     rules = [
       {
         alert = "File System Almost Full";
         annotations.description = "{{$labels.instance}} device {{$labels.device}} on {{$labels.path}} got less than 10% space left on its filesystem";
         for = "5m";
-        expr = ''100 - ((node_filesystem_avail_bytes{fstype="ext4",mountpoint="/"} * 100) / node_filesystem_size_bytes{fstype="ext4",mountpoint="/"}) >= 90'';
+        expr = "100 - ((node_filesystem_avail_bytes{fstype=\"ext4\",mountpoint=\"/\",environment=\"${env}\"} * 100) / node_filesystem_size_bytes{fstype=\"ext4\",mountpoint=\"/\",environment=\"${env}\"}) >= 90";
+
         labels = {
           severity = "warning";
           channel = "alerts-${env}";
@@ -60,7 +61,7 @@ in
       (builtins.toJSON {
         groups = [
           recordingRules
-        ] ++ generateRulesForEnv environments;
+        ] ++ map generateRulesForEnv environments; # Use map to iterate over environments
       })
     ];
   };
