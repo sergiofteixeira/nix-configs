@@ -149,6 +149,7 @@ in
     meslo-lg
     go-font
     inter
+    manrope
     geist-font
   ];
 

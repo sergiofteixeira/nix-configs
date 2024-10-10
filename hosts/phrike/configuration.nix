@@ -10,6 +10,7 @@
     ./nginx.nix
     ./node-exporter.nix
     ./prowlarr.nix
+    ./prometheus.nix
     ./radarr.nix
     ./sonarr.nix
     ./tailscale.nix
