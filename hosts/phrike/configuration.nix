@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -14,6 +19,7 @@
     ./sonarr.nix
     ./tailscale.nix
     ./transmission.nix
+    inputs.vscode-server.nixosModules.default
   ];
 
   nix.settings.experimental-features = [
@@ -74,7 +80,7 @@
       commands = [
         {
           command = "ALL";
-          options = [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
+          options = [ "NOPASSWD" ];
         }
       ];
     }
@@ -112,7 +118,6 @@
     gnumake
   ];
 
-  # Enable Docker and set to backend (over podman default)
   virtualisation = {
     docker.enable = true;
     docker.storageDriver = "overlay2";
@@ -121,42 +126,15 @@
 
   networking.firewall = {
     enable = false;
-
-    # always allow traffic from your Tailscale network
     trustedInterfaces = [ "tailscale0" ];
-
-    # allow the Tailscale UDP port through the firewall
     allowedUDPPorts = [ config.services.tailscale.port ];
-
-    # allow you to SSH in over the public internet
     allowedTCPPorts = [
       80
       443
     ];
   };
 
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_16;
-    authentication = pkgs.lib.mkForce ''
-      # TYPE  DATABASE        USER            ADDRESS                 METHOD
-      local   all             all                                     trust
-      host    all             all             127.0.0.1/32            trust
-      host    all             all             all                     trust
-    '';
-    ensureDatabases = [ "split" ];
-    ensureUsers = [
-      {
-        name = "split";
-        ensureDBOwnership = true;
-        ensureClauses = {
-          superuser = true;
-          createrole = true;
-          createdb = true;
-        };
-      }
-    ];
-  };
+  services.vscode-server.enable = true;
 
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.05";
 }
