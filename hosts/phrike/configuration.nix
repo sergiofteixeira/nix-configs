@@ -151,7 +151,7 @@
         name = "origin";
         url = "https://github.com/sergiofteixeira/nix-configs.git";
         branches.main.name = "main";
-        auth.access_token_path = config.age.secrets.git_token.path;
+        # auth.access_token_path = config.age.secrets.git_token.path;
       }
     ];
   };
