@@ -20,6 +20,7 @@
     ./tailscale.nix
     ./transmission.nix
     inputs.vscode-server.nixosModules.default
+    inputs.comin.nixosModules.comin
   ];
 
   nix.settings.experimental-features = [
@@ -135,6 +136,17 @@
   };
 
   services.vscode-server.enable = true;
+
+  services.comin = {
+    enable = true;
+    remotes = [
+      {
+        name = "origin";
+        url = "https://github.com/sergiofteixeira/nix-configs.git";
+        branches.main.name = "main";
+      }
+    ];
+  };
 
   system.stateVersion = "23.05";
 }
