@@ -141,7 +141,7 @@
 
   age.secrets.git_token = {
     file = ../../secrets/token.age;
-    mode = "770";
+    mode = "775";
   };
 
   services.comin = {
