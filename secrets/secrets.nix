@@ -9,29 +9,13 @@ in
     system-phrike
     m1pro
   ];
-  "anthropic_api_key.age".publicKeys = [
-    steixeira
-    system-phrike
-    m1pro
-  ];
-  "gemini_api_key.age".publicKeys = [
-    steixeira
-    system-phrike
-    m1pro
-  ];
   "tailscale_key.age".publicKeys = [
     steixeira
     system-phrike
     m1pro
   ];
-  "vault_token.age".publicKeys = [
+  "token.age".publicKeys = [
     steixeira
     system-phrike
-    m1pro
-  ];
-  "vault_addr.age".publicKeys = [
-    steixeira
-    system-phrike
-    m1pro
   ];
 }
