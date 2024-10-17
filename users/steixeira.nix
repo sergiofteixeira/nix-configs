@@ -143,6 +143,7 @@ in
     which
     tree
     nix-prefetch-scripts
+    kitty
 
     # fonts
     meslo-lgs-nf
