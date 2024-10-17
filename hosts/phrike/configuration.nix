@@ -137,6 +137,7 @@
 
   services.vscode-server.enable = true;
 
+  services.prometheus.enable = true;
   services.comin = {
     enable = true;
     remotes = [
