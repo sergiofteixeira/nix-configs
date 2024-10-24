@@ -30,7 +30,6 @@
       darwin,
       disko,
       comin,
-      airflow,
       ...
     }@inputs:
     {
