@@ -21,6 +21,7 @@
     ./transmission.nix
     inputs.vscode-server.nixosModules.default
     inputs.comin.nixosModules.comin
+    ../../modules/services/airflow
   ];
 
   nix.settings.experimental-features = [
@@ -142,6 +143,12 @@
   age.secrets.git_token = {
     file = ../../secrets/token.age;
     mode = "775";
+  };
+
+  services.airflow = {
+    enable = true;
+    port = 8080;
+    data_dir = "/persist/var/lib/airflow";
   };
 
   services.comin = {
