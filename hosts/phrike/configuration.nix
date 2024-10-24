@@ -21,7 +21,7 @@
     ./transmission.nix
     inputs.vscode-server.nixosModules.default
     inputs.comin.nixosModules.comin
-    ../../modules/services/airflow
+    ../../modules/airflow
   ];
 
   nix.settings.experimental-features = [
@@ -145,14 +145,39 @@
     mode = "775";
   };
 
-  services.airflow = {
+  services.redis.servers."airflow" = {
     enable = true;
+    port = 6379;
+  };
+
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_16;
+    enableTCPIP = true;
+    ensureDatabases = [
+      "airflow"
+    ];
+    ensureUsers = [
+      {
+        name = "airflow";
+        ensureDBOwnership = true;
+      }
+    ];
+    authentication = pkgs.lib.mkForce ''
+      # TYPE  DATABASE        USER            ADDRESS                 METHOD
+      local   all             all                                     trust
+      host    all             all             127.0.0.1/32            trust
+    '';
+  };
+
+  services.airflow = {
+    enable = false;
     port = 8080;
     data_dir = "/persist/var/lib/airflow";
   };
 
   services.comin = {
-    enable = true;
+    enable = false;
     remotes = [
       {
         name = "origin";
