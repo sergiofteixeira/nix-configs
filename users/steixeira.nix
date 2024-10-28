@@ -99,6 +99,7 @@ in
     ruff-lsp
     ruff
     nodePackages.live-server
+    uv
 
     # devops
     sshs
@@ -116,6 +117,9 @@ in
     trivy
     gnused
     opentofu
+    minikube
+    tilt
+    stern
 
     # utils
     watch

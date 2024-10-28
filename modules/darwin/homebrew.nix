@@ -15,6 +15,7 @@
       "docker"
       "orbstack"
       "nikitabobko/tap/aerospace"
+      "pgadmin4"
     ];
     brews = [
       "fabianishere/personal/pam_reattach"
