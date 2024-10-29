@@ -78,6 +78,7 @@ in
 
     # languages
     nodejs_20
+    pnpm
     terragrunt
     terraform-ls
     deno
@@ -147,7 +148,6 @@ in
     which
     tree
     nix-prefetch-scripts
-    kitty
 
     # fonts
     meslo-lgs-nf
