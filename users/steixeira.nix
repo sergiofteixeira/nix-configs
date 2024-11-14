@@ -63,15 +63,15 @@ in
     ".config/ghostty/config" = {
       source = ./configs/ghostty/config;
     };
-    ".config/nvim" = {
-      recursive = true;
-      source = pkgs.fetchFromGitHub {
-        owner = "sergiofteixeira";
-        repo = "nvim";
-        rev = "dbf09413303729271d29209940baa6ed325b09fc";
-        sha256 = "sha256-Algoqw+al338lUfhPSPpxQ63vYEDzo5WwmKGxr8UhH4=";
-      };
-    };
+    #".config/nvim" = {
+    #recursive = true;
+    #source = pkgs.fetchFromGitHub {
+    #owner = "sergiofteixeira";
+    #repo = "nvim";
+    #rev = "dbf09413303729271d29209940baa6ed325b09fc";
+    #sha256 = "sha256-Algoqw+al338lUfhPSPpxQ63vYEDzo5WwmKGxr8UhH4=";
+    #};
+    #};
   };
 
   home.packages = with pkgs; [

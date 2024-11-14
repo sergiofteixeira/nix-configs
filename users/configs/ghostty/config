@@ -18,4 +18,5 @@ adjust-cell-height = 0
 clipboard-read = "allow"
 clipboard-paste-protection = false
 clipboard-trim-trailing-spaces = true
-theme = GruvboxDarkHard
+theme = GruvboxDark
+
