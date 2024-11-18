@@ -25,7 +25,7 @@
       environment = {
         TZ = "Europe/Lisbon";
         ServerIP = "10.200.0.185";
-        VIRTUAL_HOST = "pihole.sergioteixeira.xyz";
+        VIRTUAL_HOST = "pihole.temporalreach.cloud";
         BLOCKING_ENABLED = "true";
         DNSSEC = "false";
         WEB_BIND_ADDR = "10.200.0.185";

@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  acmeHost = "sergioteixeira.xyz";
+  acmeHost = "temporalreach.cloud";
 in
 {
   services.nginx = {
@@ -11,7 +11,7 @@ in
     recommendedOptimisation = true;
 
     virtualHosts = {
-      "pihole.sergioteixeira.xyz" = {
+      "pihole.temporalreach.cloud" = {
         useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
@@ -19,7 +19,7 @@ in
           proxyWebsockets = true;
         };
       };
-      "bazarr.sergioteixeira.xyz" = {
+      "bazarr.temporalreach.cloud" = {
         useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
@@ -27,7 +27,7 @@ in
           proxyWebsockets = true;
         };
       };
-      "jellyfin.sergioteixeira.xyz" = {
+      "jellyfin.temporalreach.cloud" = {
         useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
@@ -35,7 +35,7 @@ in
           proxyWebsockets = true;
         };
       };
-      "prowlar.sergioteixeira.xyz" = {
+      "prowlar.temporalreach.cloud" = {
         useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
@@ -43,7 +43,7 @@ in
           proxyWebsockets = true;
         };
       };
-      "radar.sergioteixeira.xyz" = {
+      "radar.temporalreach.cloud" = {
         useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
@@ -51,7 +51,7 @@ in
           proxyWebsockets = true;
         };
       };
-      "sonar.sergioteixeira.xyz" = {
+      "sonar.temporalreach.cloud" = {
         useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
@@ -59,7 +59,7 @@ in
           proxyWebsockets = true;
         };
       };
-      "downloader.sergioteixeira.xyz" = {
+      "downloader.temporalreach.cloud" = {
         useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
@@ -67,7 +67,7 @@ in
           proxyWebsockets = true;
         };
       };
-      "adguard.sergioteixeira.xyz" = {
+      "adguard.temporalreach.cloud" = {
         useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {

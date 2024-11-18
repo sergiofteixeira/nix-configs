@@ -9,11 +9,11 @@ in
 
   # domains
 
-  security.acme.certs."sergioteixeira.xyz" = {
+  security.acme.certs."temporalreach.cloud" = {
     group = group;
     dnsProvider = dnsProvider;
     credentialsFile = config.age.secrets.cloudflare_token.path;
-    extraDomainNames = [ "*.sergioteixeira.xyz" ];
+    extraDomainNames = [ "*.temporalreach.cloud" ];
   };
 
   age.secrets.cloudflare_token = {
