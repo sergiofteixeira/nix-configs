@@ -67,14 +67,6 @@ in
           proxyWebsockets = true;
         };
       };
-      "adguard.temporalreach.cloud" = {
-        useACMEHost = acmeHost;
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "http://localhost:3000";
-          proxyWebsockets = true;
-        };
-      };
     };
   };
 }
