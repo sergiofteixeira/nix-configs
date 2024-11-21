@@ -101,6 +101,7 @@ in
     ruff
     nodePackages.live-server
     uv
+    zig
 
     # devops
     sshs
