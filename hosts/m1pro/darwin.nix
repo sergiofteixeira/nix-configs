@@ -1,4 +1,7 @@
-{ pkgs, ... }: {
-  networking = { hostName = "TARS"; };
+{ ... }:
+{
+  networking = {
+    hostName = "TARS";
+  };
   system.stateVersion = 4;
 }
