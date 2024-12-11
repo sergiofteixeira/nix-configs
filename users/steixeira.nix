@@ -252,6 +252,7 @@ in
     plugins = [ ];
     shortcut = "l";
     secureSocket = false;
+    shell = "${pkgs.fish}/bin/fish";
 
     extraConfig = ''
       set -g status-bg terminal
