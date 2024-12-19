@@ -101,6 +101,10 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "aspnetcore-runtime-6.0.36"
+  ];
+
   environment.systemPackages = with pkgs; [
     neovim
     git
