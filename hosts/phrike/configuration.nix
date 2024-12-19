@@ -30,9 +30,6 @@
   nix.settings.trusted-users = [ "steixeira" ];
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 7d";
-  nixpkgs.config.permittedInsecurePackages = [
-    "aspnetcore-runtime-wrapped-6.0.36"
-  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
