@@ -16,6 +16,7 @@
       "orbstack"
       "nikitabobko/tap/aerospace"
       "pgadmin4"
+      "yaak"
     ];
     brews = [
       "fabianishere/personal/pam_reattach"

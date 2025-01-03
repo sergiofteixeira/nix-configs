@@ -143,6 +143,7 @@ in
     gnumake
     nix-prefetch-scripts
     argo
+    rainfrog
 
     # misc
     file
