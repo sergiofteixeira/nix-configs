@@ -102,6 +102,7 @@ in
     nodePackages.live-server
     uv
     zig
+    evil-helix
 
     # devops
     sshs
