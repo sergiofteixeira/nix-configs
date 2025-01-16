@@ -19,6 +19,7 @@
     ./sonarr.nix
     ./tailscale.nix
     ./transmission.nix
+    ../../modules/beszel-agent.nix
     inputs.vscode-server.nixosModules.default
     inputs.comin.nixosModules.comin
   ];
@@ -56,6 +57,12 @@
     xkb.variant = "";
   };
 
+  users.users.beszel = {
+    isSystemUser = true;
+    group = "beszel";
+    description = "Beszel Agent service user";
+  };
+  users.groups.beszel = { };
   users.groups.media = { };
   users.users.steixeira = {
     isNormalUser = true;
@@ -159,6 +166,23 @@
         branches.main.name = "main";
       }
     ];
+  };
+
+  systemd.services.beszel-agent = {
+    description = "Beszel Agent Service";
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
+
+    serviceConfig = {
+      Environment = [
+        "PORT=45876"
+        ''KEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEbtqGTTZNXdQTQzuMQn4gyDheBdtV9T9W9MUCdX0dJY"''
+      ];
+      ExecStart = "/run/current-system/sw/bin/beszel-agent";
+      User = "beszel";
+      Restart = "always";
+      RestartSec = 5;
+    };
   };
 
   system.stateVersion = "23.05";

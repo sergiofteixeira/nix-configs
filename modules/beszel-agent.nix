@@ -29,7 +29,7 @@ in
 
     key = mkOption {
       type = types.str;
-      default = "\"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFIkr64nTWbuhU7l+VrLO7lPDRgh2LVqTtrIberNge1j\"";
+      default = "\"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEbtqGTTZNXdQTQzuMQn4gyDheBdtV9T9W9MUCdX0dJY\"";
       description = "SSH key for the beszel agent.";
     };
 
