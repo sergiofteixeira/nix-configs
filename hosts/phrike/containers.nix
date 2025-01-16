@@ -7,6 +7,16 @@
       ports = [ "8191:8191" ];
     };
 
+    beszel-hub = {
+      image = "henrygd/beszel:0.9";
+      ports = [ "8090:8090" ];
+
+      volumes = [
+        "/var/lib/beszel:/beszel_data"
+        "/var/lib/etc-dnsmasq.d:/etc/dnsmasq.d"
+      ];
+    };
+
     pihole = {
       autoStart = true;
       image = "pihole/pihole:latest";
