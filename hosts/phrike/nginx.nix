@@ -19,6 +19,14 @@ in
           proxyWebsockets = true;
         };
       };
+      "beszel.temporalreach.cloud" = {
+        useACMEHost = acmeHost;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://localhost:8090";
+          proxyWebsockets = true;
+        };
+      };
       "bazarr.temporalreach.cloud" = {
         useACMEHost = acmeHost;
         forceSSL = true;
