@@ -176,6 +176,7 @@
 
     serviceConfig = {
       Environment = [
+        "EXTRA_FILESYSTEMS=\"sda1\""
         "PORT=45876"
         ''KEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEbtqGTTZNXdQTQzuMQn4gyDheBdtV9T9W9MUCdX0dJY"''
       ];
