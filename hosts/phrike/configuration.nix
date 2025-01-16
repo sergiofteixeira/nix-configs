@@ -130,6 +130,7 @@
     ncdu
     transmission_4
     gnumake
+    beszel
   ];
 
   virtualisation = {
