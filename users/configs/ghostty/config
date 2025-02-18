@@ -1,4 +1,6 @@
-font-family = Menlo
+font-family = Meslo LG S
+#font-family = TX-02
+font-style = Medium
 font-size = 17
 font-feature = ss01
 font-feature = ss02
@@ -18,5 +20,5 @@ adjust-cell-height = 0
 clipboard-read = "allow"
 clipboard-paste-protection = false
 clipboard-trim-trailing-spaces = true
-theme = GruvboxDark
+theme = SpaceGray Eighties
 

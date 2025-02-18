@@ -16,6 +16,7 @@
       "orbstack"
       "nikitabobko/tap/aerospace"
       "pgadmin4"
+      "ghostty"
       "yaak"
     ];
     brews = [

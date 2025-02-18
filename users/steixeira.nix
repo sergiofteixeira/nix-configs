@@ -98,7 +98,6 @@ in
     poetry
     nil
     ruff-lsp
-    ruff
     nodePackages.live-server
     uv
     zig
@@ -181,8 +180,22 @@ in
       add_newline = false;
       aws.disabled = true;
       gcloud.disabled = true;
+      python.disabled = true;
+      helm.disabled = true;
+      package.disabled = true;
+      terraform = {
+        style = "#7CCDFD";
+      };
+      golang.disabled = true;
+      directory = {
+        style = "#89DDFF";
+      };
+      git_branch = {
+        style = "#C3E88D";
+      };
       kubernetes = {
         disabled = false;
+        style = "#C792EA";
       };
       line_break.disabled = true;
     };
@@ -230,6 +243,7 @@ in
       po = "kubectl get pod";
       gc = "git checkout";
       gs = "git status";
+      terraform = "tofu";
     };
   };
 
