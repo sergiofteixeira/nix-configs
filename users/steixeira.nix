@@ -182,6 +182,7 @@ in
       gcloud.disabled = true;
       python.disabled = true;
       helm.disabled = true;
+      lua.disabled = true;
       package.disabled = true;
       terraform = {
         style = "#7CCDFD";
@@ -191,7 +192,7 @@ in
         style = "#89DDFF";
       };
       git_branch = {
-        style = "#C3E88D";
+        style = "#76946A";
       };
       kubernetes = {
         disabled = false;
