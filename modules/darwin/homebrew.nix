@@ -12,12 +12,10 @@
       "raycast"
       "spotify"
       "tailscale"
-      "docker"
       "orbstack"
       "nikitabobko/tap/aerospace"
       "pgadmin4"
       "ghostty"
-      "yaak"
     ];
     brews = [
       "fabianishere/personal/pam_reattach"
