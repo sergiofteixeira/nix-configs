@@ -272,36 +272,25 @@ in
     shell = "${pkgs.fish}/bin/fish";
 
     extraConfig = ''
-      set -g status-bg terminal
-      set-option -wg window-status-separator ""
-      set-option -wg monitor-activity on
-      set-option -wg monitor-bell on
-      set-option -g status-interval 1
-      set-option -wg mode-style bg=terminal,fg="#5FB3A1"
-      set-option -g status-style bg=terminal,fg="#E4F0FB"
-      set-option -wg window-status-style fg="#A6ACCD"
-      set-option -wg window-status-activity-style bg=terminal,fg="#ADD7FF"
-      set-option -wg window-status-bell-style bg="#303340",fg="#ADD7FF"
-      set-option -wg window-status-current-style bg=terminal,fg="#5DE4C7"
-      set-option -g pane-active-border-style fg="#5FB3A1"
-      set-option -g pane-border-style fg="#303340"
-      set-option -g message-style bg="#E4F0FB",fg="#171922"
-      set-option -g message-command-style bg="#171922",fg="#E4F0FB"
-      set-option -g display-panes-active-colour "#5DE4C7"
-      set-option -g display-panes-colour "#E4F0FB"
-      set -g status-justify centre
-      set-option -wg clock-mode-colour "#E4F0FB"
       unbind C-b
       set -g prefix C-t
       set -ga terminal-overrides ",*256col*:Tc"
-      bind -n C-k send-keys "clear"\; send-keys "Enter"
+      bind -n C-k send-keys "clear"; send-keys "Enter"
       bind _ split-window -h -c "#{pane_current_path}"
       bind - split-window -v -c "#{pane_current_path}"
       set -g mouse on
       set-option -sg escape-time 10
       set-option -g history-limit 50000
       set-window-option -g mode-keys vi
-      set-option -g status-position bottom
+      set -g status-position bottom
+      set -g status-bg colour234
+      set -g status-fg colour137
+      set -g status-left \'\'
+      set -g status-right '#[fg=colour233,bg=colour241,bold] %d/%m #[fg=colour233,bg=colour245,bold] %H:%M:%S '
+      set -g status-right-length 50
+      set -g status-left-length 20
+      setw -g window-status-current-format ' #I#[fg=colour250]:#[fg=colour255]#W#[fg=colour50]#F '
+      setw -g window-status-format ' #I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F '
       set -g set-clipboard on
       bind -n C-n next-window
     '';
