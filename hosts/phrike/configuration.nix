@@ -16,6 +16,7 @@
     ./node-exporter.nix
     ./prowlarr.nix
     ./radarr.nix
+    ./rqbit.nix
     ./sonarr.nix
     ./tailscale.nix
     ./transmission.nix
