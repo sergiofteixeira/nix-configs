@@ -79,7 +79,7 @@
   };
 
   users.users."steixeira".openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICySDx70VKoXhwoQbGGx1FpZsqWMhJxcOipc76eFztVZ"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINCOC8DKMDMqzCKzxSqv4OaIOdNk21uYXJIIWS2hGpvq"
   ];
 
   security.sudo.extraRules = [
