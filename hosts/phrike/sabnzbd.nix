@@ -3,7 +3,7 @@
 {
   services.sabnzbd = {
     enable = true;
-    user = "jellyfin";
+    user = "steixeira";
     group = "media";
     configFile = "/data/sabnzbd/sabnzbd.ini";
   };
