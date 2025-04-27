@@ -17,6 +17,7 @@
     ./prowlarr.nix
     ./radarr.nix
     ./rqbit.nix
+    ./sabnzbd.nix
     ./sonarr.nix
     ./tailscale.nix
     ./transmission.nix
