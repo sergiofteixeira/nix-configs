@@ -75,6 +75,14 @@ in
           proxyWebsockets = true;
         };
       };
+      "sabnzbd.temporalreach.cloud" = {
+        useACMEHost = acmeHost;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://localhost:8080";
+          proxyWebsockets = true;
+        };
+      };
     };
   };
 }
