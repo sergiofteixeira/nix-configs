@@ -79,9 +79,7 @@ in
     # languages
     nodejs_20
     pnpm
-    terragrunt
     terraform-ls
-    deno
     terraform-docs
     sops
     go
@@ -93,15 +91,8 @@ in
     cargo
     tree-sitter
     nixfmt-rfc-style
-    pipenv
-    pyenv
-    poetry
     nil
-    ruff-lsp
-    nodePackages.live-server
     uv
-    zig
-    evil-helix
 
     # devops
     sshs
@@ -110,17 +101,12 @@ in
     kubectl
     kubetail
     kubernetes-helm
-    kube-bench
     redis
     eks-node-viewer
     gh
-    deploy-rs
-    nh
-    trivy
     gnused
     opentofu
     minikube
-    tilt
     stern
 
     # utils
@@ -143,7 +129,6 @@ in
     gnumake
     nix-prefetch-scripts
     argo
-    rainfrog
 
     # misc
     file
