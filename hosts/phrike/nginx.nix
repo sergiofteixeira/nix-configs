@@ -79,7 +79,7 @@ in
         useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
-          proxyPass = "http://localhost:8080";
+          proxyPass = "http://localhost:8085";
           proxyWebsockets = true;
         };
       };
