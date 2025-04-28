@@ -10,6 +10,7 @@
     ./acme.nix
     ./bazarr.nix
     ./containers.nix
+    ./deluge.nix
     ./hardware-configuration.nix
     ./jellyfin.nix
     ./nginx.nix
