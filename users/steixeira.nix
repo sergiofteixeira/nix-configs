@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  config,
   ...
 }:
 
@@ -99,6 +98,7 @@ in
     kubectx
     awscli2
     kubectl
+    kubebuilder
     kubetail
     kubernetes-helm
     redis
@@ -229,6 +229,8 @@ in
       po = "kubectl get pod";
       gc = "git checkout";
       gs = "git status";
+      gcm = "git commit --signoff";
+      ghpr = "gh pr create --web";
       terraform = "tofu";
     };
   };
