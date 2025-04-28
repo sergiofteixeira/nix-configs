@@ -3,8 +3,7 @@
 {
   services.deluge = {
     enable = true;
-    user = "nobody";
-    group = "nogroup";
+    group = "media";
     web = {
       enable = true;
       openFirewall = true;
