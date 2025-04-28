@@ -3,6 +3,7 @@
 {
   services.deluge = {
     enable = true;
+    user = "steixeira";
     group = "media";
     web = {
       enable = true;

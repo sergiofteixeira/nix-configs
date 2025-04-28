@@ -18,10 +18,8 @@
     ./prowlarr.nix
     ./radarr.nix
     ./rqbit.nix
-    ./sabnzbd.nix
     ./sonarr.nix
     ./tailscale.nix
-    ./transmission.nix
     ../../modules/beszel-agent.nix
     inputs.vscode-server.nixosModules.default
     inputs.comin.nixosModules.comin
