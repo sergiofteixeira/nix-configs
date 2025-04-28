@@ -1,13 +1,9 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   services.deluge = {
     enable = true;
     user = "nobody";
-    declarative = true;
-    authFile = pkgs.writeText "deluge-auth" ''
-      admin:admin:10
-    '';
     group = "nogroup";
     web = {
       enable = true;
