@@ -211,9 +211,6 @@ in
       if test -e ~/.config/fish/theme.fish
         source ~/.config/fish/theme.fish
       end
-      set -Ux PYENV_ROOT $HOME/.pyenv
-      fish_add_path $PYENV_ROOT/bin
-      pyenv init - | source
     '';
     shellAliases = {
       loginprod = "aws sso login --profile prod";
