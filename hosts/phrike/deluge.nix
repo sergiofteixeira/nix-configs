@@ -11,19 +11,20 @@
       port = 8112;
     };
     config = {
-      download_location = "/data/downloads/";
+      move_completed = true;
+      move_completed_path = "/data/torrents/completed";
+      download_location = "/data/torrents/downloading";
+      dont_count_slow_torrents = true;
+      max_active_seeding = -1;
+      max_active_limit = -1;
+      max_active_downloading = 8;
+      max_connections_global = -1;
       allow_remote = true;
       daemon_port = 58846;
       listen_ports = [
         6881
         6891
       ];
-      pre_allocate_storage = true;
-      prioritize_first_last_pieces = true;
-      sequential_download = true;
-      stop_seed_at_ratio = true;
-      stop_seed_ratio = 1.0;
-      share_ratio_limit = 1.0;
       openFirewall = true;
     };
   };
