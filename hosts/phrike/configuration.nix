@@ -38,6 +38,9 @@
 
   networking.hostName = "phrike";
   networking.networkmanager.enable = true;
+  networking.interfaces.eno1.wakeOnLan = {
+    enable = true;
+  };
 
   time.timeZone = "Europe/Lisbon";
   i18n.defaultLocale = "en_US.UTF-8";
