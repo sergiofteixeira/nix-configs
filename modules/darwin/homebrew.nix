@@ -15,6 +15,7 @@
       "orbstack"
       "nikitabobko/tap/aerospace"
       "pgadmin4"
+      "brave-browser"
       "ghostty"
     ];
     brews = [
