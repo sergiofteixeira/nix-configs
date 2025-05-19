@@ -169,19 +169,9 @@ in
       helm.disabled = true;
       lua.disabled = true;
       package.disabled = true;
-      terraform = {
-        style = "#7CCDFD";
-      };
       golang.disabled = true;
-      directory = {
-        style = "#89DDFF";
-      };
-      git_branch = {
-        style = "#76946A";
-      };
       kubernetes = {
         disabled = false;
-        style = "#C792EA";
       };
       line_break.disabled = true;
     };
