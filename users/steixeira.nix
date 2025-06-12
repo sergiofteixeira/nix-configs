@@ -108,6 +108,8 @@ in
     opentofu
     minikube
     stern
+    deno
+    grafanactl
 
     # utils
     watch
@@ -249,7 +251,6 @@ in
       unbind C-b
       set -g prefix C-t
       set -ga terminal-overrides ",*256col*:Tc"
-      bind -n C-k send-keys "clear"; send-keys "Enter"
       bind _ split-window -h -c "#{pane_current_path}"
       bind - split-window -v -c "#{pane_current_path}"
       set -g mouse on

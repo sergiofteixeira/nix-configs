@@ -35,8 +35,12 @@
 
   security.pam.services.sudo_local.touchIdAuth = true;
 
-  fonts.packages = [ pkgs.nerd-fonts.meslo-lg ];
+  fonts.packages = [
+    pkgs.nerd-fonts.meslo-lg
+    pkgs.nerd-fonts.terminess-ttf
+  ];
 
+  system.primaryUser = "steixeira";
   system.defaults = {
 
     finder.AppleShowAllExtensions = true;
