@@ -21,6 +21,8 @@
     ./sonarr.nix
     ./tailscale.nix
     ../../modules/beszel-agent.nix
+    ../../modules/monitoring/prometheus.nix
+    ../../modules/monitoring/grafana.nix
     inputs.vscode-server.nixosModules.default
     inputs.comin.nixosModules.comin
   ];
