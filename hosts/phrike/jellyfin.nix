@@ -6,4 +6,7 @@
     group = "media";
     openFirewall = true;
   };
+  services.jellyseerr = {
+    enable = true;
+  };
 }
