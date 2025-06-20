@@ -101,6 +101,13 @@ in
           proxyWebsockets = true;
         };
       };
+      "jellyseer.temporalreach.cloud" = {
+        useACMEHost = acmeHost;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://localhost:5055";
+        };
+      };
     };
   };
 }
