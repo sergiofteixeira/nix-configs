@@ -12,19 +12,17 @@
     ./containers.nix
     ./deluge.nix
     ./hardware-configuration.nix
+    ./immich.nix
+    inputs.comin.nixosModules.comin
+    inputs.vscode-server.nixosModules.default
     ./jellyfin.nix
+    ../../modules/beszel-agent.nix
     ./nginx.nix
-    ./node-exporter.nix
     ./prowlarr.nix
     ./radarr.nix
     ./rqbit.nix
     ./sonarr.nix
     ./tailscale.nix
-    ../../modules/beszel-agent.nix
-    ../../modules/monitoring/prometheus.nix
-    ../../modules/monitoring/grafana.nix
-    inputs.vscode-server.nixosModules.default
-    inputs.comin.nixosModules.comin
   ];
 
   nix.settings.experimental-features = [
