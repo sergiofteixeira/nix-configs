@@ -13,8 +13,6 @@
     ./deluge.nix
     ./hardware-configuration.nix
     ./immich.nix
-    inputs.comin.nixosModules.comin
-    inputs.vscode-server.nixosModules.default
     ./jellyfin.nix
     ../../modules/beszel-agent.nix
     ./nginx.nix
@@ -153,24 +151,9 @@
     ];
   };
 
-  services.vscode-server.enable = true;
-
-  services.prometheus.enable = true;
-
   age.secrets.git_token = {
     file = ../../secrets/token.age;
     mode = "775";
-  };
-
-  services.comin = {
-    enable = true;
-    remotes = [
-      {
-        name = "origin";
-        url = "https://github.com/sergiofteixeira/nix-configs.git";
-        branches.main.name = "main";
-      }
-    ];
   };
 
   systemd.services.beszel-agent = {

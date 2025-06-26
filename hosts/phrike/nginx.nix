@@ -67,22 +67,6 @@ in
           proxyWebsockets = true;
         };
       };
-      "downloader.temporalreach.cloud" = {
-        useACMEHost = acmeHost;
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "http://localhost:9091";
-          proxyWebsockets = true;
-        };
-      };
-      "sabnzbd.temporalreach.cloud" = {
-        useACMEHost = acmeHost;
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "http://localhost:8085";
-          proxyWebsockets = true;
-        };
-      };
       "deluge.temporalreach.cloud" = {
         useACMEHost = acmeHost;
         forceSSL = true;
@@ -95,20 +79,6 @@ in
         forceSSL = true;
         locations."/" = {
           proxyPass = "http://localhost:5055";
-        };
-      };
-      "grafana.temporalreach.cloud" = {
-        useACMEHost = acmeHost;
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "http://localhost:3000";
-        };
-      };
-      "prometheus.temporalreach.cloud" = {
-        useACMEHost = acmeHost;
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "http://localhost:9090";
         };
       };
       "immich.temporalreach.cloud" = {
