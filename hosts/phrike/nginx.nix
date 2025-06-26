@@ -90,17 +90,6 @@ in
           proxyPass = "http://localhost:8112";
         };
       };
-      "home.temporalreach.cloud" = {
-        useACMEHost = acmeHost;
-        forceSSL = true;
-        extraConfig = ''
-          proxy_buffering off;
-        '';
-        locations."/" = {
-          proxyPass = "http://localhost:8123";
-          proxyWebsockets = true;
-        };
-      };
       "jellyseer.temporalreach.cloud" = {
         useACMEHost = acmeHost;
         forceSSL = true;

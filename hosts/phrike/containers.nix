@@ -4,22 +4,6 @@
 
   config.virtualisation.oci-containers.containers = {
 
-    home-assistant = {
-      image = "ghcr.io/home-assistant/home-assistant:latest";
-      volumes = [
-        "/var/lib/home-assistant/config:/config"
-        "/etc/localtime:/etc/localtime:ro"
-        "/run/dbus:/run/dbus:ro"
-      ];
-      environment = {
-        TZ = "Europe/Lisbon";
-      };
-      extraOptions = [
-        "--network=host"
-        "--privileged=true"
-      ];
-    };
-
     flaresolverr = {
       image = "flaresolverr/flaresolverr:latest";
       ports = [ "8191:8191" ];
