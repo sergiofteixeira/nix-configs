@@ -131,6 +131,8 @@ in
     gnumake
     nix-prefetch-scripts
     argo
+    immich-go
+    icloudpd
 
     # misc
     file

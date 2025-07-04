@@ -21,6 +21,7 @@
     ./rqbit.nix
     ./sonarr.nix
     ./tailscale.nix
+    ./vaultwarden.nix
   ];
 
   nix.settings.experimental-features = [

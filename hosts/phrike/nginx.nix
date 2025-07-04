@@ -81,6 +81,13 @@ in
           proxyPass = "http://localhost:5055";
         };
       };
+      "vaultwarden.temporalreach.cloud" = {
+        useACMEHost = acmeHost;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://localhost:8222";
+        };
+      };
       "immich.temporalreach.cloud" = {
         useACMEHost = acmeHost;
         forceSSL = true;
