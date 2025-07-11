@@ -77,24 +77,18 @@ in
 
     # languages
     nodejs_20
-    pnpm
     terraform-ls
     terraform-docs
-    sops
     go
     gopls
     gotools
     gofumpt
-    rustc
-    gcc
-    cargo
     tree-sitter
     nixfmt-rfc-style
     nil
     uv
 
     # devops
-    sshs
     kubectx
     awscli2
     kubectl
@@ -106,17 +100,13 @@ in
     gh
     gnused
     opentofu
-    minikube
-    stern
     deno
-    grafanactl
 
     # utils
     watch
     neovim
     ripgrep
     jq
-    yq-go
     eza
     fzf
     fd
@@ -130,15 +120,11 @@ in
     htop
     gnumake
     nix-prefetch-scripts
-    argo
-    immich-go
-    icloudpd
 
     # misc
     file
     which
     tree
-    nix-prefetch-scripts
 
     # fonts
     meslo-lgs-nf
