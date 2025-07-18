@@ -88,6 +88,20 @@ in
           proxyPass = "http://localhost:8222";
         };
       };
+      "duplicati.temporalreach.cloud" = {
+        useACMEHost = acmeHost;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://localhost:8200";
+        };
+      };
+      "home.temporalreach.cloud" = {
+        useACMEHost = acmeHost;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://localhost:61208";
+        };
+      };
       "immich.temporalreach.cloud" = {
         useACMEHost = acmeHost;
         forceSSL = true;
