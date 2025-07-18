@@ -174,6 +174,12 @@
       RestartSec = 5;
     };
   };
+  services.glances = {
+    enable = true;
+  };
+  services.duplicati = {
+    enable = true;
+  };
 
   system.stateVersion = "23.05";
 }
