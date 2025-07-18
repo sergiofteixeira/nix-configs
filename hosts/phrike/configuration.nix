@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  inputs,
   ...
 }:
 
@@ -16,6 +15,7 @@
     ./jellyfin.nix
     ../../modules/beszel-agent.nix
     ./nginx.nix
+    ./others.nix
     ./prowlarr.nix
     ./radarr.nix
     ./rqbit.nix
@@ -173,12 +173,6 @@
       Restart = "always";
       RestartSec = 5;
     };
-  };
-  services.glances = {
-    enable = true;
-  };
-  services.duplicati = {
-    enable = true;
   };
 
   system.stateVersion = "23.05";
