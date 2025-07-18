@@ -2,24 +2,21 @@
 let
   dnsProvider = "cloudflare";
   group = "nginx";
+  domain = "temporalreach.cloud";
 in
 {
   security.acme = {
     acceptTerms = true;
     defaults.email = "sergiofpteixeira@gmail.com";
-    defaults = {
-      dnsProvider = dnsProvider;
-      reloadServices = [
-        group
-      ];
-    };
   };
 
-  security.acme.certs."temporalreach.cloud" = {
-    group = group;
+  security.acme.certs.${domain} = {
+    domain = "*.${domain}";
     dnsProvider = dnsProvider;
+    dnsResolver = "1.1.1.1:53";
+    group = group;
+    dnsPropagationCheck = false;
     credentialsFile = config.age.secrets.cloudflare_token.path;
-    extraDomainNames = [ "*.temporalreach.cloud" ];
   };
 
   age.secrets.cloudflare_token = {
