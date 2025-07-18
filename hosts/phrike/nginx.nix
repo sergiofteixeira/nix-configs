@@ -99,7 +99,7 @@ in
         useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
-          proxyPass = "http://localhost:61208";
+          proxyPass = "http://localhost:9097";
         };
       };
       "immich.temporalreach.cloud" = {
