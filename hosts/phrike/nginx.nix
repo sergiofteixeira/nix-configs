@@ -95,11 +95,11 @@ in
           proxyPass = "http://localhost:8200";
         };
       };
-      "home.temporalreach.cloud" = {
+      "openbao.temporalreach.cloud" = {
         useACMEHost = acmeHost;
         forceSSL = true;
         locations."/" = {
-          proxyPass = "http://localhost:9097";
+          proxyPass = "http://localhost:8200";
         };
       };
       "immich.temporalreach.cloud" = {
