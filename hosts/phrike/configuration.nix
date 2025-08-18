@@ -118,17 +118,10 @@
     neovim
     git
     nixfmt-rfc-style
-    plex
-    radarr
-    sonarr
-    prowlarr
-    bazarr
     htop
     tailscale
-    prometheus-node-exporter
     intel-gpu-tools
     ncdu
-    transmission_4
     gnumake
     beszel
   ];
