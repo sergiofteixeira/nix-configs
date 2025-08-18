@@ -28,7 +28,7 @@
       };
       Preferences.WebUI = {
         AlternativeUIEnabled = true;
-        RootFolder = "${pkgs.vuetorrent}";
+        RootFolder = "${pkgs.vuetorrent}/share/vuetorrent";
         AuthSubnetWhitelist = "0.0.0.0/0";
         AuthSubnetWhitelistEnabled = true;
       };

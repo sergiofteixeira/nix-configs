@@ -9,13 +9,12 @@
     ./acme.nix
     ./bazarr.nix
     ./containers.nix
-    ./deluge.nix
     ./hardware-configuration.nix
     ./jellyfin.nix
-    ./qbittorrent.nix
     ../../modules/beszel-agent.nix
     ./nginx.nix
     ./prowlarr.nix
+    ./qbittorrent.nix
     ./radarr.nix
     ./sonarr.nix
     ./tailscale.nix
