@@ -2,19 +2,20 @@
 {
   services.qbittorrent = {
     enable = true;
-    package = inputs.qbit.legacyPackages.${pkgs.system}.qbittorrent-nox;
+    package = pkgs.qbittorrent-nox;
+    user = "steixeira";
     group = "media";
     serverConfig = {
       LegalNotice.Accepted = true;
       BitTorrent.Session = rec {
         TempPathEnabled = true;
-        DefaultSavePath = "/storage/media/torrents/";
+        DefaultSavePath = "/data/torrents/";
         TempPath = DefaultSavePath + "incomplete/";
         TorrentExportDirectory = DefaultSavePath + "sources/";
         QueueingSystemEnabled = true;
         IgnoreSlowTorrentsForQueueing = true;
-        SlowTorrentsDownloadRate = 40; # kbps
-        SlowTorrentsUploadRate = 40; # kbps
+        SlowTorrentsDownloadRate = 40;
+        SlowTorrentsUploadRate = 40;
         GlobalMaxInactiveSeedingMinutes = 43800;
         GlobalMaxSeedingMinutes = 10080;
         GlobalMaxRatio = 2;
