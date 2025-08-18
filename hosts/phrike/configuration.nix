@@ -12,6 +12,7 @@
     ./deluge.nix
     ./hardware-configuration.nix
     ./jellyfin.nix
+    ./qbittorrent.nix
     ../../modules/beszel-agent.nix
     ./nginx.nix
     ./prowlarr.nix
