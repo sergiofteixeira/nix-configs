@@ -81,6 +81,13 @@ in
           proxyPass = "http://localhost:5055";
         };
       };
+      "qbittorrent.temporalreach.cloud" = {
+        useACMEHost = acmeHost;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://localhost:8080";
+        };
+      };
     };
   };
 }
