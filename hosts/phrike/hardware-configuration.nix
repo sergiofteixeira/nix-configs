@@ -44,11 +44,6 @@
     fsType = "ext4";
   };
 
-  fileSystems."/backup-disk" = {
-    device = "/dev/disk/by-uuid/32a9911b-fbb7-48bc-ae52-8fa973eec09d";
-    fsType = "ext4";
-  };
-
   swapDevices = [ ];
 
   nixpkgs.config.packageOverrides = pkgs: {

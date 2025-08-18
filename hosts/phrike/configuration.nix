@@ -11,17 +11,13 @@
     ./containers.nix
     ./deluge.nix
     ./hardware-configuration.nix
-    ./immich.nix
     ./jellyfin.nix
     ../../modules/beszel-agent.nix
     ./nginx.nix
-    ./others.nix
     ./prowlarr.nix
     ./radarr.nix
-    ./rqbit.nix
     ./sonarr.nix
     ./tailscale.nix
-    ./vaultwarden.nix
   ];
 
   nix.settings.experimental-features = [
