@@ -38,6 +38,7 @@
   fonts.packages = [
     pkgs.nerd-fonts.meslo-lg
     pkgs.nerd-fonts.terminess-ttf
+    pkgs.nerd-fonts.dejavu-sans-mono
   ];
 
   system.primaryUser = "steixeira";

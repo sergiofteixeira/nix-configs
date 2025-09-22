@@ -22,6 +22,7 @@ palette = "0=#1b1b1b"
 background = "#1b1b1b"
 
 font-family = "TX-02"
+font-thicken = true
 font-size = 12
 font-feature = zero
 font-feature = calt
