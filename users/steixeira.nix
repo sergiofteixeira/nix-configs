@@ -78,7 +78,6 @@ in
     # languages
     nodejs_20
     terraform-ls
-    terraform-docs
     go
     gopls
     gotools
