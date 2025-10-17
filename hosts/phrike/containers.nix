@@ -4,6 +4,20 @@
 
   config.virtualisation.oci-containers.containers = {
 
+    huntarr = {
+      autoStart = true;
+      image = "ghcr.io/plexguide/huntarr:latest";
+      environment = {
+        TZ = "Europe/Lisbon";
+        PUID = "1000";
+        PGID = "100";
+      };
+      ports = [ "9705:9705" ];
+      volumes = [
+        "/data/config/huntarr:/config"
+      ];
+    };
+
     flaresolverr = {
       image = "flaresolverr/flaresolverr:latest";
       ports = [ "8191:8191" ];
