@@ -112,7 +112,6 @@ in
     fd
     wget
     curl
-    pre-commit
     neofetch
     zip
     xz
