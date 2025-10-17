@@ -88,6 +88,13 @@ in
           proxyPass = "http://localhost:8080";
         };
       };
+      "huntarr.temporalreach.cloud" = {
+        useACMEHost = acmeHost;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://localhost:9705";
+        };
+      };
     };
   };
 }
