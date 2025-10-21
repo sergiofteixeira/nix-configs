@@ -3,37 +3,31 @@
   pkgs,
   ...
 }:
-let
-  hostname = "${config.networking.hostName}";
-in
 {
-  services.prometheus.exporters.node = {
-    enable = true;
-    enabledCollectors = [
-      "systemd"
-      "processes"
-      "os"
-    ];
-  };
 
   services.alloy = {
     enable = true;
     configPath =
       let
         configAlloy = pkgs.writeText "config.alloy" ''
-          prometheus.scrape "node_static" {
-            job_name = "node-static"
+          prometheus.exporter.unix "default" {
+            include_exporter_metrics = true
+            disable_collectors       = ["mdadm"]
+          }
+          prometheus.scrape "default" {
             scheme = "http"
-            targets = [
-              {
-                "__address__" = "[::1]:${builtins.toString config.services.prometheus.exporters.node.port}",
-                "instance" = "${hostname}",
-              },
-            ]
-            forward_to = [prometheus.remote_write.prometheus.receiver]
+            targets = array.concat(
+              prometheus.exporter.unix.default.targets,
+              [{
+                // Self-collect metrics
+                "job"         = "alloy",
+                "__address__" = "127.0.0.1:12345",
+              }],
+            )
+            forward_to = [prometheus.remote_write.default.receiver]
             scrape_interval = "30s"
           }
-          prometheus.remote_write "prometheus" {
+          prometheus.remote_write "default" {
             endpoint {
               url = "https://prometheus.temporalreach.cloud/api/v1/write"
             }
