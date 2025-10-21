@@ -13,6 +13,7 @@
     ./jellyfin.nix
     ../../modules/monitoring/grafana.nix
     ../../modules/monitoring/prometheus.nix
+    ../../modules/monitoring/node-monitoring.nix
     ./nginx.nix
     ./prowlarr.nix
     ./qbittorrent.nix
