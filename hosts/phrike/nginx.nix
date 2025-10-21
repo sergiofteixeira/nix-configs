@@ -95,6 +95,13 @@ in
           proxyPass = "http://localhost:9705";
         };
       };
+      "lidarr.temporalreach.cloud" = {
+        useACMEHost = acmeHost;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://localhost:8686";
+        };
+      };
     };
   };
 }

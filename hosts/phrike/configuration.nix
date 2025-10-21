@@ -11,7 +11,8 @@
     ./containers.nix
     ./hardware-configuration.nix
     ./jellyfin.nix
-    ../../modules/beszel-agent.nix
+    ../../modules/monitoring/grafana.nix
+    ../../modules/monitoring/prometheus.nix
     ./nginx.nix
     ./prowlarr.nix
     ./qbittorrent.nix
