@@ -102,6 +102,20 @@ in
           proxyPass = "http://localhost:8686";
         };
       };
+      "grafana.temporalreach.cloud" = {
+        useACMEHost = acmeHost;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://localhost:3000";
+        };
+      };
+      "prometheus.temporalreach.cloud" = {
+        useACMEHost = acmeHost;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://localhost:9090";
+        };
+      };
     };
   };
 }
