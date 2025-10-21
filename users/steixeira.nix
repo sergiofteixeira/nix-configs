@@ -130,7 +130,6 @@ in
     meslo-lg
     go-font
     inter
-    geist-font
   ];
 
   home.sessionVariables = {
