@@ -4,7 +4,7 @@
   ...
 }:
 let
-  hostname = "phrike";
+  hostname = "${config.networking.hostName}";
 in
 {
   services.prometheus.exporters.node = {
@@ -30,8 +30,8 @@ in
                 "instance" = "${hostname}",
               },
             ]
-            forward_to = [prometheus.remote_write.mimir.receiver]
-            scrape_interval = "60s"
+            forward_to = [prometheus.remote_write.prometheus.receiver]
+            scrape_interval = "30s"
           }
           prometheus.remote_write "prometheus" {
             endpoint {
