@@ -1,26 +1,21 @@
-{
-  config,
-  pkgs,
-  ...
-}:
-
+{ pkgs, config, ... }:
 {
   imports = [
-    ./acme.nix
-    ./bazarr.nix
-    ./containers.nix
     ./hardware-configuration.nix
-    ./jellyfin.nix
     ../../modules/monitoring/grafana.nix
     ../../modules/monitoring/prometheus.nix
     ../../modules/monitoring/node-monitoring.nix
-    ./nginx.nix
-    ./prowlarr.nix
-    ./qbittorrent.nix
-    ./radarr.nix
-    ./sonarr.nix
-    ./tailscale.nix
   ];
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  networking.hostName = "helios";
+  networking.wireless.enable = true;
+  networking.wireless.userControlled.enable = true;
+  networking.wireless.networks."Quintaz Laurazz Farmzzz".pskRaw =
+    "ef02b72e4ef4fced065234ed2ffef652fadaafaca69328b2be5c925cae5a77f3";
+  networking.networkmanager.enable = false;
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -30,18 +25,8 @@
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 7d";
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "phrike";
-  networking.networkmanager.enable = true;
-  networking.interfaces.eno1.wakeOnLan = {
-    enable = true;
-  };
-
   time.timeZone = "Europe/Lisbon";
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "pt_PT.UTF-8";
     LC_IDENTIFICATION = "pt_PT.UTF-8";
@@ -53,16 +38,7 @@
     LC_TELEPHONE = "pt_PT.UTF-8";
     LC_TIME = "pt_PT.UTF-8";
   };
-  services.xserver = {
-    xkb.layout = "us";
-    xkb.variant = "";
-  };
 
-  users.users.beszel = {
-    isSystemUser = true;
-    group = "beszel";
-    description = "Beszel Agent service user";
-  };
   users.groups.media = { };
   users.users.steixeira = {
     isNormalUser = true;
@@ -107,11 +83,11 @@
 
   environment.systemPackages = with pkgs; [
     neovim
+    ncdu
     git
     htop
-    tailscale
     intel-gpu-tools
-    ncdu
+    tailscale
   ];
 
   virtualisation = {
@@ -135,5 +111,16 @@
     mode = "775";
   };
 
+  programs.fish.enable = true;
+
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
   system.stateVersion = "23.05";
+
 }

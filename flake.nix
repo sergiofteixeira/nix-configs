@@ -30,6 +30,28 @@
     {
 
       nixosConfigurations = {
+        helios = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+          };
+
+          modules = [
+            { _module.args = inputs; }
+            { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
+            ./hosts/helios/configuration.nix
+            agenix.nixosModules.default
+            home-manager.nixosModules.home-manager
+            {
+              environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
+            }
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.steixeira = import ./users/steixeira.nix;
+            }
+          ];
+        };
 
         phrike = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
