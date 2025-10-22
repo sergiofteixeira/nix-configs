@@ -1,6 +1,7 @@
 { pkgs, config, ... }:
 {
   imports = [
+    ./disko-config.nix
     ./hardware-configuration.nix
     ../../modules/monitoring/grafana.nix
     ../../modules/monitoring/prometheus.nix
