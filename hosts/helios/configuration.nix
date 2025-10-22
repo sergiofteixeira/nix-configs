@@ -86,6 +86,7 @@
     htop
     intel-gpu-tools
     tailscale
+    gcc
   ];
 
   virtualisation = {
