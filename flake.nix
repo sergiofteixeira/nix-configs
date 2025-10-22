@@ -38,6 +38,7 @@
 
           modules = [
             { _module.args = inputs; }
+            disko.nixosModules.disko
             { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
             ./hosts/helios/configuration.nix
             agenix.nixosModules.default
