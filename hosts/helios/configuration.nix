@@ -1,11 +1,21 @@
 { pkgs, config, ... }:
 {
   imports = [
+    ./acme.nix
+    ./bazarr.nix
+    ./containers.nix
     ./disko-config.nix
     ./hardware-configuration.nix
+    ./jellyfin.nix
     ../../modules/monitoring/grafana.nix
-    ../../modules/monitoring/prometheus.nix
     ../../modules/monitoring/node-monitoring.nix
+    ../../modules/monitoring/prometheus.nix
+    ./nginx.nix
+    ./prowlarr.nix
+    ./qbittorrent.nix
+    ./radarr.nix
+    ./sonarr.nix
+    ./tailscale.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
