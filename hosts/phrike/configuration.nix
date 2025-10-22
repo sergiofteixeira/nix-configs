@@ -63,7 +63,6 @@
     group = "beszel";
     description = "Beszel Agent service user";
   };
-  users.groups.beszel = { };
   users.groups.media = { };
   users.users.steixeira = {
     isNormalUser = true;
@@ -94,8 +93,6 @@
     }
   ];
 
-  programs.zsh.enable = true;
-
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
@@ -108,23 +105,13 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "aspnetcore-runtime-6.0.36"
-    "aspnetcore-runtime-wrapped-6.0.36"
-    "dotnet-sdk-wrapped-6.0.428"
-    "dotnet-sdk-6.0.428"
-  ];
-
   environment.systemPackages = with pkgs; [
     neovim
     git
-    nixfmt-rfc-style
     htop
     tailscale
     intel-gpu-tools
     ncdu
-    gnumake
-    beszel
   ];
 
   virtualisation = {
@@ -146,24 +133,6 @@
   age.secrets.git_token = {
     file = ../../secrets/token.age;
     mode = "775";
-  };
-
-  systemd.services.beszel-agent = {
-    description = "Beszel Agent Service";
-    after = [ "network.target" ];
-    wantedBy = [ "multi-user.target" ];
-
-    serviceConfig = {
-      Environment = [
-        "EXTRA_FILESYSTEMS=\"sda1\""
-        "PORT=45876"
-        ''KEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEbtqGTTZNXdQTQzuMQn4gyDheBdtV9T9W9MUCdX0dJY"''
-      ];
-      ExecStart = "/run/current-system/sw/bin/beszel-agent";
-      User = "beszel";
-      Restart = "always";
-      RestartSec = 5;
-    };
   };
 
   system.stateVersion = "23.05";
