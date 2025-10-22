@@ -1,21 +1,21 @@
 let
   steixeira = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICySDx70VKoXhwoQbGGx1FpZsqWMhJxcOipc76eFztVZ sergio@triggerise.org";
-  system-phrike = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL8tYvNe+s15uh8Sg03g8cCDCjCtfc/UDeNuWLb7qZ/l root@nixos";
+  helios = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILTzly67QHrzaXtxnsc/t6429HR9ba9iDQ12Z3SknpAN root@helios";
   m1pro = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP3Kyi4yJ9sMHfNrLalUH4m1asVxEaqXnqgX7LP1qz6+";
 in
 {
   "cloudflare_token.age".publicKeys = [
     steixeira
-    system-phrike
+    helios
     m1pro
   ];
   "tailscale_key.age".publicKeys = [
     steixeira
-    system-phrike
+    helios
     m1pro
   ];
   "token.age".publicKeys = [
     steixeira
-    system-phrike
+    helios
   ];
 }
