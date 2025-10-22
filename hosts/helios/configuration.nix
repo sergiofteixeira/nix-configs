@@ -106,11 +106,6 @@
     ];
   };
 
-  age.secrets.git_token = {
-    file = ../../secrets/token.age;
-    mode = "775";
-  };
-
   programs.fish.enable = true;
 
   security.rtkit.enable = true;

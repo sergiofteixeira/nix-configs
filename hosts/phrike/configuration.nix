@@ -131,10 +131,5 @@
     ];
   };
 
-  age.secrets.git_token = {
-    file = ../../secrets/token.age;
-    mode = "775";
-  };
-
   system.stateVersion = "23.05";
 }
