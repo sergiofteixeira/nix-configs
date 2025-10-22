@@ -23,6 +23,16 @@
   boot.kernelPackages = pkgs.linuxPackages_6_1;
   boot.extraModulePackages = [ ];
 
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/b03eb7e4-c165-4546-bcb0-f6c58f7dab3a";
+    fsType = "ext4";
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/CD9F-3D43";
+    fsType = "vfat";
+  };
+
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
