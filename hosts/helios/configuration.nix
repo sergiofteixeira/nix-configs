@@ -10,13 +10,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "helios";
-  networking.wireless.enable = true;
-  networking.wireless.userControlled.enable = true;
-  networking.wireless.networks."Quintaz Laurazz Farmzzz".pskRaw =
-    "ef02b72e4ef4fced065234ed2ffef652fadaafaca69328b2be5c925cae5a77f3";
-  networking.networkmanager.enable = false;
-
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -24,6 +17,12 @@
   nix.settings.trusted-users = [ "steixeira" ];
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 7d";
+
+  networking.hostName = "helios";
+  networking.networkmanager.enable = true;
+  networking.interfaces.eno1.wakeOnLan = {
+    enable = true;
+  };
 
   time.timeZone = "Europe/Lisbon";
   i18n.defaultLocale = "en_US.UTF-8";
