@@ -16,8 +16,8 @@
         IgnoreSlowTorrentsForQueueing = true;
         SlowTorrentsDownloadRate = 40;
         SlowTorrentsUploadRate = 40;
-        GlobalMaxInactiveSeedingMinutes = 43800;
-        GlobalMaxSeedingMinutes = 10080;
+        GlobalMaxInactiveSeedingMinutes = 0;
+        GlobalMaxSeedingMinutes = 0;
         GlobalMaxRatio = 2;
         MaxActiveCheckingTorrents = 2;
         MaxActiveDownloads = 5;
