@@ -1,64 +1,41 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 
 {
+  age.secrets.tapo_secrets = {
+    file = ../../secrets/tapo_secrets.age;
+  };
+
+  environment.etc."tapo/config.json".text = builtins.toJSON {
+    smart_plugs = [
+      {
+        name = "Living Room";
+        host = "10.200.0.172";
+      }
+      {
+        name = "Office Desk";
+        host = "10.200.0.123";
+      }
+    ];
+  };
 
   config.virtualisation.oci-containers.containers = {
-
-    huntarr = {
-      autoStart = true;
-      image = "ghcr.io/plexguide/huntarr:latest";
-      environment = {
-        TZ = "Europe/Lisbon";
-        PUID = "1000";
-        PGID = "100";
-      };
-      ports = [ "9705:9705" ];
-      volumes = [
-        "/data/config/huntarr:/config"
-      ];
-    };
 
     flaresolverr = {
       image = "flaresolverr/flaresolverr:latest";
       ports = [ "8191:8191" ];
     };
 
-    beszel-hub = {
-      image = "henrygd/beszel:0.9";
-      ports = [ "8090:8090" ];
-
-      volumes = [
-        "/var/lib/beszel:/beszel_data"
-        "/var/lib/etc-dnsmasq.d:/etc/dnsmasq.d"
-      ];
-    };
-
-    pihole = {
+    tapo-exporter = {
       autoStart = true;
-      image = "pihole/pihole:latest";
-
-      extraOptions = [
-        "--cap-add=NET_ADMIN"
-        "--network=host"
-        "--pull=always"
-      ];
+      image = "tess1o/go-tapo-exporter:latest";
 
       volumes = [
-        "/var/lib/etc-pihole:/etc/pihole"
-        "/var/lib/etc-dnsmasq.d:/etc/dnsmasq.d"
+        "/etc/tapo/config.json:/app/config.json"
       ];
 
+      environmentFiles = [ config.age.secrets.tapo_secrets.path ];
       environment = {
-        TZ = "Europe/Lisbon";
-        ServerIP = "10.200.0.185";
-        VIRTUAL_HOST = "pihole.temporalreach.cloud";
-        BLOCKING_ENABLED = "true";
-        DNSSEC = "false";
-        WEB_BIND_ADDR = "10.200.0.185";
-        WEBPASSWORD = "webpassword";
-        WEBTHEME = "default-dark";
-        WEB_PORT = "8053";
-        WEBUIBOXEDLAYOUT = "traditional";
+        TAPO_CONFIG_LOCATION = "";
       };
     };
   };

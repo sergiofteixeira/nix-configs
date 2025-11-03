@@ -11,22 +11,6 @@ in
     recommendedOptimisation = true;
 
     virtualHosts = {
-      "pihole.temporalreach.cloud" = {
-        useACMEHost = acmeHost;
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "http://localhost:8053";
-          proxyWebsockets = true;
-        };
-      };
-      "beszel.temporalreach.cloud" = {
-        useACMEHost = acmeHost;
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "http://localhost:8090";
-          proxyWebsockets = true;
-        };
-      };
       "bazarr.temporalreach.cloud" = {
         useACMEHost = acmeHost;
         forceSSL = true;
@@ -67,13 +51,6 @@ in
           proxyWebsockets = true;
         };
       };
-      "deluge.temporalreach.cloud" = {
-        useACMEHost = acmeHost;
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "http://localhost:8112";
-        };
-      };
       "jellyseer.temporalreach.cloud" = {
         useACMEHost = acmeHost;
         forceSSL = true;
@@ -86,13 +63,6 @@ in
         forceSSL = true;
         locations."/" = {
           proxyPass = "http://localhost:8080";
-        };
-      };
-      "huntarr.temporalreach.cloud" = {
-        useACMEHost = acmeHost;
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "http://localhost:9705";
         };
       };
       "grafana.temporalreach.cloud" = {
