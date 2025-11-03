@@ -14,6 +14,11 @@ in
     helios
     m1pro
   ];
+  "tapo_secrets.age".publicKeys = [
+    steixeira
+    helios
+    m1pro
+  ];
   "token.age".publicKeys = [
     steixeira
     helios
