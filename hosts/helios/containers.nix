@@ -8,11 +8,11 @@
   environment.etc."tapo/config.json".text = builtins.toJSON {
     smart_plugs = [
       {
-        name = "Living Room";
+        name = "Laurinha Desk";
         host = "10.200.0.172";
       }
       {
-        name = "Office Desk";
+        name = "Sergio Desk";
         host = "10.200.0.123";
       }
     ];
