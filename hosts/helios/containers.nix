@@ -18,7 +18,7 @@
     ];
   };
 
-  config.virtualisation.oci-containers.containers = {
+  virtualisation.oci-containers.containers = {
 
     flaresolverr = {
       image = "flaresolverr/flaresolverr:latest";
@@ -26,16 +26,16 @@
     };
 
     tapo-exporter = {
-      autoStart = true;
       image = "tess1o/go-tapo-exporter:latest";
 
       volumes = [
         "/etc/tapo/config.json:/app/config.json"
       ];
+      ports = [ "8086:8086" ];
 
       environmentFiles = [ config.age.secrets.tapo_secrets.path ];
       environment = {
-        TAPO_CONFIG_LOCATION = "";
+        TAPO_CONFIG_LOCATION = "/app/config.json";
       };
     };
   };
