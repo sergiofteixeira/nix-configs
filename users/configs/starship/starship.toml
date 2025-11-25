@@ -1,0 +1,32 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+palette = 'kanagawa'
+
+add_newline = false
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[line_break]
+disabled = true
+
+[kubernetes]
+symbol = "⎈ "
+disabled = false
+
+[palettes.kanagawa]
+color_fg0   = '#DCD7BA' # fujiWhite
+color_bg1   = '#1F1F28' # sumiInk1
+color_bg3   = '#363646' # sumiInk3
+
+color_blue   = '#7E9CD8' # crystalBlue
+color_aqua   = '#6A9589' # waveAqua1
+color_green  = '#98BB6C' # springGreen
+color_orange = '#FFA066' # surimiOrange
+color_purple = '#957FB8' # oniViolet
+color_red    = '#C34043' # autumnRed
+color_yellow = '#E6C384' # carpYellow
+
