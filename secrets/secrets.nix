@@ -23,4 +23,8 @@ in
     steixeira
     helios
   ];
+  "beszel_helios_key.age".publicKeys = [
+    steixeira
+    helios
+  ];
 }
