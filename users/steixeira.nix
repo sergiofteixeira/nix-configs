@@ -151,20 +151,7 @@ in
     enableZshIntegration = true;
     enableFishIntegration = true;
     enable = true;
-    settings = {
-      add_newline = false;
-      aws.disabled = true;
-      gcloud.disabled = true;
-      python.disabled = true;
-      helm.disabled = true;
-      lua.disabled = true;
-      package.disabled = true;
-      golang.disabled = true;
-      kubernetes = {
-        disabled = false;
-      };
-      line_break.disabled = true;
-    };
+    settings = pkgs.lib.importTOML ./configs/starship/starship.toml;
   };
 
   programs.zsh = {
