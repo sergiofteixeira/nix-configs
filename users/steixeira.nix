@@ -34,17 +34,19 @@ in
 
   programs.git = {
     enable = true;
-    userName = "Sergio Teixeira";
-    userEmail = "sergiofpteixeira@gmail.com";
     signing = {
       key = "~/.ssh/id_ed25519";
       signByDefault = true;
     };
-    aliases = {
-      prettylog = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(r) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
-      root = "rev-parse --show-toplevel";
-    };
-    extraConfig = {
+    settings = {
+      user = {
+        email = "sergiofpteixeira@gmail.com";
+        name = "Sergio Teixeira";
+      };
+      alias = {
+        prettylog = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(r) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
+        root = "rev-parse --show-toplevel";
+      };
       color.ui = true;
       github.user = "sergiofteixeira";
       init.defaultBranch = "main";
