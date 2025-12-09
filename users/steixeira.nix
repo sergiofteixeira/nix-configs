@@ -216,7 +216,6 @@ in
 
   programs.tmux = {
     enable = true;
-    terminal = "xterm-256color";
     plugins = [ ];
     shortcut = "l";
     secureSocket = false;

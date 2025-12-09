@@ -1,3 +1,4 @@
+macos-icon = blueprint
 window-theme = "dark"
 window-save-state = always
 confirm-close-surface = true
@@ -6,26 +7,15 @@ shell-integration = fish
 cursor-style = block
 cursor-style-blink = true
 mouse-hide-while-typing = true
-#theme = Gruvbox Dark Hard
-theme = Kanagawa Dragon
+theme = Gruvbox Dark Hard
 clipboard-read = "allow"
 clipboard-paste-protection = false
 
 palette = "0=#1b1b1b"
 background = "#1b1b1b"
 
-#font-family = "TX-02"
-font-family = "GeistMono Nerd Font Mono"
+font-family = "TX-02"
 font-size = 12
 font-feature = zero
 font-feature = calt
 font-feature = liga
-
-keybind = ctrl+minus=new_split:down
-keybind = ctrl+shift+minus=new_split:right
-
-## Keybindings for moving between splits
-keybind = ctrl+h=goto_split:left
-keybind = ctrl+j=goto_split:bottom
-keybind = ctrl+k=goto_split:top
-keybind = ctrl+l=goto_split:right
