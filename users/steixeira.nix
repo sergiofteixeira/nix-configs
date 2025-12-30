@@ -78,7 +78,7 @@ in
   home.packages = with pkgs; [
 
     # languages
-    nodejs_20
+    nodejs_24
     terraform-ls
     terraform-docs
     go
