@@ -7,7 +7,7 @@
       "alt-tab"
       "1password"
       "visual-studio-code"
-      #"google-chrome"
+      "google-chrome"
       "slack"
       "raycast"
       "spotify"
@@ -15,7 +15,6 @@
       "orbstack"
       "nikitabobko/tap/aerospace"
       "pgadmin4"
-      "brave-browser"
       "ghostty"
     ];
     brews = [

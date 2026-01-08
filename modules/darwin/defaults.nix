@@ -16,6 +16,7 @@
     experimental-features = nix-command flakes
   '';
   nixpkgs.config.allowUnfree = true;
+  nix.enable = false;
 
   nix.settings.trusted-users = [ "steixeira" ];
   system.keyboard.enableKeyMapping = true;
