@@ -89,6 +89,7 @@ in
     nixfmt-rfc-style
     nil
     uv
+    typescript-go
 
     # devops
     kubectx
