@@ -34,25 +34,6 @@ in
         };
         websecure = {
           address = ":443";
-          http.tls = {
-            certResolver = "cloudflare";
-            domains = [
-              {
-                main = domain;
-                sans = [
-                  "bazarr.${domain}"
-                  "jellyfin.${domain}"
-                  "prowlar.${domain}"
-                  "radar.${domain}"
-                  "sonar.${domain}"
-                  "jellyseer.${domain}"
-                  "qbittorrent.${domain}"
-                  "grafana.${domain}"
-                  "prometheus.${domain}"
-                ];
-              }
-            ];
-          };
         };
       };
 
@@ -81,6 +62,12 @@ in
             rule = "Host(`bazarr.${domain}`)";
             entryPoints = [ "websecure" ];
             service = "bazarr";
+            tls.domains = [
+              {
+                main = "*.${domain}";
+                sans = [ domain ];
+              }
+            ];
             tls.certResolver = "cloudflare";
           };
 
@@ -89,6 +76,12 @@ in
             rule = "Host(`jellyfin.${domain}`)";
             entryPoints = [ "websecure" ];
             service = "jellyfin";
+            tls.domains = [
+              {
+                main = "*.${domain}";
+                sans = [ domain ];
+              }
+            ];
             tls.certResolver = "cloudflare";
           };
 
@@ -97,6 +90,12 @@ in
             rule = "Host(`prowlar.${domain}`)";
             entryPoints = [ "websecure" ];
             service = "prowlarr";
+            tls.domains = [
+              {
+                main = "*.${domain}";
+                sans = [ domain ];
+              }
+            ];
             tls.certResolver = "cloudflare";
           };
 
@@ -105,6 +104,12 @@ in
             rule = "Host(`radar.${domain}`)";
             entryPoints = [ "websecure" ];
             service = "radarr";
+            tls.domains = [
+              {
+                main = "*.${domain}";
+                sans = [ domain ];
+              }
+            ];
             tls.certResolver = "cloudflare";
           };
 
@@ -113,6 +118,12 @@ in
             rule = "Host(`sonar.${domain}`)";
             entryPoints = [ "websecure" ];
             service = "sonarr";
+            tls.domains = [
+              {
+                main = "*.${domain}";
+                sans = [ domain ];
+              }
+            ];
             tls.certResolver = "cloudflare";
           };
 
@@ -121,6 +132,12 @@ in
             rule = "Host(`jellyseer.${domain}`)";
             entryPoints = [ "websecure" ];
             service = "jellyseerr";
+            tls.domains = [
+              {
+                main = "*.${domain}";
+                sans = [ domain ];
+              }
+            ];
             tls.certResolver = "cloudflare";
           };
 
@@ -129,6 +146,12 @@ in
             rule = "Host(`qbittorrent.${domain}`)";
             entryPoints = [ "websecure" ];
             service = "qbittorrent";
+            tls.domains = [
+              {
+                main = "*.${domain}";
+                sans = [ domain ];
+              }
+            ];
             tls.certResolver = "cloudflare";
           };
 
@@ -137,6 +160,12 @@ in
             rule = "Host(`grafana.${domain}`)";
             entryPoints = [ "websecure" ];
             service = "grafana";
+            tls.domains = [
+              {
+                main = "*.${domain}";
+                sans = [ domain ];
+              }
+            ];
             tls.certResolver = "cloudflare";
           };
 
@@ -145,6 +174,12 @@ in
             rule = "Host(`prometheus.${domain}`)";
             entryPoints = [ "websecure" ];
             service = "prometheus";
+            tls.domains = [
+              {
+                main = "*.${domain}";
+                sans = [ domain ];
+              }
+            ];
             tls.certResolver = "cloudflare";
           };
         };
