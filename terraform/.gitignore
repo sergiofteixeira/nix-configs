@@ -3,10 +3,6 @@
 
 # .tfstate files (plaintext - never commit!)
 *.tfstate
-*.tfstate.*
-
-# Encrypted state files (keep local only)
-*.tfstate.enc
 
 # Crash log files
 crash.log
