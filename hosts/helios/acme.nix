@@ -11,11 +11,12 @@ in
   };
 
   security.acme.certs.${domain} = {
-    domain = "*.${domain}";
+    domain = domain;
+    extraDomainNames = [ "*.${domain}" ];
     dnsProvider = dnsProvider;
     dnsResolver = "1.1.1.1:53";
     group = group;
-    dnsPropagationCheck = false;
+    dnsPropagationCheck = true;
     credentialsFile = config.age.secrets.cloudflare_token.path;
   };
 
