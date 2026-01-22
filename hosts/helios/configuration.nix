@@ -1,7 +1,6 @@
 { pkgs, config, ... }:
 {
   imports = [
-    ./acme.nix
     ./bazarr.nix
     ./containers.nix
     ./disko-config.nix
@@ -10,12 +9,12 @@
     ../../modules/monitoring/grafana.nix
     ../../modules/monitoring/node-monitoring.nix
     ../../modules/monitoring/prometheus.nix
-    ./nginx.nix
     ./prowlarr.nix
     ./qbittorrent.nix
     ./radarr.nix
     ./sonarr.nix
     ./tailscale.nix
+    ./traefik.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
