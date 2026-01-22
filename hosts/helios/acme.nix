@@ -12,7 +12,17 @@ in
 
   security.acme.certs.${domain} = {
     domain = domain;
-    extraDomainNames = [ "*.${domain}" ];
+    extraDomainNames = [
+      "bazarr.${domain}"
+      "jellyfin.${domain}"
+      "prowlar.${domain}"
+      "radar.${domain}"
+      "sonar.${domain}"
+      "jellyseer.${domain}"
+      "qbittorrent.${domain}"
+      "grafana.${domain}"
+      "prometheus.${domain}"
+    ];
     dnsProvider = dnsProvider;
     dnsResolver = "1.1.1.1:53";
     group = group;
