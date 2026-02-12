@@ -41,8 +41,8 @@
     pkgs.nerd-fonts.jetbrains-mono
     pkgs.nerd-fonts.geist-mono
     pkgs.nerd-fonts.terminess-ttf
-    pkgs.nerd-fonts.martian-mono
-    pkgs.nerd-fonts.monaspace
+    pkgs.nerd-fonts.liberation
+    pkgs.ibm-plex
   ];
 
   system.primaryUser = "steixeira";

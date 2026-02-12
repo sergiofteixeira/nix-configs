@@ -102,7 +102,6 @@ in
     eks-node-viewer
     gh
     gnused
-    opentofu
     deno
 
     # utils
