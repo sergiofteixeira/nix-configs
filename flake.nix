@@ -12,8 +12,6 @@
       url = "github:nix-community/disko";
     };
     disko.inputs.nixpkgs.follows = "nixpkgs";
-    vscode-server.url = "github:nix-community/nixos-vscode-server";
-    vscode-server.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -21,7 +19,6 @@
       self,
       nixpkgs,
       home-manager,
-      vscode-server,
       agenix,
       darwin,
       disko,
