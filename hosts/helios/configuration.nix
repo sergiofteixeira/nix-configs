@@ -96,6 +96,7 @@
     intel-gpu-tools
     tailscale
     gcc
+    ffmpeg
   ];
 
   virtualisation = {
