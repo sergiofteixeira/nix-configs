@@ -111,6 +111,12 @@ in
             entryPoints = [ "websecure" ];
             service = "prometheus";
           };
+
+          beszel = {
+            rule = "Host(`beszel.${domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "beszel";
+          };
         };
 
         services = {
@@ -148,6 +154,10 @@ in
 
           prometheus.loadBalancer.servers = [
             { url = "http://localhost:9090"; }
+          ];
+
+          beszel.loadBalancer.servers = [
+            { url = "http://localhost:8090"; }
           ];
         };
       };
