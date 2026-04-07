@@ -92,6 +92,7 @@ in
     typescript-go
 
     # devops
+    sops
     kubectx
     awscli2
     kubectl
