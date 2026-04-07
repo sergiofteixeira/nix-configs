@@ -115,7 +115,6 @@ in
     fd
     wget
     curl
-    neofetch
     zip
     xz
     unzip
