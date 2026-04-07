@@ -37,6 +37,7 @@ in
     signing = {
       key = "~/.ssh/id_ed25519";
       signByDefault = true;
+      format = "openpgp";
     };
     settings = {
       user = {
@@ -86,7 +87,7 @@ in
     gotools
     gofumpt
     tree-sitter
-    nixfmt-rfc-style
+    nixfmt
     nil
     uv
     typescript-go
