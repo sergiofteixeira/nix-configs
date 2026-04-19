@@ -6,7 +6,7 @@
     group = "media";
     openFirewall = true;
   };
-  services.seer = {
+  services.seerr = {
     enable = true;
   };
 }
