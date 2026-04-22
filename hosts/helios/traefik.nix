@@ -88,6 +88,12 @@ in
             service = "sonarr";
           };
 
+          lidarr = {
+            rule = "Host(`music.${domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "lidarr";
+          };
+
           jellyseerr = {
             rule = "Host(`jellyseer.${domain}`)";
             entryPoints = [ "websecure" ];
@@ -138,6 +144,10 @@ in
 
           sonarr.loadBalancer.servers = [
             { url = "http://localhost:8989"; }
+          ];
+
+          lidarr.loadBalancer.servers = [
+            { url = "http://localhost:8686"; }
           ];
 
           jellyseerr.loadBalancer.servers = [
