@@ -20,11 +20,14 @@
 
   virtualisation.oci-containers.containers = {
 
-    flaresolverr = {
-      image = "flaresolverr/flaresolverr:latest";
+    byparr = {
+      image = "ghcr.io/thephaseless/byparr:main";
+      environment = {
+        USE_HEADLESS = "false";
+        USE_XVFB = "true";
+      };
       ports = [ "8191:8191" ];
     };
-
     tapo-exporter = {
       image = "tess1o/go-tapo-exporter:latest";
 

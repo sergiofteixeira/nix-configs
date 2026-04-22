@@ -84,7 +84,6 @@ in
     terraform-docs
     go
     gopls
-    gotools
     gofumpt
     tree-sitter
     nixfmt
