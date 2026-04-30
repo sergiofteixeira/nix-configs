@@ -103,7 +103,6 @@ in
     eks-node-viewer
     gh
     gnused
-    deno
 
     # utils
     watch
@@ -121,6 +120,7 @@ in
     htop
     gnumake
     nix-prefetch-scripts
+    nh
 
     # misc
     file
