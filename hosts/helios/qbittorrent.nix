@@ -31,7 +31,7 @@
         RootFolder = "${pkgs.vuetorrent}/share/vuetorrent";
         AuthSubnetWhitelist = "0.0.0.0/0";
         AuthSubnetWhitelistEnabled = true;
-        BypassLocalHostAuth = true;
+        LocalHostAuth = false;
       };
     };
   };
