@@ -9,7 +9,6 @@
     ../../modules/monitoring/grafana.nix
     ../../modules/monitoring/node-monitoring.nix
     ../../modules/monitoring/prometheus.nix
-    ./lidarr.nix
     ./prowlarr.nix
     ./qbittorrent.nix
     ./radarr.nix
@@ -29,7 +28,7 @@
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 7d";
 
-  networking.hostName = "helios";
+  networking.hostName = "ixion";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Lisbon";
@@ -57,7 +56,7 @@
       "docker"
     ];
     packages = with pkgs; [ ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 
   users.users."steixeira".openssh.authorizedKeys.keys = [
@@ -96,10 +95,17 @@
     git
     htop
     intel-gpu-tools
+    libva-utils
     tailscale
     gcc
     ffmpeg
   ];
+
+  users.users.jellyfin.extraGroups = [
+    "render"
+    "video"
+  ];
+  systemd.services.jellyfin.environment.LIBVA_DRIVER_NAME = "iHD";
 
   virtualisation = {
     docker.enable = true;
@@ -128,5 +134,4 @@
   };
 
   system.stateVersion = "23.05";
-
 }

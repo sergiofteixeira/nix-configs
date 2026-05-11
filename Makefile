@@ -7,9 +7,6 @@
 help: ## Show Help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-switch-helios:
-	nixos-rebuild switch --flake ~/nix-configs#helios --target-host steixeira@helios --use-remote-sudo
-
 switch-phrike:
 	nixos-rebuild switch --flake ~/nix-configs#phrike --target-host steixeira@phrike --use-remote-sudo
 	
