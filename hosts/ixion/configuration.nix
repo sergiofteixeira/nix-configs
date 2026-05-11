@@ -56,7 +56,7 @@
       "docker"
     ];
     packages = with pkgs; [ ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 
   users.users."steixeira".openssh.authorizedKeys.keys = [
