@@ -1,20 +1,20 @@
 { pkgs, config, ... }:
 {
   imports = [
-    ../helios/bazarr.nix
-    ../helios/containers.nix
+    ./bazarr.nix
+    ./containers.nix
     ./disko-config.nix
     ./hardware-configuration.nix
-    ../helios/jellyfin.nix
+    ./jellyfin.nix
     ../../modules/monitoring/grafana.nix
     ../../modules/monitoring/node-monitoring.nix
     ../../modules/monitoring/prometheus.nix
-    ../helios/prowlarr.nix
-    ../helios/qbittorrent.nix
-    ../helios/radarr.nix
-    ../helios/sonarr.nix
-    #../helios/tailscale.nix
-    ../helios/traefik.nix
+    ./prowlarr.nix
+    ./qbittorrent.nix
+    ./radarr.nix
+    ./sonarr.nix
+    ./tailscale.nix
+    ./traefik.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
