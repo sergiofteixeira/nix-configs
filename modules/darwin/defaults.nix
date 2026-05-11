@@ -42,6 +42,7 @@
     pkgs.nerd-fonts.geist-mono
     pkgs.nerd-fonts.terminess-ttf
     pkgs.nerd-fonts.liberation
+    pkgs.nerd-fonts.terminess-ttf
     pkgs.ibm-plex
   ];
 
