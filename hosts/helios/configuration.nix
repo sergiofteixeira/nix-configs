@@ -9,7 +9,6 @@
     ../../modules/monitoring/grafana.nix
     ../../modules/monitoring/node-monitoring.nix
     ../../modules/monitoring/prometheus.nix
-    ./lidarr.nix
     ./prowlarr.nix
     ./qbittorrent.nix
     ./radarr.nix
