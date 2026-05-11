@@ -11,7 +11,6 @@
 
   boot.initrd.availableKernelModules = [
     "xhci_pci"
-    "thunderbolt"
     "ahci"
     "nvme"
     "usb_storage"
@@ -19,23 +18,25 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.kernelPackages = pkgs.linuxPackages_6_1;
+  boot.kernelModules = [
+    "kvm-intel"
+    "iwlwifi"
+  ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ ];
   boot.kernelParams = [ "usbcore.autosuspend=-1" ];
 
   fileSystems."/data" = {
     device = "/dev/disk/by-uuid/2b415557-d7b0-4ee4-bd2c-145536cf403e";
     fsType = "ext4";
-    options = [
-      "nofail"
-    ];
+    options = [ "nofail" ];
   };
 
   nixpkgs.config.packageOverrides = pkgs: {
     intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
   };
 
+  hardware.enableRedistributableFirmware = true;
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
@@ -44,8 +45,12 @@
       libva-vdpau-driver
       libvdpau-va-gl
       intel-compute-runtime
+      vpl-gpu-rt
     ];
   };
+
+  services.thermald.enable = true;
+  powerManagement.powertop.enable = true;
 
   swapDevices = [ ];
 

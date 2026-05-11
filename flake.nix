@@ -27,7 +27,7 @@
     {
 
       nixosConfigurations = {
-        helios = nixpkgs.lib.nixosSystem {
+        ixion = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
@@ -37,7 +37,7 @@
             { _module.args = inputs; }
             disko.nixosModules.disko
             { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
-            ./hosts/helios/configuration.nix
+            ./hosts/ixion/configuration.nix
             agenix.nixosModules.default
             home-manager.nixosModules.home-manager
             {
