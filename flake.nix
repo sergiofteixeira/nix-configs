@@ -51,6 +51,30 @@
           ];
         };
 
+        ixion = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+          };
+
+          modules = [
+            { _module.args = inputs; }
+            disko.nixosModules.disko
+            { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
+            ./hosts/ixion/configuration.nix
+            agenix.nixosModules.default
+            home-manager.nixosModules.home-manager
+            {
+              environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
+            }
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.steixeira = import ./users/steixeira.nix;
+            }
+          ];
+        };
+
       };
 
       # darwin configs
