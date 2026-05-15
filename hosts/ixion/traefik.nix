@@ -106,6 +106,12 @@ in
             service = "grafana";
           };
 
+          home-assistant = {
+            rule = "Host(`home-assistant.${domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "home-assistant";
+          };
+
           prometheus = {
             rule = "Host(`prometheus.${domain}`)";
             entryPoints = [ "websecure" ];
@@ -144,6 +150,10 @@ in
 
           grafana.loadBalancer.servers = [
             { url = "http://localhost:3000"; }
+          ];
+
+          home-assistant.loadBalancer.servers = [
+            { url = "http://localhost:8123"; }
           ];
 
           prometheus.loadBalancer.servers = [

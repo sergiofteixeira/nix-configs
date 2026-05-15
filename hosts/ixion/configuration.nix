@@ -5,6 +5,7 @@
     ./containers.nix
     ./disko-config.nix
     ./hardware-configuration.nix
+    ./home-assistant.nix
     ./jellyfin.nix
     ../../modules/monitoring/grafana.nix
     ../../modules/monitoring/node-monitoring.nix
