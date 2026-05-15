@@ -4,6 +4,10 @@
   services.home-assistant = {
     enable = true;
     openFirewall = true;
+    extraComponents = [
+      "apple_tv"
+      "ipma"
+    ];
     config = {
       default_config = { };
       http = {
