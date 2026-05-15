@@ -7,6 +7,7 @@
     extraComponents = [
       "apple_tv"
       "ipma"
+      "tplink"
     ];
     config = {
       default_config = { };
