@@ -14,24 +14,6 @@ in
 
   fonts.fontconfig.enable = true;
 
-  programs.chromium =
-    if isLinux then
-      {
-        enable = true;
-        commandLineArgs = [ "--force-device-scale-factor=2 --force-dark-mode" ];
-      }
-    else
-      { enable = false; };
-
-  programs.kitty =
-    if isLinux then
-      {
-        enable = true;
-        extraConfig = builtins.readFile ./configs/kitty/kitty.conf;
-      }
-    else
-      { enable = false; };
-
   programs.git = {
     enable = true;
     signing = {
@@ -58,10 +40,6 @@ in
   };
 
   home.file = {
-    ".config/i3/config" = lib.mkIf (isLinux) { source = ./configs/i3/config; };
-    ".config/fish/theme.fish" = {
-      source = ./configs/fish/theme.fish;
-    };
     ".config/ghostty/config" = {
       source = ./configs/ghostty/config;
     };
@@ -87,16 +65,13 @@ in
     gofumpt
     tree-sitter
     nixfmt
-    nil
     uv
     typescript-go
 
     # devops
-    sops
     kubectx
     awscli2
     kubectl
-    kubebuilder
     kubetail
     kubernetes-helm
     redis
@@ -109,7 +84,6 @@ in
     neovim
     ripgrep
     jq
-    eza
     fzf
     fd
     wget
@@ -126,12 +100,6 @@ in
     file
     which
     tree
-
-    # fonts
-    meslo-lgs-nf
-    meslo-lg
-    go-font
-    inter
   ];
 
   home.sessionVariables = {
@@ -174,11 +142,6 @@ in
 
   programs.fish = {
     enable = true;
-    shellInit = ''
-      if test -e ~/.config/fish/theme.fish
-        source ~/.config/fish/theme.fish
-      end
-    '';
     shellAliases = {
       loginprod = "aws sso login --profile prod";
       logindev = "aws sso login --profile dev";
