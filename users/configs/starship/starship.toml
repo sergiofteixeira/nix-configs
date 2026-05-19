@@ -1,6 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-palette = 'kanagawa'
+palette = 'ayu_dark'
 
 add_newline = false
 
@@ -17,16 +17,15 @@ disabled = true
 symbol = "⎈ "
 disabled = false
 
-[palettes.kanagawa]
-color_fg0   = '#DCD7BA' # fujiWhite
-color_bg1   = '#1F1F28' # sumiInk1
-color_bg3   = '#363646' # sumiInk3
+[palettes.ayu_dark]
+color_fg0 = '#B3B1AD'
+color_bg1 = '#0A0E14'
+color_bg3 = '#1C212B'
 
-color_blue   = '#7E9CD8' # crystalBlue
-color_aqua   = '#6A9589' # waveAqua1
-color_green  = '#98BB6C' # springGreen
-color_orange = '#FFA066' # surimiOrange
-color_purple = '#957FB8' # oniViolet
-color_red    = '#C34043' # autumnRed
-color_yellow = '#E6C384' # carpYellow
-
+color_blue   = '#53BDFA'
+color_aqua   = '#90E1C6'
+color_green  = '#91B362'
+color_orange = '#F29668'
+color_purple = '#FAE994'
+color_red    = '#EA6C73'
+color_yellow = '#F9AF4F'
