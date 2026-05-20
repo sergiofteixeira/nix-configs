@@ -10,6 +10,7 @@
     ../../modules/monitoring/grafana.nix
     ../../modules/monitoring/node-monitoring.nix
     ../../modules/monitoring/prometheus.nix
+    ./plex.nix
     ./prowlarr.nix
     ./qbittorrent.nix
     ./radarr.nix

@@ -70,6 +70,12 @@ in
             service = "jellyfin";
           };
 
+          plex = {
+            rule = "Host(`plex.${domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "plex";
+          };
+
           prowlarr = {
             rule = "Host(`prowlar.${domain}`)";
             entryPoints = [ "websecure" ];
@@ -126,6 +132,10 @@ in
 
           jellyfin.loadBalancer.servers = [
             { url = "http://localhost:8096"; }
+          ];
+
+          plex.loadBalancer.servers = [
+            { url = "http://localhost:32400"; }
           ];
 
           prowlarr.loadBalancer.servers = [
