@@ -1,5 +1,0 @@
-.ui.basic.label.logo img,
-.item.brand img,
-img[src$="/assets/img/logo.svg"] {
-  content: url("/assets/img/logo.png");
-}
