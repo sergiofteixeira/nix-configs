@@ -70,6 +70,12 @@ in
             service = "jellyfin";
           };
 
+          forgejo = {
+            rule = "Host(`forgejo.${domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "forgejo";
+          };
+
           prowlarr = {
             rule = "Host(`prowlar.${domain}`)";
             entryPoints = [ "websecure" ];
@@ -126,6 +132,10 @@ in
 
           jellyfin.loadBalancer.servers = [
             { url = "http://localhost:8096"; }
+          ];
+
+          forgejo.loadBalancer.servers = [
+            { url = "http://localhost:3001"; }
           ];
 
           prowlarr.loadBalancer.servers = [

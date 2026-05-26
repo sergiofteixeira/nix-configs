@@ -11,9 +11,7 @@ theme = Ayu
 clipboard-read = "allow"
 clipboard-paste-protection = false
 
-font-family = "BerkeleyMono Nerd Font"
-font-size = 18
-font-thicken = true
-font-feature = zero
-font-feature = calt
-font-feature = liga
+font-family = 0xProto Nerd Font Mono
+font-family-bold = 0xProto Nerd Font Mono Bold
+font-family-italic = 0xProto Nerd Font Mono Italic
+font-size = 13
