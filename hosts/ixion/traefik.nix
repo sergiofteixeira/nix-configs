@@ -71,7 +71,7 @@ in
           };
 
           forgejo = {
-            rule = "Host(`forgejo.${domain}`)";
+            rule = "Host(`code.${domain}`)";
             entryPoints = [ "websecure" ];
             service = "forgejo";
           };
