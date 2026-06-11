@@ -40,9 +40,9 @@ in
   };
 
   home.file = {
-    ".config/ghostty/config" = {
-      source = ./configs/ghostty/config;
-    };
+    #".config/ghostty/config" = {
+    #source = ./configs/ghostty/config;
+    #};
     #".config/nvim" = {
     #recursive = true;
     #source = pkgs.fetchFromGitHub {
@@ -142,6 +142,15 @@ in
 
   programs.fish = {
     enable = true;
+    functions = {
+      envsource = ''
+        for line in (cat $argv | grep -v '^#')
+            set item (string split -m 1 '=' $line)
+            set -gx $item[1] $item[2]
+            echo "Exported key $item[1]"
+        end
+      '';
+    };
     shellAliases = {
       loginprod = "aws sso login --profile prod";
       logindev = "aws sso login --profile dev";
