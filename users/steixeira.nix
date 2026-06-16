@@ -17,13 +17,13 @@ in
   programs.git = {
     enable = true;
     signing = {
-      key = "~/.ssh/id_ed25519";
+      key = "~/.ssh/github_signing";
       signByDefault = true;
       format = "openpgp";
     };
     settings = {
       user = {
-        email = "sergiofpteixeira@gmail.com";
+        email = "sergio@tiko.org";
         name = "Sergio Teixeira";
       };
       alias = {
@@ -63,6 +63,7 @@ in
     go
     gopls
     gofumpt
+    golangci-lint
     tree-sitter
     nixfmt
     uv
@@ -72,6 +73,7 @@ in
     kubectx
     awscli2
     kubectl
+    kubebuilder
     kubetail
     kubernetes-helm
     redis
