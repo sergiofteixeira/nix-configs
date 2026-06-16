@@ -17,11 +17,12 @@ in
   programs.git = {
     enable = true;
     signing = {
-      key = "~/.ssh/github_signing";
+      key = "~/.ssh/github_signing.pub";
       signByDefault = true;
-      format = "openpgp";
+      format = "ssh";
     };
     settings = {
+      gpg.ssh.allowedSignersFile = "~/.config/git/allowed_signers";
       user = {
         email = "sergio@tiko.org";
         name = "Sergio Teixeira";
