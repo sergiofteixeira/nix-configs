@@ -76,12 +76,6 @@ in
             service = "forgejo";
           };
 
-          fizzy = {
-            rule = "Host(`fizzy.${domain}`)";
-            entryPoints = [ "websecure" ];
-            service = "fizzy";
-          };
-
           prowlarr = {
             rule = "Host(`prowlar.${domain}`)";
             entryPoints = [ "websecure" ];
@@ -148,10 +142,6 @@ in
 
           forgejo.loadBalancer.servers = [
             { url = "http://localhost:3001"; }
-          ];
-
-          fizzy.loadBalancer.servers = [
-            { url = "http://127.0.0.1:3002"; }
           ];
 
           prowlarr.loadBalancer.servers = [

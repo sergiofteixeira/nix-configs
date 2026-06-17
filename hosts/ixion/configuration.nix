@@ -4,7 +4,6 @@
     ./bazarr.nix
     ./containers.nix
     ./disko-config.nix
-    ./fizzy.nix
     ./forgejo.nix
     ./hardware-configuration.nix
     ./home-assistant.nix
