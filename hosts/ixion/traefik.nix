@@ -151,7 +151,7 @@ in
           ];
 
           fizzy.loadBalancer.servers = [
-            { url = "http://localhost:3002"; }
+            { url = "http://127.0.0.1:3002"; }
           ];
 
           prowlarr.loadBalancer.servers = [
@@ -183,7 +183,7 @@ in
           ];
 
           kan.loadBalancer.servers = [
-            { url = "http://localhost:3003"; }
+            { url = "http://127.0.0.1:3003"; }
           ];
 
           prometheus.loadBalancer.servers = [
