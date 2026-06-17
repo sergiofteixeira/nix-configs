@@ -35,7 +35,7 @@ in
   virtualisation.oci-containers.containers.fizzy = {
     image = "ghcr.io/basecamp/fizzy:main";
     autoStart = true;
-    ports = [ "127.0.0.1:3002:80" ];
+    ports = [ "127.0.0.1:3002:3000" ];
     volumes = [ "fizzy:/rails/storage" ];
     environmentFiles = [ "${dataDir}/fizzy.env" ];
     environment = {
