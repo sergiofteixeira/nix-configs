@@ -76,6 +76,12 @@ in
             service = "forgejo";
           };
 
+          fizzy = {
+            rule = "Host(`fizzy.${domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "fizzy";
+          };
+
           prowlarr = {
             rule = "Host(`prowlar.${domain}`)";
             entryPoints = [ "websecure" ];
@@ -118,6 +124,12 @@ in
             service = "home-assistant";
           };
 
+          kan = {
+            rule = "Host(`kan.${domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "kan";
+          };
+
           prometheus = {
             rule = "Host(`prometheus.${domain}`)";
             entryPoints = [ "websecure" ];
@@ -136,6 +148,10 @@ in
 
           forgejo.loadBalancer.servers = [
             { url = "http://localhost:3001"; }
+          ];
+
+          fizzy.loadBalancer.servers = [
+            { url = "http://localhost:3002"; }
           ];
 
           prowlarr.loadBalancer.servers = [
@@ -164,6 +180,10 @@ in
 
           home-assistant.loadBalancer.servers = [
             { url = "http://localhost:8123"; }
+          ];
+
+          kan.loadBalancer.servers = [
+            { url = "http://localhost:3003"; }
           ];
 
           prometheus.loadBalancer.servers = [
