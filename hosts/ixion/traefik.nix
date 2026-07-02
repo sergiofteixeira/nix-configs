@@ -177,7 +177,7 @@ in
           ];
 
           bank-split.loadBalancer.servers = [
-            { url = "http://localhost:3002"; }
+            { url = "http://localhost:3001"; }
           ];
         };
       };
