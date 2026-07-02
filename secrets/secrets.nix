@@ -23,4 +23,12 @@ in
     steixeira
     ixion
   ];
+  "bank_split_google_client_secret.age".publicKeys = [
+    steixeira
+    ixion
+  ];
+  "bank_split_google_client_id.age".publicKeys = [
+    steixeira
+    ixion
+  ];
 }
