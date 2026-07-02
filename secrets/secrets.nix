@@ -38,4 +38,9 @@ in
     personal
     ixion
   ];
+  "bank_split_auth_secret.age".publicKeys = [
+    steixeira
+    personal
+    ixion
+  ];
 }
