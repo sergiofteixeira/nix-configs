@@ -13,7 +13,7 @@ in
 
   virtualisation.oci-containers.containers = {
     bank-split-postgres = {
-      image = "postgres:18";
+      image = "postgres:16";
       extraOptions = [ "--network=host" ];
       environment = {
         POSTGRES_USER = "bank_split";

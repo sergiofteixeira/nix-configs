@@ -5,7 +5,6 @@
     ./bazarr.nix
     ./containers.nix
     ./disko-config.nix
-    ./forgejo.nix
     ./hardware-configuration.nix
     ./home-assistant.nix
     ./jellyfin.nix
