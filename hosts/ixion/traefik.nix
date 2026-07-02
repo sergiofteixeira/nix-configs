@@ -123,6 +123,12 @@ in
             entryPoints = [ "websecure" ];
             service = "prometheus";
           };
+
+          bank-split = {
+            rule = "Host(`bank-split.${domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "bank-split";
+          };
         };
 
         services = {
@@ -168,6 +174,10 @@ in
 
           prometheus.loadBalancer.servers = [
             { url = "http://localhost:9090"; }
+          ];
+
+          bank-split.loadBalancer.servers = [
+            { url = "http://localhost:3002"; }
           ];
         };
       };

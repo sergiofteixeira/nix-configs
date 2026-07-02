@@ -1,6 +1,7 @@
 { pkgs, config, ... }:
 {
   imports = [
+    ./bank-split.nix
     ./bazarr.nix
     ./containers.nix
     ./disko-config.nix
