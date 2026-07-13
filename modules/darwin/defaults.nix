@@ -37,14 +37,8 @@
   security.pam.services.sudo_local.touchIdAuth = true;
 
   fonts.packages = with pkgs; [
-    nerd-fonts._0xproto
     nerd-fonts.meslo-lg
-    nerd-fonts.jetbrains-mono
     nerd-fonts.geist-mono
-    nerd-fonts.terminess-ttf
-    nerd-fonts.liberation
-    nerd-fonts.terminess-ttf
-    ibm-plex
   ];
 
   system.primaryUser = "steixeira";
