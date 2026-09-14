@@ -68,7 +68,7 @@ in
     tree-sitter
     nixfmt
     uv
-    typescript-go
+    typescript
 
     # devops
     kubectx
