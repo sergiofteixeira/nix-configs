@@ -129,6 +129,12 @@ in
             entryPoints = [ "websecure" ];
             service = "bank-split";
           };
+
+          technitium = {
+            rule = "Host(`dns.${domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "technitium";
+          };
         };
 
         services = {
@@ -178,6 +184,10 @@ in
 
           bank-split.loadBalancer.servers = [
             { url = "http://localhost:3001"; }
+          ];
+
+          technitium.loadBalancer.servers = [
+            { url = "http://localhost:5380"; }
           ];
         };
       };
