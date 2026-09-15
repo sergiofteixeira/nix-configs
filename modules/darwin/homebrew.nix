@@ -2,20 +2,16 @@
 {
   homebrew = {
     enable = true;
-    caskArgs.no_quarantine = true;
     casks = [
-      "alt-tab"
       "1password"
-      "visual-studio-code"
-      "google-chrome"
-      "slack"
-      "raycast"
-      "spotify"
-      "tailscale"
+      "helium"
       "orbstack"
-      "nikitabobko/tap/aerospace"
       "pgadmin4"
-      "ghostty"
+      "raycast"
+      "shottr"
+      "slack"
+      "tailscale-app"
+      "visual-studio-code"
     ];
     brews = [
       "fabianishere/personal/pam_reattach"
