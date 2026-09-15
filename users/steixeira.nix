@@ -5,7 +5,7 @@
 }:
 
 let
-  isLinux = pkgs.stdenv.isLinux;
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
 in
 
 {
@@ -55,55 +55,72 @@ in
     #};
   };
 
-  home.packages = with pkgs; [
+  home.packages =
+    with pkgs;
+    [
 
-    # languages
-    nodejs_26
-    terraform-ls
-    terraform-docs
-    go
-    gopls
-    gofumpt
-    golangci-lint
-    tree-sitter
-    nixfmt
-    uv
-    typescript
+      # languages
+      claude-code
+      go
+      gofumpt
+      golangci-lint
+      gopls
+      nixfmt
+      nodejs_26
+      terraform-docs
+      terraform-ls
+      tflint
+      tree-sitter
+      typescript
+      uv
+      yq
 
-    # devops
-    kubectx
-    awscli2
-    kubectl
-    kubebuilder
-    kubetail
-    kubernetes-helm
-    redis
-    eks-node-viewer
-    gh
-    gnused
+      # devops
+      awscli2
+      eks-node-viewer
+      gh
+      helm-docs
+      kind
+      kubebuilder
+      kubectl
+      kubectx
+      kubernetes-helm
+      kubetail
+      kustomize
+      redis
 
-    # utils
-    watch
-    neovim
-    ripgrep
-    jq
-    fzf
-    fd
-    wget
-    curl
-    zip
-    xz
-    unzip
-    htop
-    gnumake
-    nix-prefetch-scripts
-    nh
+      # utils
+      curl
+      fd
+      fzf
+      gnumake
+      htop
+      jq
+      neovim
+      nh
+      nix-prefetch-scripts
+      ripgrep
+      unzip
+      wget
+      xz
+      zip
 
-    # misc
-    file
-    which
-    tree
-  ];
+      # misc
+      file
+      herdr
+      tree
+      which
+
+    ]
+    ++ lib.optionals isDarwin [
+      # macOS-only: not packaged for linux
+      aerospace
+      ghostty-bin
+
+      # macOS ships BSD sed and no `watch`; NixOS provides both in the system path
+      gnused
+      watch
+    ];
 
   home.sessionVariables = {
     LANG = "en_US.UTF-8";

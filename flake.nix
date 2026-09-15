@@ -57,7 +57,10 @@
       darwinConfigurations = {
         m1pro = darwin.lib.darwinSystem {
           system = "aarch64-darwin";
-          pkgs = import nixpkgs { system = "aarch64-darwin"; };
+          pkgs = import nixpkgs {
+            system = "aarch64-darwin";
+            config.allowUnfree = true;
+          };
           modules = [
             ./modules/darwin/homebrew.nix
             ./modules/darwin/defaults.nix
@@ -81,7 +84,10 @@
 
         m1work = darwin.lib.darwinSystem {
           system = "aarch64-darwin";
-          pkgs = import nixpkgs { system = "aarch64-darwin"; };
+          pkgs = import nixpkgs {
+            system = "aarch64-darwin";
+            config.allowUnfree = true;
+          };
           modules = [
             ./modules/darwin/homebrew.nix
             ./modules/darwin/defaults.nix
