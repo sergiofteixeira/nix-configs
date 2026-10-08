@@ -113,8 +113,6 @@ in
 
     ]
     ++ lib.optionals isDarwin [
-      # macOS-only: not packaged for linux
-      aerospace
       ghostty-bin
 
       # macOS ships BSD sed and no `watch`; NixOS provides both in the system path
@@ -134,6 +132,13 @@ in
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
   programs.fzf.enableFishIntegration = true;
+
+  # macOS-only for now; the module installs zoxide and wires up the shell hooks
+  programs.zoxide = {
+    enable = isDarwin;
+    enableFishIntegration = true;
+    enableZshIntegration = true;
+  };
 
   programs.starship = {
     enableZshIntegration = true;
