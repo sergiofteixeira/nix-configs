@@ -139,7 +139,7 @@ in
 
         services = {
           bazarr.loadBalancer.servers = [
-            { url = "http://localhost:${toString config.services.bazarr.listenPort}"; }
+            { url = "http://localhost:${toString config.services.bazarr.settings.general.port}"; }
           ];
 
           jellyfin.loadBalancer.servers = [

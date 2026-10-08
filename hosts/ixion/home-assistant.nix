@@ -25,15 +25,12 @@
     };
   };
 
-  # Matter controller that the `matter` integration talks to over
-  # ws://localhost:5580/ws. Ordered before home-assistant.service by the module.
-  services.matter-server.enable = true;
-
-  # The Matter SDK does its DNS-SD through Avahi over D-Bus, so the daemon has
-  # to be running and allowed to publish or commissioning never finds anything.
-  services.avahi = {
+  # Matter controller behind the `matter` integration (ws://localhost:5580/ws).
+  # This is the matter.js rewrite; python-matter-server is EOL at 8.1.2.
+  services.matterjs-server = {
     enable = true;
-    publish.enable = true;
-    publish.addresses = true;
+    # eno1 is the LAN interface holding the ULA the Matter fabric runs over;
+    # without this it can autodetect docker0 or tailscale0 instead.
+    extraArgs = [ "--primary-interface=eno1" ];
   };
 }
