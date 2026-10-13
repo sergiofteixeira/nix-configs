@@ -76,6 +76,12 @@ in
             service = "forgejo";
           };
 
+          paperless = {
+            rule = "Host(`paperless.${domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "paperless";
+          };
+
           prowlarr = {
             rule = "Host(`prowlar.${domain}`)";
             entryPoints = [ "websecure" ];
@@ -148,6 +154,10 @@ in
 
           forgejo.loadBalancer.servers = [
             { url = "http://localhost:3001"; }
+          ];
+
+          paperless.loadBalancer.servers = [
+            { url = "http://localhost:${toString config.services.paperless.port}"; }
           ];
 
           prowlarr.loadBalancer.servers = [

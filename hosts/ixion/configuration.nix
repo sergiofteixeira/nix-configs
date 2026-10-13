@@ -11,6 +11,7 @@
     ../../modules/monitoring/grafana.nix
     ../../modules/monitoring/node-monitoring.nix
     ../../modules/monitoring/prometheus.nix
+    ./paperless.nix
     ./prowlarr.nix
     ./qbittorrent.nix
     ./radarr.nix
