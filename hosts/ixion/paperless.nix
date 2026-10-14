@@ -9,6 +9,7 @@
     database.createLocally = true;
     consumptionDirIsPublic = true;
     settings = {
+      PAPERLESS_DBPORT = 5433;
       PAPERLESS_OCR_LANGUAGE = "por+eng";
       PAPERLESS_TIME_ZONE = "Europe/Lisbon";
       PAPERLESS_FILENAME_FORMAT = "{{ created_year }}/{{ correspondent }}/{{ title }}";
@@ -20,4 +21,6 @@
       ];
     };
   };
+
+  services.postgresql.settings.port = 5433;
 }
