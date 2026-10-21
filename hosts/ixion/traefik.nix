@@ -157,7 +157,7 @@ in
           ];
 
           paperless.loadBalancer.servers = [
-            { url = "http://localhost:${toString config.services.paperless.port}"; }
+            { url = "http://localhost:28981"; }
           ];
 
           prowlarr.loadBalancer.servers = [
