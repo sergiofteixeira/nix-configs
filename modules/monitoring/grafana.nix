@@ -19,7 +19,7 @@
       enabled = true;
       scopes = "openid email profile";
       # only users that already exist in Grafana can sign in, matched by email
-      allow_sign_up = false;
+      allow_sign_up = true;
       auto_login = false;
     };
     settings.auth.oauth_allow_insecure_email_lookup = true;
