@@ -137,6 +137,12 @@ in
             entryPoints = [ "websecure" ];
             service = "bank-split";
           };
+
+          readmeabook = {
+            rule = "Host(`readmeabook.${domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "readmeabook";
+          };
         };
 
         services = {
@@ -190,6 +196,10 @@ in
 
           bank-split.loadBalancer.servers = [
             { url = "http://localhost:3001"; }
+          ];
+
+          readmeabook.loadBalancer.servers = [
+            { url = "http://localhost:3030"; }
           ];
         };
       };
