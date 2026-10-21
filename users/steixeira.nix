@@ -59,6 +59,33 @@ in
     with pkgs;
     [
 
+      # utils
+      curl
+      fd
+      fzf
+      gnumake
+      htop
+      jq
+      neovim
+      nh
+      nix-prefetch-scripts
+      ripgrep
+      unzip
+      wget
+      xz
+      zip
+
+      # misc
+      file
+      tree
+      which
+
+    ]
+    ++ lib.optionals isDarwin [
+      claude-code
+      ghostty-bin
+      herdr
+
       # languages
       go
       gofumpt
@@ -87,33 +114,6 @@ in
       kubetail
       kustomize
       redis
-
-      # utils
-      curl
-      fd
-      fzf
-      gnumake
-      htop
-      jq
-      neovim
-      nh
-      nix-prefetch-scripts
-      ripgrep
-      unzip
-      wget
-      xz
-      zip
-
-      # misc
-      file
-      tree
-      which
-
-    ]
-    ++ lib.optionals isDarwin [
-      claude-code
-      ghostty-bin
-      herdr
 
       # macOS ships BSD sed and no `watch`; NixOS provides both in the system path
       gnused
