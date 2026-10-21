@@ -18,10 +18,17 @@
     settings."auth.google" = {
       enabled = true;
       scopes = "openid email profile";
-      # only users that already exist in Grafana can sign in, matched by email
       allow_sign_up = true;
-      auto_login = false;
+      # only my Google account (by its stable subject id) gets in, as server admin;
+      # any other account maps to no role and is rejected
+      role_attribute_path = "sub == '101218471260156695379' && 'GrafanaAdmin' || ''";
+      role_attribute_strict = true;
+      allow_assign_grafana_admin = true;
+      auto_login = true;
     };
-    settings.auth.oauth_allow_insecure_email_lookup = true;
+
+    # Google is the only way in: no username/password form or basic auth
+    settings.auth.disable_login_form = true;
+    settings."auth.basic".enabled = false;
   };
 }
