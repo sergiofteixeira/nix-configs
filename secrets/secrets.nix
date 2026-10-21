@@ -33,6 +33,11 @@ in
     personal
     ixion
   ];
+  "grafana_google_oauth.age".publicKeys = [
+    steixeira
+    personal
+    ixion
+  ];
   "bank_split_google_client_id.age".publicKeys = [
     steixeira
     personal
