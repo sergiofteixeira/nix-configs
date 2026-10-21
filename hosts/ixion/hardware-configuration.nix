@@ -24,7 +24,11 @@
   ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ ];
-  boot.kernelParams = [ "usbcore.autosuspend=-1" ];
+  boot.kernelParams = [
+    "usbcore.autosuspend=-1"
+    # load HuC firmware on the Kaby Lake iGPU for low-power hardware encoding
+    "i915.enable_guc=2"
+  ];
 
   fileSystems."/data" = {
     device = "/dev/disk/by-uuid/2b415557-d7b0-4ee4-bd2c-145536cf403e";
@@ -32,20 +36,13 @@
     options = [ "nofail" ];
   };
 
-  nixpkgs.config.packageOverrides = pkgs: {
-    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
-  };
-
   hardware.enableRedistributableFirmware = true;
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
+      # i3-7100U (Kaby Lake, Gen9): iHD for VA-API, legacy OpenCL runtime for tone mapping
       intel-media-driver
-      intel-vaapi-driver
-      libva-vdpau-driver
-      libvdpau-va-gl
-      intel-compute-runtime
-      vpl-gpu-rt
+      intel-compute-runtime-legacy1
     ];
   };
 
