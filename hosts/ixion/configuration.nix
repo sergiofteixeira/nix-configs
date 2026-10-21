@@ -17,7 +17,6 @@
     ./radarr.nix
     ./sonarr.nix
     ./tailscale.nix
-    ./technitium.nix
     ./traefik.nix
   ];
 

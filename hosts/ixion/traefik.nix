@@ -49,8 +49,10 @@ in
             "8.8.8.8:53"
             "1.1.1.1:53"
           ];
-          disablePropagationCheck = true;
-          delayBeforeCheck = "100s";
+          propagation = {
+            disableChecks = true;
+            delayBeforeChecks = "100s";
+          };
         };
       };
     };
@@ -135,12 +137,6 @@ in
             entryPoints = [ "websecure" ];
             service = "bank-split";
           };
-
-          technitium = {
-            rule = "Host(`dns.${domain}`)";
-            entryPoints = [ "websecure" ];
-            service = "technitium";
-          };
         };
 
         services = {
@@ -194,10 +190,6 @@ in
 
           bank-split.loadBalancer.servers = [
             { url = "http://localhost:3001"; }
-          ];
-
-          technitium.loadBalancer.servers = [
-            { url = "http://localhost:5380"; }
           ];
         };
       };
