@@ -18,10 +18,9 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [
-    "kvm-intel"
-    "iwlwifi"
-  ];
+  boot.kernelModules = [ "kvm-intel" ];
+  # wired-only server (eno1); keep the onboard wifi card powered down
+  boot.blacklistedKernelModules = [ "iwlwifi" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ ];
   boot.kernelParams = [
@@ -47,9 +46,20 @@
   };
 
   services.thermald.enable = true;
-  powerManagement.powertop.enable = true;
+  powerManagement.powertop = {
+    enable = true;
+    # auto-tune enables USB autosuspend; keep it off so USB devices stay awake
+    postStart = ''
+      for f in /sys/bus/usb/devices/*/power/control; do
+        echo on > "$f"
+      done
+    '';
+  };
 
   swapDevices = [ ];
+  zramSwap.enable = true;
+
+  services.smartd.enable = true;
 
   networking.useDHCP = lib.mkDefault true;
 
