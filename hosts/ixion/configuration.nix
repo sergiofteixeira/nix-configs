@@ -1,6 +1,7 @@
 { pkgs, config, ... }:
 {
   imports = [
+    ./audiobookshelf.nix
     ./bank-split.nix
     ./bazarr.nix
     ./containers.nix
