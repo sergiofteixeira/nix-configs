@@ -60,7 +60,6 @@ in
     [
 
       # languages
-      claude-code
       go
       gofumpt
       golangci-lint
@@ -107,13 +106,14 @@ in
 
       # misc
       file
-      herdr
       tree
       which
 
     ]
     ++ lib.optionals isDarwin [
+      claude-code
       ghostty-bin
+      herdr
 
       # macOS ships BSD sed and no `watch`; NixOS provides both in the system path
       gnused
