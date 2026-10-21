@@ -7,7 +7,6 @@
       "helium"
       "orbstack"
       "pgadmin4"
-      "raycast"
       "shottr"
       "slack"
       "tailscale-app"

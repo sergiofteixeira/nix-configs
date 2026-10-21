@@ -34,7 +34,7 @@
           }
           prometheus.remote_write "default" {
             endpoint {
-              url = "https://prometheus.temporalreach.cloud/api/v1/write"
+              url = "https://prometheus.thehiss.dev/api/v1/write"
             }
           }
         '';
