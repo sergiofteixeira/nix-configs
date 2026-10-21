@@ -12,6 +12,8 @@
       url = "github:nix-community/disko";
     };
     disko.inputs.nixpkgs.follows = "nixpkgs";
+    comin.url = "github:nlewo/comin";
+    comin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -22,6 +24,7 @@
       agenix,
       darwin,
       disko,
+      comin,
       ...
     }@inputs:
     {
@@ -38,6 +41,19 @@
             disko.nixosModules.disko
             { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
             ./hosts/ixion/configuration.nix
+            comin.nixosModules.comin
+            {
+              services.comin = {
+                enable = true;
+                remotes = [
+                  {
+                    name = "origin";
+                    url = "https://github.com/sergiofteixeira/nix-configs.git";
+                    branches.main.name = "main";
+                  }
+                ];
+              };
+            }
             agenix.nixosModules.default
             home-manager.nixosModules.home-manager
             {
