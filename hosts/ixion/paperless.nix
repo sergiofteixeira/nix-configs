@@ -5,7 +5,7 @@
     enable = true;
     address = "127.0.0.1";
     port = 28981;
-    domain = "paperless.temporalreach.cloud";
+    domain = "paperless.thehiss.dev";
     database.createLocally = true;
     consumptionDirIsPublic = true;
     settings = {

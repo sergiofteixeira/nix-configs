@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  domain = "temporalreach.cloud";
+  domain = "thehiss.dev";
 in
 {
   services.traefik = {

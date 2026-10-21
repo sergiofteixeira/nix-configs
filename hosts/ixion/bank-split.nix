@@ -30,7 +30,7 @@ in
       environmentFiles = map (n: config.age.secrets.${n}.path) secretNames;
       environment = {
         DATABASE_URL = "postgresql://bank_split:bank_split_password@localhost:5432/bank_split?schema=public";
-        NEXTAUTH_URL = "https://bank-split.temporalreach.cloud";
+        NEXTAUTH_URL = "https://bank-split.thehiss.dev";
         PORT = "3001";
       };
     };
