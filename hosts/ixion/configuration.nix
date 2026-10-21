@@ -15,6 +15,7 @@
     ./prowlarr.nix
     ./qbittorrent.nix
     ./radarr.nix
+    ./readmeabook.nix
     ./sonarr.nix
     ./tailscale.nix
     ./traefik.nix
