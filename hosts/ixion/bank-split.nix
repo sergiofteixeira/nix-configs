@@ -24,7 +24,7 @@ in
     };
 
     bank-split = {
-      image = "sergiofpteixeira/bank-split:latest";
+      image = "sergiofpteixeira/bank-split:346805cadba7125103961db0584cbc729f1edc97";
       dependsOn = [ "bank-split-postgres" ];
       extraOptions = [ "--network=host" ];
       environmentFiles = map (n: config.age.secrets.${n}.path) secretNames;
