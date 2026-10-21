@@ -138,6 +138,12 @@ in
             service = "bank-split";
           };
 
+          audiobookshelf = {
+            rule = "Host(`audiobookshelf.${domain}`)";
+            entryPoints = [ "websecure" ];
+            service = "audiobookshelf";
+          };
+
           readmeabook = {
             rule = "Host(`readmeabook.${domain}`)";
             entryPoints = [ "websecure" ];
@@ -196,6 +202,10 @@ in
 
           bank-split.loadBalancer.servers = [
             { url = "http://localhost:3001"; }
+          ];
+
+          audiobookshelf.loadBalancer.servers = [
+            { url = "http://localhost:${toString config.services.audiobookshelf.port}"; }
           ];
 
           readmeabook.loadBalancer.servers = [
