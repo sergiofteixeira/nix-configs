@@ -18,6 +18,8 @@ in
   environment.etc."hass/configuration.yaml".text = ''
     default_config:
     automation: !include automations.yaml
+    frontend:
+      themes: !include_dir_merge_named themes
     homeassistant:
       time_zone: ${config.time.timeZone}
   '';
@@ -41,6 +43,7 @@ in
   };
 
   systemd.services.docker-home-assistant.preStart = ''
+    mkdir -p /var/lib/hass/themes
     if [ ! -e /var/lib/hass/custom_components/hacs ]; then
       mkdir -p /var/lib/hass/custom_components
       cp -r --no-preserve=mode ${hacs} /var/lib/hass/custom_components/hacs
