@@ -6,6 +6,13 @@ let
     tag = "7.2.13";
     hash = "sha256-YrAMqwUi9jdC/SfI13NlUz4OfTKd9Jj4mix/uwgMyu8=";
   };
+  # release asset rather than the source tree, which lacks the built frontend;
+  # only used to seed the first install, HACS updates itself from then on
+  hacs = pkgs.fetchzip {
+    url = "https://github.com/hacs/integration/releases/download/2.0.5/hacs.zip";
+    stripRoot = false;
+    hash = "sha256-iMomioxH7Iydy+bzJDbZxt6BX31UkCvqhXrxYFQV8Gw=";
+  };
 in
 {
   environment.etc."hass/configuration.yaml".text = ''
@@ -32,6 +39,13 @@ in
       "${tapo-control}/custom_components/tapo_control:/config/custom_components/tapo_control:ro"
     ];
   };
+
+  systemd.services.docker-home-assistant.preStart = ''
+    if [ ! -e /var/lib/hass/custom_components/hacs ]; then
+      mkdir -p /var/lib/hass/custom_components
+      cp -r --no-preserve=mode ${hacs} /var/lib/hass/custom_components/hacs
+    fi
+  '';
 
   services.matterjs-server = {
     enable = true;
