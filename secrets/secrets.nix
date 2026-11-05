@@ -48,4 +48,9 @@ in
     personal
     ixion
   ];
+  "codeberg_runner_token.age".publicKeys = [
+    steixeira
+    personal
+    ixion
+  ];
 }

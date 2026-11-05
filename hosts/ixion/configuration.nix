@@ -4,6 +4,7 @@
     ./audiobookshelf.nix
     ./bank-split.nix
     ./bazarr.nix
+    ./codeberg-runner.nix
     ./containers.nix
     ./disko-config.nix
     ./hardware-configuration.nix
