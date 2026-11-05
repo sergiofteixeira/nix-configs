@@ -131,7 +131,6 @@ in
       kubernetes-helm
       kubetail
       kustomize
-      redis
 
       # macOS ships BSD sed and no `watch`; NixOS provides both in the system path
       gnused
