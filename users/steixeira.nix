@@ -38,6 +38,24 @@ in
       push.autoSetupRemote = true;
       gpg.format = "ssh";
     };
+    # personal repos commit as the gmail identity and sign with its key
+    includes =
+      map
+        (url: {
+          condition = "hasconfig:remote.*.url:${url}";
+          contents = {
+            user = {
+              email = "sergiofpteixeira@gmail.com";
+              signingKey = "~/.ssh/id_ed25519.pub";
+            };
+          };
+        })
+        [
+          "git@github.com:sergiofteixeira/**"
+          "https://github.com/sergiofteixeira/**"
+          "git@codeberg.org:sergiofteixeira/**"
+          "https://codeberg.org/sergiofteixeira/**"
+        ];
   };
 
   home.file = {
